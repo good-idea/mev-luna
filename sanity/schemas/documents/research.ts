@@ -15,6 +15,9 @@ export const research = {
       title: 'Slug',
       type: 'slug',
       validation: (Rule) => Rule.required(),
+      options: {
+        source: 'title',
+      },
       codegen: { required: true },
     },
     {
@@ -42,5 +45,7 @@ export const research = {
       type: 'array',
       of: [{ type: 'richImage' }],
     },
+
+    { name: 'seo', title: 'SEO', type: 'seo' },
   ],
 };

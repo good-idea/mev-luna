@@ -16,6 +16,9 @@ export const project = {
       type: 'slug',
       validation: (Rule) => Rule.required(),
       codegen: { required: true },
+      options: {
+        source: 'title',
+      },
     },
     {
       name: 'hoverImage',
@@ -50,5 +53,7 @@ export const project = {
         },
       ],
     },
+
+    { name: 'seo', title: 'SEO', type: 'seo' },
   ],
 };

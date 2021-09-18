@@ -5,22 +5,25 @@ export const richText = {
   of: [
     {
       type: 'block',
-      annotations: [
-        {
-          name: 'footnote',
-          title: 'Footnote',
-          blockEditor: {
-            icon: '†',
-          },
-          type: 'object',
-          fields: [
-            {
-              title: 'footnote',
-              name: 'Note',
+      marks: {
+        annotations: [
+          {
+            name: 'footnote',
+            title: 'Footnote',
+            blockEditor: {
+              icon: '†',
             },
-          ],
-        },
-      ],
+            type: 'object',
+            fields: [
+              {
+                title: 'footnote',
+                name: 'Note',
+                type: 'string',
+              },
+            ],
+          },
+        ],
+      },
     },
   ],
 };

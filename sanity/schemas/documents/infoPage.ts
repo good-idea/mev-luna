@@ -47,5 +47,13 @@ export const infoPage = {
       type: 'array',
       of: [{ type: 'contactField' }],
     },
+
+    { name: 'seo', title: 'SEO', type: 'seo' },
   ],
+  preview: {
+    select: {},
+    prepare: () => ({
+      title: 'Info Page',
+    }),
+  },
 };
