@@ -7,23 +7,35 @@
     "projectId": "qdu44dh7",
     "dataset": "production"
   },
+  "env": {
+    "development": {
+      "api": {
+        "dataset": "staging"
+      }
+    }
+  },
   "plugins": [
     "@sanity/base",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "@sanity/components",
+    "@sanity/vision",
+    "media"
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
     }
   },
   "parts": [
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./schemas/structure.js"
     }
   ]
 }
