@@ -3,5 +3,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Joseph Thomas",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {}
 }
