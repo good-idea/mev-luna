@@ -1,0 +1,26 @@
+node_modules
+
+.env
+!.env.example
+!.env.test
+dist
+.eslintcache
+.DS_Store
+out.svg
+.vscode
+
+# test coverage
+coverage
+
+# use yarn, not npm
+package-lock.json
+storybook-static
+yarn-error.log
+
+out.svg
+types-uml.svg
+.DS_Store
+.vscode
+.sanity-temp
+
+.vercel

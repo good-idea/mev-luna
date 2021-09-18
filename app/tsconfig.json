@@ -1,0 +1,18 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "allowJs": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@mevluna/types": ["../types/src"]
+    },
+    "types": ["jest", "node"]
+  },
+  "include": ["next-env.d.ts", "./src", "../types/**.d.ts"],
+  "ts-node": {
+    "files": "true"
+  }
+}

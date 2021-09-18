@@ -1,0 +1,15 @@
+{
+  "name": "mevluna",
+  "version": "1.0.0",
+  "description": "Monorepo for www.mevluna.com",
+  "main": "index.js",
+  "repository": "git@github.com:good-idea/mev-luna",
+  "author": "Joseph Thomas",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "sanity",
+    "types",
+    "app"
+  ]
+}

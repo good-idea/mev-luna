@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "target": "es5",
+    "declaration": true,
+    "importHelpers": true,
+    "module": "commonjs",
+    "strict": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "noLib": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "isolatedModules": false,
+    "lib": ["esnext", "dom"],
+    "types": ["jest", "node"],
+    "baseUrl": ".",
+    "paths": {
+      "@mevluna/types": ["./types/src"]
+    },
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["./types/**.d.ts", "./shared", "./sanity", "./docs"],
+  "exclude": ["node_modules"]
+}
