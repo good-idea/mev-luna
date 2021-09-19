@@ -253,7 +253,7 @@ Comma-separated SEO keywords
       /**
        * Label - `string`
        */
-      label?: string;
+      label: string;
 
       /**
        * Vimeo ID - `string`

@@ -8,6 +8,7 @@ export const videoVersion = {
       title: 'Label',
       type: 'string',
       validation: (Rule) => Rule.required(),
+      codegen: { required: true },
     },
     {
       name: 'vimeoId',
@@ -36,6 +37,7 @@ export const video = {
       title: 'Versions',
       type: 'array',
       of: [{ type: 'videoVersion' }],
+      validation: (Rule) => Rule.required().min(1),
     },
   ],
 };
