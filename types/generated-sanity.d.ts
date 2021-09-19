@@ -122,9 +122,9 @@ Used on the homepage when hovering over the project link. If no image is supplie
       details?: RichText;
 
       /**
-       * Images - `array`
+       * Gallery - `gallery`
        */
-      images?: Array<Sanity.Keyed<RichImage>>;
+      gallery?: Gallery;
 
       /**
        * SEO - `seo`

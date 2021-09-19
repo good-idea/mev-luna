@@ -40,10 +40,9 @@ export const research = {
       type: 'richText',
     },
     {
-      name: 'images',
-      title: 'Images',
-      type: 'array',
-      of: [{ type: 'richImage' }],
+      name: 'gallery',
+      title: 'Gallery',
+      type: 'gallery',
     },
 
     { name: 'seo', title: 'SEO', type: 'seo' },

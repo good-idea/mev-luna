@@ -9,11 +9,17 @@ export const richImage = {
       type: 'string',
       validation: (Rule) => Rule.required(),
       codegen: { required: true },
+      options: {
+        isHighlighted: true,
+      },
     },
     {
       name: 'credit',
       title: 'Credit',
       type: 'string',
+      options: {
+        isHighlighted: true,
+      },
     },
   ],
 };
