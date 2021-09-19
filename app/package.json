@@ -21,9 +21,11 @@
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1",
+    "zod": "^3.8.2"
   },
   "devDependencies": {
+    "@sentry/webpack-plugin": "^1.17.1",
     "@types/debug": "^4.1.7",
     "@types/js-cookie": "^2.2.7",
     "@types/jsdom": "^16.2.13",
@@ -32,6 +34,7 @@
     "@types/styled-components": "^5.1.14",
     "@types/zeit__next-source-maps": "^0.0.2",
     "@zeit/next-source-maps": "^0.0.3",
-    "jsdom": "^17.0.0"
+    "jsdom": "^17.0.0",
+    "next-compose-plugins": "^2.2.1"
   }
 }

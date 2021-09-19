@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { NextRouter } from 'next/router';
-import styled, { ThemeProvider } from '@xstyled/styled-components';
+import styled from '@xstyled/styled-components';
 import Head from 'next/head';
-import { Providers } from '../src/providers/AllProviders';
-import { Navigation } from '../src/components/Navigation';
+import { Providers } from '../providers';
+import { Navigation } from '../components/Navigation';
 
 interface AppProps {
   Component: React.ComponentType;
@@ -17,18 +17,17 @@ const Main = styled.main`
 `;
 
 const App = (props: AppProps) => {
-  const { Component, pageProps: allPageProps, router } = props;
-  const path = router.asPath;
-  const { shopData, ...pageProps } = allPageProps;
+  const { Component, pageProps: allPageProps } = props;
+  const { siteSettings, ...pageProps } = allPageProps;
 
   return (
-    <Providers shopData={shopData}>
+    <Providers>
       <Head>
         <link rel="stylesheet" href="/static/fonts/fonts.css" />
         <link rel="icon" href="/static/favicon.png" />
       </Head>
       <Main>
-        <Navigation />
+        <Navigation projects={siteSettings.projects} />
         <Component {...pageProps} />
       </Main>
     </Providers>

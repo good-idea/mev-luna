@@ -1,8 +1,6 @@
-import { DefaultTheme } from '@xstyled/styled-components'
-import { defaultTheme } from './defaultTheme'
-export * from './themeRoutes'
-export * from './utils'
+import { defaultTheme } from './defaultTheme';
+export * from './utils';
 
-export const theme: DefaultTheme = defaultTheme
+export const theme = defaultTheme;
 
-export * from './global'
+export * from './global';
