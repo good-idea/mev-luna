@@ -3,3 +3,4 @@ export * from './infoPage';
 export * from './project';
 export * from './research';
 export * from './trace';
+export * from './siteSettings';
