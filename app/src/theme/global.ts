@@ -25,7 +25,7 @@ export const GlobalStyles = createGlobalStyle`
       display: none;
     }
   }
-  
+
   h1 {font-size: 1; }
   h2 { font-size: 2; }
   h3 { font-size: 3; }
@@ -78,6 +78,10 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
   `}
+
+  a:hover {
+    color: mauve;
+  }
 
 
 

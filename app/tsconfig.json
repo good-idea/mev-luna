@@ -9,7 +9,8 @@
     "paths": {
       "@mevluna/types": ["../types/src"]
     },
-    "types": ["jest", "node"]
+    "types": ["jest", "node"],
+    "incremental": true
   },
   "include": ["next-env.d.ts", "./src", "../types/**.d.ts"],
   "ts-node": {

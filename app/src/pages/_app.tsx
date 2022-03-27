@@ -1,20 +1,15 @@
 import * as React from 'react';
 import { NextRouter } from 'next/router';
-import styled from '@xstyled/styled-components';
 import Head from 'next/head';
 import { Providers } from '../providers';
-import { Navigation } from '../components/Navigation';
+import { Main } from '../components/Layout';
+import { Navigation } from '../views/global';
 
 interface AppProps {
   Component: React.ComponentType;
   pageProps: any;
   router: NextRouter;
 }
-
-const Main = styled.main`
-  background-color: background;
-  transition: background-color 0.3s;
-`;
 
 const App = (props: AppProps) => {
   const { Component, pageProps: allPageProps } = props;
@@ -26,10 +21,12 @@ const App = (props: AppProps) => {
         <link rel="stylesheet" href="/static/fonts/fonts.css" />
         <link rel="icon" href="/static/favicon.png" />
       </Head>
-      <Main>
-        <Navigation projects={siteSettings.projects} />
-        <Component {...pageProps} />
-      </Main>
+      <>
+        <Navigation />
+        <Main>
+          <Component {...pageProps} />
+        </Main>
+      </>
     </Providers>
   );
 };

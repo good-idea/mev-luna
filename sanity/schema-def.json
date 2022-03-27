@@ -1,0 +1,1257 @@
+{
+  "type": "SchemaRoot",
+  "documents": [
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
+      "name": "homepage",
+      "title": "Homepage",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "projectMenu",
+          "title": "Project Menu",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "projectMenu",
+            "readOnly": false,
+            "title": "Project Menu",
+            "hasValidation": false,
+            "type": "Array",
+            "of": [
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": null,
+                "hasValidation": false,
+                "type": "Reference",
+                "to": [
+                  {
+                    "codegen": {
+                      "required": false
+                    },
+                    "description": null,
+                    "hidden": false,
+                    "name": null,
+                    "readOnly": false,
+                    "title": null,
+                    "hasValidation": false,
+                    "to": "project",
+                    "type": "RegistryReference"
+                  }
+                ],
+                "weak": false
+              }
+            ],
+            "list": null
+          }
+        },
+        {
+          "name": "seo",
+          "title": "Homepage SEO",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "seo",
+            "readOnly": false,
+            "title": "Homepage SEO",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "seo"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
+      "name": "infoPage",
+      "title": "Info",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "body",
+          "title": "Body",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "body",
+            "readOnly": false,
+            "title": "Body",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "richText"
+          }
+        },
+        {
+          "name": "contactFields",
+          "title": "Contact",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "contactFields",
+            "readOnly": false,
+            "title": "Contact",
+            "hasValidation": false,
+            "type": "Array",
+            "of": [
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": null,
+                "hasValidation": false,
+                "type": "RegistryReference",
+                "to": "contactField"
+              }
+            ],
+            "list": null
+          }
+        },
+        {
+          "name": "seo",
+          "title": "SEO",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "seo",
+            "readOnly": false,
+            "title": "SEO",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "seo"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
+      "name": "project",
+      "title": "Project",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "title",
+          "title": "Title",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "title",
+            "readOnly": false,
+            "title": "Title",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "slug",
+          "title": "Slug",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "slug",
+            "readOnly": false,
+            "title": "Slug",
+            "hasValidation": true,
+            "type": "Slug"
+          }
+        },
+        {
+          "name": "hoverImage",
+          "title": "Hover Image",
+          "description": "Used on the homepage when hovering over the project link. If no image is supplied, the first image from the Gallery will be used.",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": "Used on the homepage when hovering over the project link. If no image is supplied, the first image from the Gallery will be used.",
+            "hidden": false,
+            "name": "hoverImage",
+            "readOnly": false,
+            "title": "Hover Image",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "richImage"
+          }
+        },
+        {
+          "name": "description",
+          "title": "Description",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "description",
+            "readOnly": false,
+            "title": "Description",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "richText"
+          }
+        },
+        {
+          "name": "materials",
+          "title": "Materials",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "materials",
+            "readOnly": false,
+            "title": "Materials",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "richText"
+          }
+        },
+        {
+          "name": "gallery",
+          "title": "Gallery",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "gallery",
+            "readOnly": false,
+            "title": "Gallery",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "gallery"
+          }
+        },
+        {
+          "name": "relatedResearch",
+          "title": "Related Research",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "relatedResearch",
+            "readOnly": false,
+            "title": "Related Research",
+            "hasValidation": false,
+            "type": "Array",
+            "of": [
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": null,
+                "hasValidation": false,
+                "type": "Reference",
+                "to": [
+                  {
+                    "codegen": {
+                      "required": false
+                    },
+                    "description": null,
+                    "hidden": false,
+                    "name": null,
+                    "readOnly": false,
+                    "title": null,
+                    "hasValidation": false,
+                    "to": "research",
+                    "type": "RegistryReference"
+                  }
+                ],
+                "weak": false
+              }
+            ],
+            "list": null
+          }
+        },
+        {
+          "name": "seo",
+          "title": "SEO",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "seo",
+            "readOnly": false,
+            "title": "SEO",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "seo"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
+      "name": "research",
+      "title": "Research Documents",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "title",
+          "title": "Title",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "title",
+            "readOnly": false,
+            "title": "Title",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "slug",
+          "title": "Slug",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "slug",
+            "readOnly": false,
+            "title": "Slug",
+            "hasValidation": true,
+            "type": "Slug"
+          }
+        },
+        {
+          "name": "date",
+          "title": "Date",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "date",
+            "readOnly": false,
+            "title": "Date",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "summary",
+          "title": "Summary",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "summary",
+            "readOnly": false,
+            "title": "Summary",
+            "hasValidation": true,
+            "type": "RegistryReference",
+            "to": "richText"
+          }
+        },
+        {
+          "name": "details",
+          "title": "Details",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "details",
+            "readOnly": false,
+            "title": "Details",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "richText"
+          }
+        },
+        {
+          "name": "gallery",
+          "title": "Gallery",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "gallery",
+            "readOnly": false,
+            "title": "Gallery",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "gallery"
+          }
+        },
+        {
+          "name": "seo",
+          "title": "SEO",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "seo",
+            "readOnly": false,
+            "title": "SEO",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "seo"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
+      "name": "trace",
+      "title": "Trace",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "dateAdded",
+          "title": "Date Added",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "dateAdded",
+            "readOnly": false,
+            "title": "Date Added",
+            "hasValidation": false,
+            "type": "Date"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
+      "name": "siteSettings",
+      "title": "Site Settings",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "seo",
+          "title": "Default SEO",
+          "description": "Pages that do not have SEO information filled out, or cannot infer these values from other fields will use these defaults for SEO information.",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": "Pages that do not have SEO information filled out, or cannot infer these values from other fields will use these defaults for SEO information.",
+            "hidden": false,
+            "name": "seo",
+            "readOnly": false,
+            "title": "Default SEO",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "seo"
+          }
+        }
+      ]
+    }
+  ],
+  "registeredTypes": [
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "contactField",
+      "readOnly": false,
+      "title": "Contact Field",
+      "hasValidation": false,
+      "type": "Object",
+      "fields": [
+        {
+          "name": "label",
+          "title": "Label",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "label",
+            "readOnly": false,
+            "title": "Label",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "url",
+          "title": "URL",
+          "description": "Hint: to link to an email address, enter \"mailto:me@mydomain.com\"",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": "Hint: to link to an email address, enter \"mailto:me@mydomain.com\"",
+            "hidden": false,
+            "name": "url",
+            "readOnly": false,
+            "title": "URL",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "audio",
+      "readOnly": false,
+      "title": "Audio",
+      "hasValidation": false,
+      "type": "File",
+      "fields": [
+        {
+          "name": "description",
+          "title": "Description",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "description",
+            "readOnly": false,
+            "title": "Description",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "richText"
+          }
+        },
+        {
+          "name": "transcription",
+          "title": "Transcription",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "transcription",
+            "readOnly": false,
+            "title": "Transcription",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "richText"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "gallery",
+      "readOnly": false,
+      "title": "Gallery",
+      "hasValidation": false,
+      "type": "Object",
+      "fields": [
+        {
+          "name": "title",
+          "title": "Title",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "title",
+            "readOnly": false,
+            "title": "Title",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "media",
+          "title": "Media",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "media",
+            "readOnly": false,
+            "title": "Media",
+            "hasValidation": false,
+            "type": "Array",
+            "of": [
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": null,
+                "hasValidation": false,
+                "type": "RegistryReference",
+                "to": "richImage"
+              },
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": null,
+                "hasValidation": false,
+                "type": "RegistryReference",
+                "to": "audio"
+              },
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": null,
+                "hasValidation": false,
+                "type": "RegistryReference",
+                "to": "video"
+              }
+            ],
+            "list": null
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "richImage",
+      "readOnly": false,
+      "title": "Image",
+      "hasValidation": false,
+      "type": "Image",
+      "fields": [
+        {
+          "name": "altText",
+          "title": "Alt Text",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "altText",
+            "readOnly": false,
+            "title": "Alt Text",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "credit",
+          "title": "Credit",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "credit",
+            "readOnly": false,
+            "title": "Credit",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "richText",
+      "readOnly": false,
+      "title": "Rich Text",
+      "hasValidation": false,
+      "type": "Array",
+      "of": [
+        {
+          "codegen": {
+            "required": false
+          },
+          "description": null,
+          "hidden": false,
+          "name": null,
+          "readOnly": false,
+          "title": null,
+          "hasValidation": false,
+          "type": "Block",
+          "of": null,
+          "markDefs": []
+        }
+      ],
+      "list": null
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "seo",
+      "readOnly": false,
+      "title": "SEO & Accessibility",
+      "hasValidation": false,
+      "type": "Object",
+      "fields": [
+        {
+          "name": "title",
+          "title": "SEO: Page Title",
+          "description": "title for the browser tab & search results",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": "title for the browser tab & search results",
+            "hidden": false,
+            "name": "title",
+            "readOnly": false,
+            "title": "SEO: Page Title",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "description",
+          "title": "SEO: Description",
+          "description": "This is the description that will appear underneath the preview link when shared. It should be less than 200 characters",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": "This is the description that will appear underneath the preview link when shared. It should be less than 200 characters",
+            "hidden": false,
+            "name": "description",
+            "readOnly": false,
+            "title": "SEO: Description",
+            "hasValidation": false,
+            "type": "Text"
+          }
+        },
+        {
+          "name": "image",
+          "title": "SEO: Image",
+          "description": "Best dimensions: 1200 x 600px",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": "Best dimensions: 1200 x 600px",
+            "hidden": false,
+            "name": "image",
+            "readOnly": false,
+            "title": "SEO: Image",
+            "hasValidation": false,
+            "type": "Image",
+            "fields": null
+          }
+        },
+        {
+          "name": "keywords",
+          "title": "Keywords",
+          "description": "Comma-separated SEO keywords",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": "Comma-separated SEO keywords",
+            "hidden": false,
+            "name": "keywords",
+            "readOnly": false,
+            "title": "Keywords",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "videoVersion",
+      "readOnly": false,
+      "title": "Video Version",
+      "hasValidation": false,
+      "type": "Object",
+      "fields": [
+        {
+          "name": "label",
+          "title": "Label",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "label",
+            "readOnly": false,
+            "title": "Label",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "vimeoId",
+          "title": "Vimeo ID",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "vimeoId",
+            "readOnly": false,
+            "title": "Vimeo ID",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "video",
+      "readOnly": false,
+      "title": "Video",
+      "hasValidation": false,
+      "type": "Object",
+      "fields": [
+        {
+          "name": "title",
+          "title": "Title",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "title",
+            "readOnly": false,
+            "title": "Title",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "versions",
+          "title": "Versions",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "versions",
+            "readOnly": false,
+            "title": "Versions",
+            "hasValidation": true,
+            "type": "Array",
+            "of": [
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": null,
+                "hasValidation": false,
+                "type": "RegistryReference",
+                "to": "videoVersion"
+              }
+            ],
+            "list": null
+          }
+        }
+      ]
+    }
+  ]
+}

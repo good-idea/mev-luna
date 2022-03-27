@@ -39,6 +39,7 @@ export const videoFragment = `
 `;
 
 export const galleryFragment = `
+_type,
   title,
   media[]{
     _type == 'richImage' => {

@@ -16,7 +16,16 @@ const HomePage: React.FC<HomePageProps> = (props) => {
 export const getStaticProps: GetStaticProps = async () => {
   const [siteSettings, homepage] = await Promise.all([
     sanityClient.fetch<SiteSettings>(siteSettingsQuery),
-    sanityClient.fetch<Homepage>(`*[_id == 'homepage'][0]`),
+    sanityClient.fetch<Homepage>(`
+      *[_id == 'homepage'][0]{
+        ...,
+        projectMenu[]->{
+          _id,
+          title,
+          slug
+        }
+      }
+    `),
   ]);
 
   return {

@@ -15,11 +15,13 @@ const grays = [
 ];
 
 const pink = '#f3dad8';
+const mauve = '#815B70';
 
 /* generated at: https://www.colorbox.io/#steps=7#hue_start=281#hue_end=271#hue_curve=easeInQuad#sat_start=4#sat_end=100#sat_curve=linear#sat_rate=130#lum_start=100#lum_end=100#lum_curve=linear#lock_hex=b879f5#minor_steps_map=0 */
 
 const sans = '"Helvetica Neue", helvetica, sans-serif';
-const serif = '"Inferi", Georgia, serif';
+const serif =
+  'TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;';
 
 export const defaultTheme: DefaultTheme = {
   radii: {
@@ -61,7 +63,7 @@ export const defaultTheme: DefaultTheme = {
   ],
   tabletFontSizes: [0, 73, 41, 25, 17, 13, 11, 11],
   mobileFontSizes: [0, 42, 22, 17, 17, 13, 11, 11],
-  fontWeights: [0, 100, 200, 300, 400, 700],
+  fontWeights: [0, 100, 500, 700],
   fonts: {
     serif,
     sans,
@@ -92,6 +94,7 @@ export const defaultTheme: DefaultTheme = {
      * body.0 should be light for a dark theme
      */
     grays,
+    mauve,
     body: grays,
     /* Shortcut for main body color */
     bodyMain: grays[8],

@@ -1,71 +1,72 @@
-import 'styled-components'
-import '@xstyled/styled-components'
+import 'styled-components';
+import '@xstyled/styled-components';
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    space: number[]
+    space: number[];
     sizes: {
-      small: number
-      medium: number
-      mediumWide: number
-      wide: number
-      xWide: number
-    }
-    fontSizes: Array<number | number[]>
-    mobileFontSizes: number[]
-    tabletFontSizes: number[]
-    fontWeights: number[]
+      small: number;
+      medium: number;
+      mediumWide: number;
+      wide: number;
+      xWide: number;
+    };
+    fontSizes: Array<number | number[]>;
+    mobileFontSizes: number[];
+    tabletFontSizes: number[];
+    fontWeights: number[];
 
     radii: {
-      round: string
-    }
-    navHeight: string
-    mobileNavHeight: string
+      round: string;
+    };
+    navHeight: string;
+    mobileNavHeight: string;
 
     fonts: {
-      serif: string
-      sans: string
-      display: string
-      body: string
-    }
+      serif: string;
+      sans: string;
+      display: string;
+      body: string;
+    };
 
     zIndices: {
-      main: number
-      nav: number
-      cart: number
-      dialog: number
-      alert: number
-    }
+      main: number;
+      nav: number;
+      cart: number;
+      dialog: number;
+      alert: number;
+    };
 
     colors: {
-      grays: string[]
-      body: string[]
-      bodyMain: string
-      background: string
-      error: string[]
-      highlightLow: string
-    }
+      mauve: string;
+      grays: string[];
+      body: string[];
+      bodyMain: string;
+      background: string;
+      error: string[];
+      highlightLow: string;
+    };
 
     mediaQueries: {
-      mobile: string
-      aboveMobile: string
-      tablet: string
-      aboveTablet: string
-      desktop: string
-      aboveDesktop: string
-    }
+      mobile: string;
+      aboveMobile: string;
+      tablet: string;
+      aboveTablet: string;
+      desktop: string;
+      aboveDesktop: string;
+    };
 
     transition: {
-      fast: string
-      slow: string
-    }
+      fast: string;
+      slow: string;
+    };
 
     breakpoints?: {
-      xs: number
-      sm: number
-      md: number
-      lg: number
-      xl: number
-    }
+      xs: number;
+      sm: number;
+      md: number;
+      lg: number;
+      xl: number;
+    };
   }
 }

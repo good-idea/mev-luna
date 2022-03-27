@@ -2,6 +2,10 @@ export const project = {
   name: 'project',
   type: 'document',
   title: 'Project',
+  fieldsets: [
+    { title: 'Main', name: 'main' },
+    { title: 'Footer', name: 'footer' },
+  ],
   fields: [
     {
       name: 'title',
@@ -31,18 +35,42 @@ export const project = {
       name: 'description',
       title: 'Description',
       type: 'richText',
-    },
-    {
-      name: 'materials',
-      title: 'Materials',
-      type: 'richText',
+      fieldset: 'main',
     },
     {
       name: 'gallery',
       title: 'Gallery',
       type: 'gallery',
+      fieldset: 'main',
     },
     {
+      name: 'year',
+      title: 'Year',
+      type: 'number',
+      fieldset: 'footer',
+      validation: (Rule) =>
+        Rule.required().custom((value) => {
+          if (value && value.toString().length !== 4) {
+            return 'Value must be a year';
+          }
+          return true;
+        }),
+    },
+    {
+      name: 'materials',
+      title: 'Materials',
+      type: 'richText',
+      fieldset: 'footer',
+    },
+    {
+      name: 'notes',
+      title: 'Notes',
+      type: 'richText',
+      fieldset: 'footer',
+    },
+
+    {
+      fieldset: 'footer',
       name: 'relatedResearch',
       title: 'Related Research',
       type: 'array',

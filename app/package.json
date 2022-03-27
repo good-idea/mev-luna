@@ -13,7 +13,7 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@sanity/block-content-to-react": "^3.0.0",
+    "@portabletext/react": "^1.0.4",
     "@sanity/image-url": "^1.0.1",
     "@xstyled/styled-components": "^3.5.1",
     "debug": "^4.3.3",
