@@ -3,6 +3,8 @@ import { x } from '@xstyled/styled-components';
 import { Project } from '../../types';
 import { RichText } from '../../components/RichText';
 import { Gallery } from '../../components/Gallery';
+import { ResearchList } from '../../components/ResearchList';
+import { definitely } from '../../utils';
 import { ProjectColumns, ProjectDescription } from './styles';
 
 interface ProjectViewProps {
@@ -10,7 +12,8 @@ interface ProjectViewProps {
 }
 
 export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
-  const { title, description, gallery } = project;
+  const { notes, materials, relatedResearch, title, description, gallery } =
+    project;
   return (
     <>
       <ProjectColumns>
@@ -20,8 +23,17 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
             <RichText text={description} />
           </ProjectDescription>
         </div>
-        {gallery ? <Gallery gallery={gallery} /> : null}
+        {gallery ? <Gallery gallery={gallery} /> : <div />}
       </ProjectColumns>
+      <ProjectColumns>
+        <div>
+          <RichText text={notes} />
+        </div>
+        <div>
+          <RichText text={materials} />
+        </div>
+      </ProjectColumns>
+      <ResearchList researchList={definitely(relatedResearch)} />
     </>
   );
 };

@@ -5,11 +5,12 @@ export const ProjectColumns = styled.div`
   grid-template-columns: 400px 1fr;
   grid-column-gap: 10px;
   position: relative;
+  padding-bottom: 5;
 `;
 
 export const ProjectDescription = styled.div`
-  padding-top: 200px;
-  margin-top: 35px;
+  margin-top: 120px;
+  padding-top: 120px;
   position: sticky;
   top: 0;
 `;

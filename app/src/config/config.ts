@@ -37,5 +37,7 @@ const initialConfig = {
   },
 };
 
+console.log(initialConfig);
+
 /* Export the parsed config so TS knows that the values must exist */
 export const config = configSchema.parse(initialConfig);

@@ -72,14 +72,24 @@ Used on the homepage when hovering over the project link. If no image is supplie
       description?: RichText;
 
       /**
+       * Gallery - `RegistryReference`
+       */
+      gallery?: Gallery;
+
+      /**
+       * Year - `Number`
+       */
+      year?: number;
+
+      /**
        * Materials - `RegistryReference`
        */
       materials?: RichText;
 
       /**
-       * Gallery - `RegistryReference`
+       * Notes - `RegistryReference`
        */
-      gallery?: Gallery;
+      notes?: RichText;
 
       /**
        * Related Research - `Array`
@@ -120,6 +130,11 @@ Used on the homepage when hovering over the project link. If no image is supplie
        * Summary - `RegistryReference`
        */
       summary: RichText;
+
+      /**
+       * Materials - `RegistryReference`
+       */
+      materials?: RichText;
 
       /**
        * Details - `RegistryReference`

@@ -12,11 +12,14 @@ export const projectQuery = `
     ${imageFragment}
   },
   description,
+  year,
+  notes,
   materials,
   gallery {
     ${galleryFragment}
   },
   relatedResearch[]->{
     ${researchLinkFragment}
-  }
+  },
+  seo
 `;

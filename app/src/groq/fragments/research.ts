@@ -1,4 +1,5 @@
 import { richTextFragment, seoFragment, galleryFragment } from './shared';
+import { projectLinkFragment } from './project';
 
 export const researchFragment = `
   _id,
@@ -6,15 +7,17 @@ export const researchFragment = `
   title,
   slug,
   date,
-  summary {
+  details[]{
     ${richTextFragment}
-  }
-  details,
+  },
   gallery {
     ${galleryFragment}
   },
   seo {
     ${seoFragment}
+  },
+  "relatedProjects": *[_type == "project" && ^._id in relatedResearch[]._ref]{
+    ${projectLinkFragment}
   }
 `;
 
@@ -24,7 +27,14 @@ export const researchLinkFragment = `
   title,
   slug,
   date,
-  summary {
+  materials,
+  gallery {
+    ${galleryFragment},
+  },
+  summary[] {
     ${richTextFragment}
+  },
+  "relatedProjects": *[_type == "project" && ^._id in relatedResearch[]._ref]{
+    ${projectLinkFragment}
   }
 `;

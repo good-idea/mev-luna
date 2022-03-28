@@ -35,6 +35,11 @@ export const research = {
       codegen: { required: true },
     },
     {
+      name: 'materials',
+      title: 'Materials',
+      type: 'richText',
+    },
+    {
       name: 'details',
       title: 'Details',
       type: 'richText',

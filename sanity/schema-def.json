@@ -302,6 +302,54 @@
           }
         },
         {
+          "name": "gallery",
+          "title": "Gallery",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "gallery",
+            "readOnly": false,
+            "title": "Gallery",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "gallery"
+          }
+        },
+        {
+          "name": "year",
+          "title": "Year",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "year",
+            "readOnly": false,
+            "title": "Year",
+            "hasValidation": true,
+            "type": "Number",
+            "list": null
+          }
+        },
+        {
           "name": "materials",
           "title": "Materials",
           "description": "",
@@ -326,8 +374,8 @@
           }
         },
         {
-          "name": "gallery",
-          "title": "Gallery",
+          "name": "notes",
+          "title": "Notes",
           "description": "",
           "hidden": false,
           "readOnly": false,
@@ -341,12 +389,12 @@
             },
             "description": null,
             "hidden": false,
-            "name": "gallery",
+            "name": "notes",
             "readOnly": false,
-            "title": "Gallery",
+            "title": "Notes",
             "hasValidation": false,
             "type": "RegistryReference",
-            "to": "gallery"
+            "to": "richText"
           }
         },
         {
@@ -532,6 +580,30 @@
             "readOnly": false,
             "title": "Summary",
             "hasValidation": true,
+            "type": "RegistryReference",
+            "to": "richText"
+          }
+        },
+        {
+          "name": "materials",
+          "title": "Materials",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "materials",
+            "readOnly": false,
+            "title": "Materials",
+            "hasValidation": false,
             "type": "RegistryReference",
             "to": "richText"
           }

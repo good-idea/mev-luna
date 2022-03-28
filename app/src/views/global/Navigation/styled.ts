@@ -6,6 +6,7 @@ export const Nav = styled.nav`
   left: 0;
   width: 100%;
   padding: 5 5 0;
+  z-index: nav;
 `;
 
 interface NavItemWrapperProps {
