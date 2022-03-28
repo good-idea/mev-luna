@@ -6,6 +6,6 @@ interface ResearchPageViewProps {
   /* */
 }
 
-export const ResearchPageView: React.FC<ResearchPageViewProps> = (props) => {
+export const ResearchPageView: React.FC<ResearchPageViewProps> = () => {
   return <div>...</div>;
 };

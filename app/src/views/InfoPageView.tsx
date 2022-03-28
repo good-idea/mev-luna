@@ -6,6 +6,6 @@ interface InfoPageViewProps {
   /* */
 }
 
-export const InfoPageView: React.FC<InfoPageViewProps> = (props) => {
+export const InfoPageView: React.FC<InfoPageViewProps> = () => {
   return <div>...</div>;
 };

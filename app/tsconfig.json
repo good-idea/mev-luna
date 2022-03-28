@@ -4,6 +4,7 @@
     "noEmit": true,
     "allowJs": true,
     "isolatedModules": true,
+    "noUnusedLocals": false,
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
