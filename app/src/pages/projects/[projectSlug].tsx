@@ -13,9 +13,12 @@ type Params = {
   projectSlug: string;
 };
 
-const Project: React.FC<ProjectProps> = ({ project }) => (
-  <ProjectView project={project} />
-);
+const Project: React.FC<ProjectProps> = ({ project }) => {
+  if (!project) {
+    return null;
+  }
+  return <ProjectView project={project} />;
+};
 
 export const getStaticProps: GetStaticProps<ProjectProps, Params> = async ({
   params,
@@ -37,6 +40,7 @@ export const getStaticProps: GetStaticProps<ProjectProps, Params> = async ({
 
   return {
     props: {
+      projectSlug,
       project,
     },
     revalidate: 60 * 10,
