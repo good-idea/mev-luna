@@ -1023,6 +1023,30 @@
           }
         },
         {
+          "name": "caption",
+          "title": "Caption",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "caption",
+            "readOnly": false,
+            "title": "Caption",
+            "hasValidation": false,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
           "name": "credit",
           "title": "Credit",
           "description": "",

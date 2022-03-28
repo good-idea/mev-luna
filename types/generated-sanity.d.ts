@@ -235,6 +235,11 @@ Hint: to link to an email address, enter "mailto:me@mydomain.com"
       altText: string;
 
       /**
+       * Caption - `String`
+       */
+      caption?: string;
+
+      /**
        * Credit - `String`
        */
       credit?: string;

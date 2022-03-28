@@ -14,6 +14,14 @@ export const richImage = {
       },
     },
     {
+      name: 'caption',
+      title: 'Caption',
+      type: 'string',
+      options: {
+        isHighlighted: true,
+      },
+    },
+    {
       name: 'credit',
       title: 'Credit',
       type: 'string',
