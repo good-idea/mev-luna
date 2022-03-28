@@ -27,6 +27,7 @@
   "devDependencies": {
     "@sentry/webpack-plugin": "^1.18.8",
     "@types/debug": "^4.1.7",
+    "@types/jest": "^27.4.1",
     "@types/js-cookie": "^3.0.1",
     "@types/jsdom": "^16.2.14",
     "@types/react": "^17.0.40",
