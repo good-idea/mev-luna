@@ -16,11 +16,11 @@ const configSchema = z.object({
     projectId: z.string(),
     dataset: z.enum(['production', 'staging']),
   }),
-  sentry: z.object({
-    /* Make sure we only run sentry in production */
-    dsn: isProd ? z.string() : z.undefined(),
-    release: isProd ? z.string() : z.undefined(),
-  }),
+  // sentry: z.object({
+  //   /* Make sure we only run sentry in production */
+  //   dsn: isProd ? z.string() : z.undefined(),
+  //   release: isProd ? z.string() : z.undefined(),
+  // }),
 });
 
 export type Config = z.infer<typeof configSchema>;
@@ -31,10 +31,10 @@ const initialConfig = {
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
   },
-  sentry: {
-    dsn: isProd ? process.env.NEXT_PUBLIC_SENTRY_DSN : undefined,
-    release: isProd ? process.env.NEXT_PUBLIC_RELEASE : undefined,
-  },
+  // sentry: {
+  //   dsn: isProd ? process.env.NEXT_PUBLIC_SENTRY_DSN : undefined,
+  //   release: isProd ? process.env.NEXT_PUBLIC_RELEASE : undefined,
+  // },
 };
 
 console.log(initialConfig);
