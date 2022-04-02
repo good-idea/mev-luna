@@ -1,13 +1,15 @@
 import { OneOf, ExpandAllReferences } from './utils';
 
 /* Document Types */
+export type Homepage = ExpandAllReferences<Sanity.Schema.Homepage>;
+export type InfoPage = ExpandAllReferences<Sanity.Schema.InfoPage>;
 export type Project = ExpandAllReferences<Sanity.Schema.Project>;
 export type ResearchPage = ExpandAllReferences<Sanity.Schema.ResearchPage>;
 export type Research = ExpandAllReferences<Sanity.Schema.Research> & {
   relatedProjects?: Project[];
 };
-export type Homepage = ExpandAllReferences<Sanity.Schema.Homepage>;
-export type InfoPage = ExpandAllReferences<Sanity.Schema.InfoPage>;
+export type NewsItem = ExpandAllReferences<Sanity.Schema.NewsItem>;
+export type NewsPage = ExpandAllReferences<Sanity.Schema.NewsPage>;
 
 export interface SiteSettings {
   projects: Project[];

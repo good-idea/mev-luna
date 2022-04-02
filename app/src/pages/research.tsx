@@ -26,7 +26,7 @@ export const getStaticProps: GetStaticProps<ResearchProps> = async () => {
     `{
       "research": *[_type == "research"]{
         ${researchLinkFragment}
-      },
+      }[],
       "researchPage": *[_type == "researchPage"][0]
     }
     `,

@@ -2,6 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { ProjectLinkAnchor, ProjectLinkSpan } from './styles';
 import { Project } from '../../types';
+import { Strong } from '../Text';
 
 interface ProjectLinkProps {
   project: Project;
@@ -17,7 +18,9 @@ export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
     <Link href={href} passHref>
       <ProjectLinkAnchor>
         <ProjectLinkSpan>†</ProjectLinkSpan>
-        <ProjectLinkSpan strong>{project.title}</ProjectLinkSpan>
+        <ProjectLinkSpan>
+          <Strong>{project.title}</Strong>
+        </ProjectLinkSpan>
       </ProjectLinkAnchor>
     </Link>
   );

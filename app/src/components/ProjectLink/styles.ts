@@ -1,17 +1,10 @@
-import styled, { css } from '@xstyled/styled-components';
+import styled from '@xstyled/styled-components';
 
-interface LinkSpanProps {
-  strong?: boolean;
-}
-
-export const ProjectLinkSpan = styled.span<LinkSpanProps>`
-  ${({ strong }) => css`
-    -webkit-text-stroke: ${strong ? '0.03em' : '0'};
-    & + & {
-      opacity: 0;
-      margin-left: 0.2em;
-    }
-  `}
+export const ProjectLinkSpan = styled.span`
+  & + & {
+    opacity: 0;
+    margin-left: 0.2em;
+  }
 `;
 
 export const ProjectLinkAnchor = styled.a`
