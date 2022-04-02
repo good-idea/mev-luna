@@ -537,6 +537,30 @@
           }
         },
         {
+          "name": "hoverImage",
+          "title": "Hover Image",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "hoverImage",
+            "readOnly": false,
+            "title": "Hover Image",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "richImage"
+          }
+        },
+        {
           "name": "link",
           "title": "Link",
           "description": "",

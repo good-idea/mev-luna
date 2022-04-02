@@ -119,6 +119,11 @@ Used on the homepage when hovering over the project link. If no image is supplie
       headline: string;
 
       /**
+       * Hover Image - `RegistryReference`
+       */
+      hoverImage?: RichImage;
+
+      /**
        * Link - `Url`
        */
       link?: string;

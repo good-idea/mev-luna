@@ -18,6 +18,11 @@ export const newsItem = {
       codegen: { required: true },
     },
     {
+      name: 'hoverImage',
+      title: 'Hover Image',
+      type: 'richImage',
+    },
+    {
       name: 'link',
       title: 'Link',
       type: 'url',
