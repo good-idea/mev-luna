@@ -3,7 +3,6 @@ import styled from '@xstyled/styled-components';
 export const ResearchListWrapper = styled.ul`
   list-style: none;
   padding: 78px 0 0;
-  border-top: 1px solid black;
 `;
 
 export const ResearchListItemWrapper = styled.li`
@@ -14,9 +13,8 @@ export const ResearchListItemWrapper = styled.li`
 
 export const ResearchListItemInner = styled.div`
   display: grid;
-  cursor: pointer;
   grid-column-gap: 10px;
-  grid-template-columns: 270px 120px 120px 1fr 1fr 110px;
+  grid-template-columns: 270px 120px 120px 1fr 1fr 150px;
 `;
 
 export const TitleWrapper = styled.span`

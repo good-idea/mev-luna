@@ -4,14 +4,14 @@ import { ResearchListWrapper } from './styles';
 import { ResearchListItem } from './ResearchListItem';
 
 interface ResearchListProps {
-  researchList: Research[];
+  research: Research[];
 }
 
-export const ResearchList: React.FC<ResearchListProps> = ({ researchList }) => {
+export const ResearchList: React.FC<ResearchListProps> = ({ research }) => {
   return (
     <ResearchListWrapper>
-      {researchList.map((research) => (
-        <ResearchListItem key={research._id} research={research} />
+      {research.map((item) => (
+        <ResearchListItem key={item._id} research={item} />
       ))}
     </ResearchListWrapper>
   );

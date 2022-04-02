@@ -7,7 +7,7 @@ const { useCallback } = React;
 
 const GalleryItemWrapper = styled.div`
   & + & {
-    margin-top: 2;
+    margin-top: 4;
   }
 `;
 
@@ -25,5 +25,7 @@ export const GalleryItem: React.FC<GalleryItemProps> = ({ item }) => {
         return null;
     }
   }, [item._type]);
-  return <GalleryItemWrapper>{renderInner()}</GalleryItemWrapper>;
+  return (
+    <GalleryItemWrapper className="foo">{renderInner()}</GalleryItemWrapper>
+  );
 };

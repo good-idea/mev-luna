@@ -3,7 +3,7 @@ import styled from '@xstyled/styled-components';
 export const ProjectColumns = styled.div`
   display: grid;
   grid-template-columns: 400px 1fr;
-  grid-column-gap: 10px;
+  grid-column-gap: 30px;
   position: relative;
   padding-bottom: 5;
 `;

@@ -12,8 +12,15 @@ interface ProjectViewProps {
 }
 
 export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
-  const { notes, materials, relatedResearch, title, description, gallery } =
-    project;
+  const {
+    notes,
+    materials,
+    relatedResearch,
+    title,
+    description,
+    gallery,
+    year,
+  } = project;
   return (
     <>
       <ProjectColumns>
@@ -30,10 +37,12 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
           <RichText text={notes} />
         </div>
         <div>
+          <x.p my={0}>{year}</x.p>
           <RichText text={materials} />
         </div>
       </ProjectColumns>
-      <ResearchList researchList={definitely(relatedResearch)} />
+      <x.hr border="none" borderBottom="1px solid black" m={0} />
+      <ResearchList research={definitely(relatedResearch)} />
     </>
   );
 };

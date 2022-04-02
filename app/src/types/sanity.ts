@@ -2,6 +2,7 @@ import { OneOf, ExpandAllReferences } from './utils';
 
 /* Document Types */
 export type Project = ExpandAllReferences<Sanity.Schema.Project>;
+export type ResearchPage = ExpandAllReferences<Sanity.Schema.ResearchPage>;
 export type Research = ExpandAllReferences<Sanity.Schema.Research> & {
   relatedProjects?: Project[];
 };

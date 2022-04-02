@@ -17,7 +17,7 @@ export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
     <Link href={href} passHref>
       <ProjectLinkAnchor>
         <ProjectLinkSpan>†</ProjectLinkSpan>
-        <ProjectLinkSpan>{project.title}</ProjectLinkSpan>
+        <ProjectLinkSpan strong>{project.title}</ProjectLinkSpan>
       </ProjectLinkAnchor>
     </Link>
   );

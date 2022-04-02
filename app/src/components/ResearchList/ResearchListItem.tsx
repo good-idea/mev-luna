@@ -31,41 +31,40 @@ export const ResearchListItem: React.FC<ResearchListItemProps> = ({
   if (!href) return null;
   return (
     <ResearchListItemWrapper>
-      <Link href={href}>
-        <ResearchListItemInner>
-          <TitleWrapper>{title}</TitleWrapper>
+      <ResearchListItemInner>
+        <TitleWrapper>{title}</TitleWrapper>
 
-          <MaterialsWrapper>
-            <RichText text={materials} />
-          </MaterialsWrapper>
+        <MaterialsWrapper>
+          <RichText text={materials} />
+        </MaterialsWrapper>
 
-          <DateWrapper>{date}</DateWrapper>
+        <DateWrapper>{date}</DateWrapper>
 
-          <ProjectsWrapper>
-            {allRelatedProjects.map((project, index) => (
-              <x.span
-                key={project._id}
-                fontWeight={3}
-                fontStyle="italic"
-                fontSize={4}
-              >
+        <ProjectsWrapper>
+          {allRelatedProjects.map((project, index) => (
+            <Link
+              key={project._id}
+              href={`/projects/${project.slug.current}`}
+              passHref
+            >
+              <x.a fontWeight={3} fontStyle="italic" fontSize={4}>
                 {project.title}
                 {index === allRelatedProjects.length - 1 ? '' : ', '}
-              </x.span>
-            ))}
-          </ProjectsWrapper>
+              </x.a>
+            </Link>
+          ))}
+        </ProjectsWrapper>
 
-          <SummaryWrapper>
-            <RichText text={summary} />
-          </SummaryWrapper>
+        <SummaryWrapper>
+          <RichText text={summary} />
+        </SummaryWrapper>
 
-          <ThumbnailWrapper>
-            {firstImage ? (
-              <Image sizes={['100vw', '110px']} image={firstImage} />
-            ) : null}
-          </ThumbnailWrapper>
-        </ResearchListItemInner>
-      </Link>
+        <ThumbnailWrapper>
+          {firstImage ? (
+            <Image sizes={['100vw', '110px']} image={firstImage} />
+          ) : null}
+        </ThumbnailWrapper>
+      </ResearchListItemInner>
     </ResearchListItemWrapper>
   );
 };
