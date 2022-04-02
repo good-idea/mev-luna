@@ -666,6 +666,44 @@
       "hidden": false,
       "readOnly": false,
       "hasValidation": false,
+      "name": "researchPage",
+      "title": "Research (main page)",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "seo",
+          "title": "SEO",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "seo",
+            "readOnly": false,
+            "title": "SEO",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "seo"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
       "name": "trace",
       "title": "Trace",
       "type": "Document",

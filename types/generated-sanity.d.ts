@@ -148,6 +148,18 @@ Used on the homepage when hovering over the project link. If no image is supplie
     }
 
     /**
+     * Research (main page)
+     */
+    interface ResearchPage extends Sanity.Document {
+      _type: 'researchPage';
+
+      /**
+       * SEO - `RegistryReference`
+       */
+      seo?: Seo;
+    }
+
+    /**
      * Trace
      */
     interface Trace extends Sanity.Document {
@@ -292,6 +304,7 @@ Comma-separated SEO keywords
       | InfoPage
       | Project
       | Research
+      | ResearchPage
       | Trace
       | SiteSettings;
   }

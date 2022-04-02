@@ -29,6 +29,12 @@ export default () =>
         .title('Projects')
         .icon(IoDocumentsOutline),
 
+      S.listItem()
+        .id('researchPage')
+        .title('Research (Main page)')
+        .icon(IoLibrarySharp)
+        .child(S.document().schemaType('researchPage').id('researchPage')),
+
       S.documentTypeListItem('research')
         .id('research')
         .title('Research')
