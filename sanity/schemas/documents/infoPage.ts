@@ -1,6 +1,15 @@
 const URL_REGEX =
   /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm;
-const MAILTO_REGEX = /^mailto:\S+@\S+\.\S+$/;
+const MAILTO_REGEX = /^mailto:[\S\.]+@\S+\.\S+$/;
+
+const isValidUrl = (url: string) => {
+  try {
+    new URL(url);
+    return true;
+  } catch {
+    return false;
+  }
+};
 
 export const contactField = {
   type: 'object',
@@ -21,9 +30,10 @@ export const contactField = {
       validation: (Rule) =>
         Rule.required().custom((value) => {
           if (!value) return 'Required';
-          if (!MAILTO_REGEX.test(value) || !URL_REGEX.test(value)) {
+          if (!MAILTO_REGEX.test(value) && !isValidUrl(value)) {
             return 'Must be a valid URL or mailto link';
           }
+          return true;
         }),
       description:
         'Hint: to link to an email address, enter "mailto:me@mydomain.com"',
@@ -31,6 +41,7 @@ export const contactField = {
     },
   ],
 };
+
 export const infoPage = {
   type: 'document',
   title: 'Info',
@@ -47,7 +58,12 @@ export const infoPage = {
       type: 'array',
       of: [{ type: 'contactField' }],
     },
-
+    {
+      name: 'cv',
+      title: 'CV',
+      type: 'array',
+      of: [{ type: 'cvGroup' }],
+    },
     { name: 'seo', title: 'SEO', type: 'seo' },
   ],
   preview: {

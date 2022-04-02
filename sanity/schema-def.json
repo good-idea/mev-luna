@@ -169,6 +169,45 @@
           }
         },
         {
+          "name": "cv",
+          "title": "CV",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "cv",
+            "readOnly": false,
+            "title": "CV",
+            "hasValidation": false,
+            "type": "Array",
+            "of": [
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": null,
+                "hasValidation": false,
+                "type": "RegistryReference",
+                "to": "cvGroup"
+              }
+            ],
+            "list": null
+          }
+        },
+        {
           "name": "seo",
           "title": "SEO",
           "description": "",

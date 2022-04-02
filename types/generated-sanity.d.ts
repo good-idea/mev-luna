@@ -36,6 +36,11 @@ declare namespace Sanity {
       contactFields?: Array<Sanity.Keyed<ContactField>>;
 
       /**
+       * CV - `Array`
+       */
+      cv?: Array<Sanity.Keyed<CvGroup>>;
+
+      /**
        * SEO - `RegistryReference`
        */
       seo?: Seo;
