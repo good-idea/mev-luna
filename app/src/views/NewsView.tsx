@@ -2,13 +2,28 @@ import * as React from 'react';
 import styled, { x } from '@xstyled/styled-components';
 import { NewsItem } from '../types';
 import { Strong } from '../components/Text';
+import { Image } from '../components/Image';
 
 interface NewsLineItemProps {
   newsItem: NewsItem;
 }
 
-const Wrapper = styled.div`
+const HoverImageWrapper = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 270px;
+  opacity: 0;
+`;
+
+const LineItemWrapper = styled.li`
   padding-left: 290px;
+  position: relative;
+  list-style-type: none;
+
+  &:hover ${HoverImageWrapper} {
+    opacity: 1;
+  }
 `;
 
 const formatDate = (dateString: string): string => {
@@ -28,16 +43,22 @@ const formatDate = (dateString: string): string => {
 };
 
 const NewsLineItem: React.FC<NewsLineItemProps> = ({ newsItem }) => {
-  const { headline, date, link } = newsItem;
+  const { headline, date, link, hoverImage } = newsItem;
   const inner = () => (
-    <>
+    <LineItemWrapper>
+      {hoverImage ? (
+        <HoverImageWrapper>
+          <Image image={hoverImage} sizes={['300px']} />
+        </HoverImageWrapper>
+      ) : null}
+
       <x.span fontSize={4} mr={4}>
         <Strong>{formatDate(date)}</Strong>
       </x.span>
       <x.span fontSize={2}>
         <Strong>{headline}</Strong>
       </x.span>
-    </>
+    </LineItemWrapper>
   );
 
   return link ? <a href={link}>{inner()}</a> : <>{inner()}</>;
@@ -49,12 +70,10 @@ interface NewsViewProps {
 
 export const NewsView: React.FC<NewsViewProps> = ({ newsItems }) => {
   return (
-    <Wrapper>
-      <ul>
-        {newsItems.map((newsItem) => (
-          <NewsLineItem key={newsItem._id} newsItem={newsItem} />
-        ))}
-      </ul>
-    </Wrapper>
+    <x.ul p={0} m={0}>
+      {newsItems.map((newsItem) => (
+        <NewsLineItem key={newsItem._id} newsItem={newsItem} />
+      ))}
+    </x.ul>
   );
 };

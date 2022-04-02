@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { x } from '@xstyled/styled-components';
 import Link from 'next/link';
 import { Nav, NavItemWrapper } from './styled';
+import { Strong } from '../../../components/Text';
 
 interface NavItemProps {
   label: string;
@@ -17,7 +18,7 @@ const NavItem: React.FC<NavItemProps> = ({ label, to }) => {
       <Link href={to}>
         <a>
           <x.span fontWeight={2} fontSize={4}>
-            {label}
+            <Strong>{label}</Strong>
           </x.span>
         </a>
       </Link>
