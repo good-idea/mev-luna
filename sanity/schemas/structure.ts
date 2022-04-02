@@ -4,6 +4,7 @@ import { AiOutlineContacts } from 'react-icons/ai';
 import {
   IoFingerPrintSharp,
   IoLibrarySharp,
+  IoNewspaperOutline,
   IoDocumentsOutline,
   IoSettingsOutline,
 } from 'react-icons/io5';
@@ -24,10 +25,27 @@ export default () =>
         .icon(AiOutlineContacts)
         .child(S.document().schemaType('infoPage').id('infoPage')),
 
+      S.divider(),
+
       S.documentTypeListItem('project')
         .id('projects')
         .title('Projects')
         .icon(IoDocumentsOutline),
+
+      S.divider(),
+
+      S.listItem()
+        .id('newsPage')
+        .title('News (Main page)')
+        .icon(IoNewspaperOutline)
+        .child(S.document().schemaType('newsPage').id('newsPage')),
+
+      S.documentTypeListItem('newsItem')
+        .id('news')
+        .title('News')
+        .icon(IoNewspaperOutline),
+
+      S.divider(),
 
       S.listItem()
         .id('researchPage')
@@ -40,6 +58,8 @@ export default () =>
         .title('Research')
         .icon(IoLibrarySharp),
 
+      S.divider(),
+
       S.listItem()
         .id('traces')
         .title('Traces')
@@ -50,6 +70,8 @@ export default () =>
             .filter(`_type == "trace"`)
             .initialValueTemplates([]),
         ),
+
+      S.divider(),
 
       S.listItem()
         .id('siteSettings')

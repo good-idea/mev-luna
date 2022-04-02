@@ -103,6 +103,40 @@ Used on the homepage when hovering over the project link. If no image is supplie
     }
 
     /**
+     * News Item
+     */
+    interface NewsItem extends Sanity.Document {
+      _type: 'newsItem';
+
+      /**
+       * Date - `Datetime`
+       */
+      date: string;
+
+      /**
+       * Headline - `String`
+       */
+      headline: string;
+
+      /**
+       * Link - `Url`
+       */
+      link?: string;
+    }
+
+    /**
+     * News (main page)
+     */
+    interface NewsPage extends Sanity.Document {
+      _type: 'newsPage';
+
+      /**
+       * SEO - `RegistryReference`
+       */
+      seo?: Seo;
+    }
+
+    /**
      * Research Documents
      */
     interface Research extends Sanity.Document {
@@ -303,6 +337,8 @@ Comma-separated SEO keywords
       | Homepage
       | InfoPage
       | Project
+      | NewsItem
+      | NewsPage
       | Research
       | ResearchPage
       | Trace

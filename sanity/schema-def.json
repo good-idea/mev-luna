@@ -485,6 +485,128 @@
       "hidden": false,
       "readOnly": false,
       "hasValidation": false,
+      "name": "newsItem",
+      "title": "News Item",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "date",
+          "title": "Date",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "date",
+            "readOnly": false,
+            "title": "Date",
+            "hasValidation": true,
+            "type": "Datetime"
+          }
+        },
+        {
+          "name": "headline",
+          "title": "Headline",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "headline",
+            "readOnly": false,
+            "title": "Headline",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "link",
+          "title": "Link",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "link",
+            "readOnly": false,
+            "title": "Link",
+            "hasValidation": false,
+            "type": "Url"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
+      "name": "newsPage",
+      "title": "News (main page)",
+      "type": "Document",
+      "fields": [
+        {
+          "name": "seo",
+          "title": "SEO",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "seo",
+            "readOnly": false,
+            "title": "SEO",
+            "hasValidation": false,
+            "type": "RegistryReference",
+            "to": "seo"
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "readOnly": false,
+      "hasValidation": false,
       "name": "research",
       "title": "Research Documents",
       "type": "Document",
