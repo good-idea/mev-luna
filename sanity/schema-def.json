@@ -609,32 +609,8 @@
           }
         },
         {
-          "name": "details",
-          "title": "Details",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "details",
-            "readOnly": false,
-            "title": "Details",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richText"
-          }
-        },
-        {
           "name": "gallery",
-          "title": "Gallery",
+          "title": "Media",
           "description": "",
           "hidden": false,
           "readOnly": false,
@@ -650,7 +626,7 @@
             "hidden": false,
             "name": "gallery",
             "readOnly": false,
-            "title": "Gallery",
+            "title": "Media",
             "hasValidation": false,
             "type": "RegistryReference",
             "to": "gallery"
@@ -896,30 +872,6 @@
       "type": "Object",
       "fields": [
         {
-          "name": "title",
-          "title": "Title",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "title",
-            "readOnly": false,
-            "title": "Title",
-            "hasValidation": false,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
           "name": "media",
           "title": "Media",
           "description": "",
@@ -1018,54 +970,6 @@
             "readOnly": false,
             "title": "Alt Text",
             "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "caption",
-          "title": "Caption",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "caption",
-            "readOnly": false,
-            "title": "Caption",
-            "hasValidation": false,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "credit",
-          "title": "Credit",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "credit",
-            "readOnly": false,
-            "title": "Credit",
-            "hasValidation": false,
             "type": "String",
             "list": null
           }

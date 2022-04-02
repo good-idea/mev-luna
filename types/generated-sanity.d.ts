@@ -137,12 +137,7 @@ Used on the homepage when hovering over the project link. If no image is supplie
       materials?: RichText;
 
       /**
-       * Details - `RegistryReference`
-       */
-      details?: RichText;
-
-      /**
-       * Gallery - `RegistryReference`
+       * Media - `RegistryReference`
        */
       gallery?: Gallery;
 
@@ -211,11 +206,6 @@ Hint: to link to an email address, enter "mailto:me@mydomain.com"
       _type: 'gallery';
 
       /**
-       * Title - `String`
-       */
-      title?: string;
-
-      /**
        * Media - `Array`
        */
       media?: Array<
@@ -233,16 +223,6 @@ Hint: to link to an email address, enter "mailto:me@mydomain.com"
        * Alt Text - `String`
        */
       altText: string;
-
-      /**
-       * Caption - `String`
-       */
-      caption?: string;
-
-      /**
-       * Credit - `String`
-       */
-      credit?: string;
     };
 
     type RichText = Array<Sanity.Keyed<Sanity.Block>>;

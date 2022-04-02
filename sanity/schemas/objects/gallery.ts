@@ -4,11 +4,6 @@ export const gallery = {
   type: 'object',
   fields: [
     {
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-    },
-    {
       name: 'media',
       title: 'Media',
       type: 'array',

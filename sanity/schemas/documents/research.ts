@@ -40,16 +40,10 @@ export const research = {
       type: 'richText',
     },
     {
-      name: 'details',
-      title: 'Details',
-      type: 'richText',
-    },
-    {
       name: 'gallery',
-      title: 'Gallery',
+      title: 'Media',
       type: 'gallery',
     },
-
     { name: 'seo', title: 'SEO', type: 'seo' },
   ],
 };
