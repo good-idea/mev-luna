@@ -1,23 +1,33 @@
+const validateYear = (value) => {
+  if (value && value.toString().length !== 4) {
+    return 'Value must be a year';
+  }
+  return true;
+};
+
 export const cvItem = {
   type: 'object',
   name: 'cvItem',
   title: 'CV Item',
   fields: [
     {
-      name: 'year',
-      title: 'Year',
+      name: 'yearStart',
+      title: 'Start year',
       type: 'number',
-      validation: (Rule) =>
-        Rule.required().custom((value) => {
-          if (value && value.toString().length !== 4) {
-            return 'Value must be a year';
-          }
-          return true;
-        }),
+      validation: (Rule) => Rule.required().custom(validateYear),
+      codegen: { required: true },
+    },
+    {
+      name: 'yearEnd',
+      title: 'End year',
+      type: 'number',
+      validation: (Rule) => Rule.custom(validateYear),
+      description:
+        '(optional) - use this field if the item spans multiple years',
     },
     {
       name: 'text',
-      title: 'Text',
+      title: 'Title',
       type: 'string',
       validation: (Rule) => Rule.required(),
       codegen: { required: true },
@@ -26,7 +36,18 @@ export const cvItem = {
   preview: {
     select: {
       title: 'text',
-      subtitle: 'year',
+      yearStart: 'yearStart',
+      yearEnd: 'yearEnd',
+    },
+    prepare: ({ title, yearStart, yearEnd }) => {
+      const subtitle =
+        yearStart && yearEnd
+          ? [yearStart, yearEnd].join('-')
+          : yearStart || undefined;
+      return {
+        title,
+        subtitle,
+      };
     },
   },
 };
@@ -59,9 +80,6 @@ export const cvGroup = {
       title: 'Entries',
       name: 'entries',
       type: 'array',
-      options: {
-        editModal: 'popover',
-      },
       of: [
         {
           type: 'cvItem',

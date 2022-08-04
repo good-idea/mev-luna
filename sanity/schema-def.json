@@ -1475,6 +1475,217 @@
           }
         }
       ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "cvItem",
+      "readOnly": false,
+      "title": "CV Item",
+      "hasValidation": false,
+      "type": "Object",
+      "fields": [
+        {
+          "name": "yearStart",
+          "title": "Start year",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "yearStart",
+            "readOnly": false,
+            "title": "Start year",
+            "hasValidation": true,
+            "type": "Number",
+            "list": null
+          }
+        },
+        {
+          "name": "yearEnd",
+          "title": "End year",
+          "description": "(optional) - use this field if the item spans multiple years",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": "(optional) - use this field if the item spans multiple years",
+            "hidden": false,
+            "name": "yearEnd",
+            "readOnly": false,
+            "title": "End year",
+            "hasValidation": true,
+            "type": "Number",
+            "list": null
+          }
+        },
+        {
+          "name": "text",
+          "title": "Title",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "text",
+            "readOnly": false,
+            "title": "Title",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        }
+      ]
+    },
+    {
+      "codegen": {
+        "required": false
+      },
+      "description": null,
+      "hidden": false,
+      "name": "cvGroup",
+      "readOnly": false,
+      "title": "CV Group",
+      "hasValidation": false,
+      "type": "Object",
+      "fields": [
+        {
+          "name": "title",
+          "title": "Title",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": true
+          },
+          "hasValidation": true,
+          "definition": {
+            "codegen": {
+              "required": true
+            },
+            "description": null,
+            "hidden": false,
+            "name": "title",
+            "readOnly": false,
+            "title": "Title",
+            "hasValidation": true,
+            "type": "String",
+            "list": null
+          }
+        },
+        {
+          "name": "options",
+          "title": "Options",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "options",
+            "readOnly": false,
+            "title": "Options",
+            "hasValidation": false,
+            "type": "Object",
+            "fields": [
+              {
+                "name": "groupByYear",
+                "title": "Group By Year",
+                "description": "",
+                "hidden": false,
+                "readOnly": false,
+                "codegen": {
+                  "required": false
+                },
+                "hasValidation": false,
+                "definition": {
+                  "codegen": {
+                    "required": false
+                  },
+                  "description": null,
+                  "hidden": false,
+                  "name": "groupByYear",
+                  "readOnly": false,
+                  "title": "Group By Year",
+                  "hasValidation": false,
+                  "type": "Boolean"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "entries",
+          "title": "Entries",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "entries",
+            "readOnly": false,
+            "title": "Entries",
+            "hasValidation": false,
+            "type": "Array",
+            "of": [
+              {
+                "codegen": {
+                  "required": false
+                },
+                "description": null,
+                "hidden": false,
+                "name": null,
+                "readOnly": false,
+                "title": null,
+                "hasValidation": false,
+                "type": "RegistryReference",
+                "to": "cvItem"
+              }
+            ],
+            "list": null
+          }
+        }
+      ]
     }
   ]
 }

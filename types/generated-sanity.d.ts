@@ -343,6 +343,50 @@ Comma-separated SEO keywords
       versions?: Array<Sanity.Keyed<VideoVersion>>;
     };
 
+    type CvItem = {
+      _type: 'cvItem';
+
+      /**
+       * Start year - `Number`
+       */
+      yearStart: number;
+
+      /**
+       * End year - `Number`
+(optional) - use this field if the item spans multiple years
+       */
+      yearEnd?: number;
+
+      /**
+       * Title - `String`
+       */
+      text: string;
+    };
+
+    type CvGroup = {
+      _type: 'cvGroup';
+
+      /**
+       * Title - `String`
+       */
+      title: string;
+
+      /**
+       * Options - `Object`
+       */
+      options?: {
+        /**
+         * Group By Year - `Boolean`
+         */
+        groupByYear?: boolean;
+      };
+
+      /**
+       * Entries - `Array`
+       */
+      entries?: Array<Sanity.Keyed<CvItem>>;
+    };
+
     type Document =
       | Homepage
       | InfoPage
