@@ -1,0 +1,44 @@
+import * as React from 'react';
+import { InfoPage } from '../../types';
+import { RichText } from '../../components/RichText';
+import { BodyHeading, Ul, Li } from '../../components/Text';
+import { definitely } from '../../utils';
+import { InfoBodyWrapper, CVWrapper } from './styles';
+import { CVGroup } from './CVGroup';
+
+interface InfoPageViewProps {
+  infoPage: InfoPage;
+}
+
+export const InfoPageView: React.FC<InfoPageViewProps> = ({ infoPage }) => {
+  const { body, contactFields, cv, seo } = infoPage;
+
+  return (
+    <>
+      <InfoBodyWrapper>
+        <RichText text={body} />
+        <div>
+          {contactFields && contactFields.length ? (
+            <>
+              <BodyHeading>(Contact)</BodyHeading>
+              <Ul>
+                {contactFields.map(({ label, url }) => (
+                  <Li strong key={url}>
+                    <a href={url}>{label}</a>
+                  </Li>
+                ))}
+              </Ul>
+            </>
+          ) : null}
+        </div>
+      </InfoBodyWrapper>
+      {cv && cv.length ? (
+        <CVWrapper>
+          {definitely(cv).map((group) => (
+            <CVGroup key={group._key} group={group} />
+          ))}
+        </CVWrapper>
+      ) : null}
+    </>
+  );
+};

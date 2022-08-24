@@ -19,6 +19,8 @@ export interface SiteSettings {
 export type RichText = ExpandAllReferences<Sanity.Schema.RichText>;
 export type Gallery = ExpandAllReferences<Sanity.Schema.Gallery>;
 export type RichImage = ExpandAllReferences<Sanity.Schema.RichImage>;
+export type CVGroup = ExpandAllReferences<Sanity.Schema.CvGroup>;
+export type CVItem = ExpandAllReferences<Sanity.Schema.CvItem>;
 export type Audio = Sanity.Schema.Audio;
 export type Video = Sanity.Schema.Video;
 
