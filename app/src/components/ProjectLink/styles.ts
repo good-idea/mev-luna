@@ -14,7 +14,7 @@ export const ProjectLinkAnchor = styled.a`
     margin-left: 0.2em;
   }
 
-  &:hover ${ProjectLinkSpan} {
+  &.hover ${ProjectLinkSpan}, &:hover ${ProjectLinkSpan} {
     opacity: 1;
   }
 `;

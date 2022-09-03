@@ -27,6 +27,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   h1 {font-size: 1; }
+  h1 { text-decoration: underline; font-family: sans-serif; }
   h2 { font-size: 2; }
   h3 { font-size: 3; }
   p, h4 { font-size: 4; }
@@ -79,6 +80,7 @@ export const GlobalStyles = createGlobalStyle`
     }
   `}
 
+  a.hover,
   a:hover {
     color: mauve;
   }
