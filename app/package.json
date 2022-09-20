@@ -13,30 +13,30 @@
     "test:watch": "jest --watch"
   },
   "dependencies": {
-    "@portabletext/react": "^1.0.4",
+    "@portabletext/react": "^1.0.6",
     "@sanity/image-url": "^1.0.1",
-    "@xstyled/styled-components": "^3.5.1",
-    "debug": "^4.3.3",
+    "@xstyled/styled-components": "^3.6.0",
+    "debug": "^4.3.4",
     "html2canvas": "^1.4.1",
     "js-cookie": "^3.0.1",
-    "next": "^12.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "styled-components": "^5.3.3",
-    "zod": "^3.13.4"
+    "next": "^12.2.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5",
+    "zod": "^3.18.0"
   },
   "devDependencies": {
-    "@sentry/webpack-plugin": "^1.18.8",
+    "@sentry/webpack-plugin": "^1.19.0",
     "@types/debug": "^4.1.7",
-    "@types/jest": "^27.4.1",
-    "@types/js-cookie": "^3.0.1",
-    "@types/jsdom": "^16.2.14",
-    "@types/react": "^17.0.40",
-    "@types/react-dom": "^17.0.13",
-    "@types/styled-components": "^5.1.24",
+    "@types/jest": "^29.0.0",
+    "@types/js-cookie": "^3.0.2",
+    "@types/jsdom": "^20.0.0",
+    "@types/react": "^18.0.18",
+    "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
     "@types/zeit__next-source-maps": "^0.0.2",
     "@zeit/next-source-maps": "^0.0.3",
-    "jsdom": "^19.0.0",
+    "jsdom": "^20.0.0",
     "next-compose-plugins": "^2.2.1"
   }
 }

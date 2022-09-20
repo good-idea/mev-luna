@@ -1,7 +1,9 @@
 import * as React from 'react';
 import { InfoPage } from '../../types';
+import { Accordion } from '../../components/Accordion';
 import { RichText } from '../../components/RichText';
 import { BodyHeading, Ul, Li } from '../../components/Text';
+import { Divider } from '../../components/Layout';
 import { definitely } from '../../utils';
 import { InfoBodyWrapper, CVWrapper } from './styles';
 import { CVGroup } from './CVGroup';
@@ -11,7 +13,7 @@ interface InfoPageViewProps {
 }
 
 export const InfoPageView: React.FC<InfoPageViewProps> = ({ infoPage }) => {
-  const { body, contactFields, cv, seo } = infoPage;
+  const { body, colophon, contactFields, cv, seo } = infoPage;
 
   return (
     <>
@@ -30,8 +32,14 @@ export const InfoPageView: React.FC<InfoPageViewProps> = ({ infoPage }) => {
               </Ul>
             </>
           ) : null}
+          {colophon ? (
+            <Accordion label={colophon.label}>
+              <RichText text={colophon.contents} />
+            </Accordion>
+          ) : null}
         </div>
       </InfoBodyWrapper>
+      <Divider />
       {cv && cv.length ? (
         <CVWrapper>
           {definitely(cv).map((group) => (

@@ -12,4 +12,9 @@ export const RichTextWrapper = styled.div`
       margin-top: 0;
     }
   }
+
+  a {
+    font-weight: 3;
+    cursor: pointer;
+  }
 `;

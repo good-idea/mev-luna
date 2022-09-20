@@ -16,8 +16,10 @@ export const NavItemWrapper = styled.div<NavItemWrapperProps>`
   ${({ isActive }) => css`
     color: ${isActive ? 'mauve' : 'inherit'};
     display: inline;
-    & + & {
-      margin-left: 65px;
+    margin-left: 65px;
+
+    &:first-child {
+      margin-left: 0;
     }
   `}
 `;

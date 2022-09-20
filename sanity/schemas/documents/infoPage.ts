@@ -59,6 +59,27 @@ export const infoPage = {
       of: [{ type: 'contactField' }],
     },
     {
+      name: 'colophon',
+      type: 'object',
+      title: 'Colophon',
+      fields: [
+        {
+          name: 'label',
+          title: 'Label',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+          codegen: { required: true },
+        },
+        {
+          name: 'contents',
+          title: 'Contents',
+          type: 'richText',
+          validation: (Rule) => Rule.required(),
+          codegen: { required: true },
+        },
+      ],
+    },
+    {
       name: 'cv',
       title: 'CV',
       type: 'array',

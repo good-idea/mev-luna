@@ -1,16 +1,18 @@
-import styled, { css } from '@xstyled/styled-components';
+import styled, { x, css } from '@xstyled/styled-components';
 
 interface SharedTextProps {
   strong?: boolean;
 }
 
-export const BodyHeading = styled.h2`
-  font-size: 4;
-  font-weight: normal;
-  margin-top: 0;
+export const BodyHeading = styled(x.h2)<SharedTextProps>`
+  ${({ strong }) => css`
+    font-size: 4;
+    font-weight: ${strong ? '3' : '1'};
+    margin-top: 0;
+  `}
 `;
 
-export const Ul = styled.ul`
+export const Ul = styled(x.ul)`
   padding: 0;
 `;
 

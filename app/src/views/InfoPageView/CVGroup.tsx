@@ -2,6 +2,7 @@ import * as React from 'react';
 import { CVGroup as CVGroupType, CVItem } from '../../types';
 import { BodyHeading, Ul, Li } from '../../components/Text';
 import { definitely } from '../../utils';
+import { CVGroupWrapper, CVGroupYear } from './styles';
 
 interface EntriesGroupedByYear {
   year: string;
@@ -14,18 +15,20 @@ const groupEntriesByYear = (
   const record = entries.reduce<Record<number, Sanity.Keyed<CVItem>[]>>(
     (prevYears, entry) => {
       const year = entry.yearStart;
-      const prevOfYear = prevYears[year] || [];
+      const prevEntries = prevYears[year] || [];
       return {
         ...prevYears,
-        [year]: [...prevOfYear, entry],
+        [year]: [entry, ...prevEntries],
       };
     },
     {},
   );
-  return Object.entries(record).map(([year, entries]) => ({
-    year,
-    entries,
-  }));
+  return Object.entries(record)
+    .map(([year, entries]) => ({
+      year,
+      entries,
+    }))
+    .sort((a, b) => parseInt(b.year) - parseInt(a.year));
 };
 
 const getEntryYear = ({ yearStart, yearEnd }: CVItem): string =>
@@ -39,19 +42,21 @@ export const CVGroup: React.FC<CVGroupProps> = ({ group }) => {
   const { title, options, entries } = group;
   if (!entries) return null;
   return (
-    <div>
+    <CVGroupWrapper>
       <BodyHeading>({title})</BodyHeading>
       {options?.groupByYear ? (
         <div>
           {groupEntriesByYear(entries).map(({ year, entries }) => (
-            <React.Fragment key={year}>
-              <BodyHeading as="h3">{year}</BodyHeading>
-              <Ul>
+            <CVGroupYear key={year}>
+              <BodyHeading mb={0} as="h3">
+                {year}
+              </BodyHeading>
+              <Ul m={0}>
                 {entries.map((entry) => (
                   <Li key={entry._key}>{entry.text}</Li>
                 ))}
               </Ul>
-            </React.Fragment>
+            </CVGroupYear>
           ))}
         </div>
       ) : (
@@ -64,6 +69,6 @@ export const CVGroup: React.FC<CVGroupProps> = ({ group }) => {
           ))}
         </Ul>
       )}
-    </div>
+    </CVGroupWrapper>
   );
 };

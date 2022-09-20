@@ -169,6 +169,79 @@
           }
         },
         {
+          "name": "colophon",
+          "title": "Colophon",
+          "description": "",
+          "hidden": false,
+          "readOnly": false,
+          "codegen": {
+            "required": false
+          },
+          "hasValidation": false,
+          "definition": {
+            "codegen": {
+              "required": false
+            },
+            "description": null,
+            "hidden": false,
+            "name": "colophon",
+            "readOnly": false,
+            "title": "Colophon",
+            "hasValidation": false,
+            "type": "Object",
+            "fields": [
+              {
+                "name": "label",
+                "title": "Label",
+                "description": "",
+                "hidden": false,
+                "readOnly": false,
+                "codegen": {
+                  "required": true
+                },
+                "hasValidation": true,
+                "definition": {
+                  "codegen": {
+                    "required": true
+                  },
+                  "description": null,
+                  "hidden": false,
+                  "name": "label",
+                  "readOnly": false,
+                  "title": "Label",
+                  "hasValidation": true,
+                  "type": "String",
+                  "list": null
+                }
+              },
+              {
+                "name": "contents",
+                "title": "Contents",
+                "description": "",
+                "hidden": false,
+                "readOnly": false,
+                "codegen": {
+                  "required": true
+                },
+                "hasValidation": true,
+                "definition": {
+                  "codegen": {
+                    "required": true
+                  },
+                  "description": null,
+                  "hidden": false,
+                  "name": "contents",
+                  "readOnly": false,
+                  "title": "Contents",
+                  "hasValidation": true,
+                  "type": "RegistryReference",
+                  "to": "richText"
+                }
+              }
+            ]
+          }
+        },
+        {
           "name": "cv",
           "title": "CV",
           "description": "",
