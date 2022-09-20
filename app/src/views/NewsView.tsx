@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styled, { x } from '@xstyled/styled-components';
-import { NewsItem } from '../types';
+import { NewsItem, NewsPage } from '../types';
 import { Strong } from '../components/Text';
 import { Image } from '../components/Image';
 
@@ -66,6 +66,7 @@ const NewsLineItem: React.FC<NewsLineItemProps> = ({ newsItem }) => {
 
 interface NewsViewProps {
   newsItems: NewsItem[];
+  newsPage: NewsPage;
 }
 
 export const NewsView: React.FC<NewsViewProps> = ({ newsItems }) => {

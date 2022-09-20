@@ -5,6 +5,7 @@
     "allowJs": true,
     "isolatedModules": true,
     "noUnusedLocals": false,
+    "skipLibCheck": true,
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
@@ -14,6 +15,7 @@
     "incremental": true
   },
   "include": ["next-env.d.ts", "./src", "../types/**.d.ts"],
+  "exclude": ["node_modules", "../node_modules"],
   "ts-node": {
     "files": "true"
   }

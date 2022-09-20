@@ -1,9 +1,10 @@
 import * as React from 'react';
-import { Research } from '../types';
+import { Research, ResearchPage } from '../types';
 import { ResearchList } from '../components';
 
 interface ResearchViewProps {
   research: Research[];
+  researchPage: ResearchPage;
 }
 
 export const ResearchView: React.FC<ResearchViewProps> = ({ research }) => {

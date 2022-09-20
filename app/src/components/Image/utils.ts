@@ -53,7 +53,9 @@ export const getImageDetails = (
 
   const { altText } = image;
 
-  const caption = image._type === 'richImage' ? image?.caption : undefined;
+  /* TODO */
+  // const caption = image._type === 'richImage' ? image?.caption : undefined;
+  const caption = undefined;
 
   return { caption, src, srcSet, srcSetWebp, altText };
 };

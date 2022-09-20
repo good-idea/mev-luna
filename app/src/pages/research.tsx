@@ -14,7 +14,7 @@ interface ResearchProps {
 // <SEO seo={researchPage.seo} />
 const Research: React.FC<ResearchProps> = ({ research, researchPage }) => (
   <>
-    <ResearchView research={research || []} />
+    <ResearchView researchPage={researchPage} research={research || []} />
   </>
 );
 

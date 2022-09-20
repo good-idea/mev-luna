@@ -17,6 +17,9 @@ package-lock.json
 storybook-static
 yarn-error.log
 
+# logs
+tsconfig.tsbuildinfo
+
 out.svg
 types-uml.svg
 .DS_Store

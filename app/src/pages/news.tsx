@@ -10,10 +10,9 @@ interface NewsProps {
   newsPage: NewsPage;
 }
 
-// <SEO seo={newsPage.seo} />
 const News: React.FC<NewsProps> = ({ newsItems, newsPage }) => (
   <>
-    <NewsView newsItems={newsItems || []} />
+    <NewsView newsItems={newsItems || []} newsPage={newsPage} />
   </>
 );
 
