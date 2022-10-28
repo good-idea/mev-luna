@@ -4,9 +4,7 @@ import { Main, BackgroundVideo, ContentContainer } from './styles';
 export const TempHomeView = () => {
   return (
     <Main>
-      <BackgroundVideo>
-        <video src="/temp-home-video.mp4" autoPlay />
-      </BackgroundVideo>
+      <BackgroundVideo src="/temp-home-video.mp4" autoPlay loop muted />
       <ContentContainer>
         <p>
           <strong>Mev Luna</strong>
