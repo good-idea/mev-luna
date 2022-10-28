@@ -4,6 +4,9 @@ import Head from 'next/head';
 import { Providers } from '../providers';
 import { Main } from '../components/Layout';
 import { Navigation } from '../views/global';
+import { GlobalStyles } from '../theme';
+import { ThemeProvider } from '@xstyled/styled-components';
+import { defaultTheme } from '../theme/defaultTheme';
 
 interface AppProps {
   Component: React.ComponentType;
@@ -16,18 +19,14 @@ const App = (props: AppProps) => {
   const { siteSettings, ...pageProps } = allPageProps;
 
   return (
-    <Providers>
+    <ThemeProvider theme={defaultTheme}>
       <Head>
         <link rel="stylesheet" href="/static/fonts/fonts.css" />
         <link rel="icon" href="/static/favicon.png" />
       </Head>
-      <>
-        <Navigation />
-        <Main>
-          <Component {...pageProps} />
-        </Main>
-      </>
-    </Providers>
+      <GlobalStyles />
+      <Component {...pageProps} />
+    </ThemeProvider>
   );
 };
 
