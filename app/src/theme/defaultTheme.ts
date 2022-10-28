@@ -80,6 +80,7 @@ export const defaultTheme: DefaultTheme = {
     cart: 200,
     dialog: 300,
     alert: 400,
+    caption: 500,
   },
 
   /* Colors, applies to:

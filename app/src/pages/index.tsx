@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { GetStaticProps } from 'next';
 import { sanityClient } from '../services';
-import { siteSettingsQuery } from '../groq';
+import { imageFragment, siteSettingsQuery } from '../groq';
 import { Homepage, SiteSettings } from '../types';
 import { HomeView } from '../views';
 
@@ -22,7 +22,10 @@ export const getStaticProps: GetStaticProps = async () => {
         projectMenu[]->{
           _id,
           title,
-          slug
+          slug,
+          hoverImage {
+            ${imageFragment}
+          }
         }
       }
     `),

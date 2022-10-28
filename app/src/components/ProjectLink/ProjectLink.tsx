@@ -4,13 +4,14 @@ import { useResidue } from '../../providers/ResidueProvider';
 import { ProjectLinkAnchor, ProjectLinkSpan } from './styles';
 import { Project } from '../../types';
 import { Strong } from '../Text';
+import { Caption } from '../Caption';
 
 interface ProjectLinkProps {
   project: Project;
 }
 
 export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
-  const { addLayer } = useResidue();
+  const { addLayer, eventIsEnabled } = useResidue();
   const [isHovered, setIsHovered] = React.useState(false);
   const ref = React.useRef<HTMLAnchorElement>(null);
   const slug = project.slug.current;
@@ -25,22 +26,27 @@ export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
   }, [isHovered]);
   const handleClick = () => {
     if (!ref.current) return;
-    addLayer(ref.current);
+    if (eventIsEnabled('linkClick')) addLayer(ref.current);
   };
   const href = ['projects', slug].join('/');
   return (
-    <Link href={href} passHref>
-      <ProjectLinkAnchor
-        ref={ref}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={handleClick}
-      >
-        <ProjectLinkSpan>†</ProjectLinkSpan>
-        <ProjectLinkSpan>
-          <Strong>{project.title}</Strong>
-        </ProjectLinkSpan>
-      </ProjectLinkAnchor>
-    </Link>
+    <>
+      <Link href={href} passHref>
+        <ProjectLinkAnchor
+          ref={ref}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+        >
+          <ProjectLinkSpan>†</ProjectLinkSpan>
+          <ProjectLinkSpan>
+            <Strong>{project.title}</Strong>
+          </ProjectLinkSpan>
+        </ProjectLinkAnchor>
+      </Link>
+      {isHovered && project.hoverImage ? (
+        <Caption text={project.hoverImage?.altText} />
+      ) : null}
+    </>
   );
 };

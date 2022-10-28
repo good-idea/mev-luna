@@ -35,6 +35,7 @@ declare module 'styled-components' {
       cart: number;
       dialog: number;
       alert: number;
+      caption: number;
     };
 
     colors: {

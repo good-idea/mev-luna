@@ -10,9 +10,7 @@ export const ProjectLinkSpan = styled.span`
 export const ProjectLinkAnchor = styled.a`
   font-size: 1;
 
-  & + & {
-    margin-left: 0.2em;
-  }
+  margin-right: 0.2em;
 
   &.hover ${ProjectLinkSpan}, &:hover ${ProjectLinkSpan} {
     opacity: 1;

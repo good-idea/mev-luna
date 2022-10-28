@@ -1,10 +1,14 @@
 import * as React from 'react';
 import html2canvas from 'html2canvas';
+import { ResidueConfig } from './ResidueConfig';
+import { DisplayMode } from './types';
+import { CanvasContainer, CanvasLayerImage } from './styled';
 
 const { useState, useRef } = React;
 
 interface ResidueContextValue {
   addLayer: (element: HTMLElement) => void;
+  eventIsEnabled: (event: EventFlag) => boolean;
 }
 
 const ResidueContext = React.createContext<ResidueContextValue | undefined>(
@@ -24,13 +28,28 @@ interface ResidueProps {
   children: React.ReactNode;
 }
 
+export const EventFlags = {
+  linkClick: true,
+  mouseMove: true,
+  mouseClick: true,
+  subtitles: true,
+};
+
+export type EventFlag = keyof typeof EventFlags;
+
 export const ResidueProvider = ({ children }: ResidueProps) => {
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState<boolean>(true);
+  const [canvasLayers, setCanvasLayers] = useState<string[]>([]);
+  const [displayMode, setDisplayMode] = useState<DisplayMode>('mini');
+  const [activeEvents, setActiveEvents] = useState(EventFlags);
 
-  const toggleVisible = () =>
-    setVisible((currentVisibility) => !currentVisibility);
+  /* Config */
+
+  const toggleEvent = (event: EventFlag) =>
+    setActiveEvents((events) => ({ ...events, [event]: !events[event] }));
+
+  const eventIsEnabled = (event: EventFlag) => activeEvents[event];
 
   /* Adding layers */
   const addLayer = (originalElement: HTMLElement) => {
@@ -59,13 +78,16 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
     html2canvas(imageContainer, { scale: 2, backgroundColor: null }).then(
       (newCanvas) => {
         newCanvas.setAttribute('style', 'position: absolute;');
-        canvasContainer.appendChild(newCanvas);
+        const newLayer = newCanvas.toDataURL();
+        setCanvasLayers((layers) => [newLayer, ...layers]);
+        // canvasContainer.appendChild(newCanvas);
       },
     );
   };
 
   const value = {
     addLayer,
+    eventIsEnabled,
   };
 
   return (
@@ -83,31 +105,17 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
         }}
         ref={imageContainerRef}
       />
-
-      <div
-        style={{
-          position: 'fixed',
-          zIndex: 200,
-          bottom: 18,
-          right: 18,
-          opacity: visible ? 1 : 0,
-          border: '3px solid gray',
-          height: '200%',
-          width: '200%',
-          pointerEvents: 'none',
-          transform: 'scale(0.1)',
-          transformOrigin: '100% 100%',
-          outline: '2px solid red',
-        }}
-        ref={canvasContainerRef}
+      <CanvasContainer ref={canvasContainerRef} displayMode={displayMode}>
+        {canvasLayers.map((layer, index) => (
+          <CanvasLayerImage key={layer} src={layer} index={index} />
+        ))}
+      </CanvasContainer>
+      <ResidueConfig
+        events={activeEvents}
+        toggleEvent={toggleEvent}
+        displayMode={displayMode}
+        setDisplayMode={setDisplayMode}
       />
-      <button
-        style={{ position: 'fixed', zIndex: 300, top: '18px', right: '18px' }}
-        type="button"
-        onClick={toggleVisible}
-      >
-        {visible ? 'hide' : 'show'}
-      </button>
       <ResidueContext.Provider value={value}>
         {children}
       </ResidueContext.Provider>
