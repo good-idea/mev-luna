@@ -13,6 +13,9 @@ module.exports = withPlugins([withSourceMaps], {
   images: {
     domains: ['cdn.sanity.io'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   webpack: (config, { isServer, buildId }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
