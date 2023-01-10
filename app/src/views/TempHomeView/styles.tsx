@@ -7,6 +7,7 @@ export const Main = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 `;
 export const BackgroundVideo = styled.video`
   position: absolute;
