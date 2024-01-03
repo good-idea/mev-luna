@@ -1,14 +1,8 @@
 import * as z from 'zod';
-import packageJson from '../../package.json';
-
-const release = packageJson.version;
 
 type Env = 'staging' | 'production' | 'development' | 'test';
 
 const env: Env = (process.env.NODE_ENV as Env) || 'development';
-const context = process.env.CONTEXT;
-
-const isProd = context !== 'sanity' && env === 'production';
 
 const configSchema = z.object({
   env: z.enum(['production', 'development', 'staging', 'test']),
@@ -28,8 +22,8 @@ export type Config = z.infer<typeof configSchema>;
 const initialConfig = {
   env,
   sanity: {
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
+    projectId: 'gdnvm86b',
+    dataset: 'production',
   },
   // sentry: {
   //   dsn: isProd ? process.env.NEXT_PUBLIC_SENTRY_DSN : undefined,
