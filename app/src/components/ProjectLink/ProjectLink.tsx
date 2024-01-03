@@ -11,7 +11,7 @@ interface ProjectLinkProps {
 }
 
 export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
-  const { addLayer, eventIsEnabled } = useResidue();
+  const { captureElementTrace, eventIsEnabled } = useResidue();
   const [isHovered, setIsHovered] = React.useState(false);
   const ref = React.useRef<HTMLAnchorElement>(null);
   const slug = project.slug.current;
@@ -26,7 +26,7 @@ export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
   }, [isHovered]);
   const handleClick = () => {
     if (!ref.current) return;
-    if (eventIsEnabled('linkClick')) addLayer(ref.current);
+    if (eventIsEnabled('linkClick')) captureElementTrace(ref.current);
   };
   const href = ['projects', slug].join('/');
   return (

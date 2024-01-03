@@ -1,13 +1,14 @@
 import * as React from 'react';
 import html2canvas from 'html2canvas';
 import { ResidueConfig } from './ResidueConfig';
-import { DisplayMode } from './types';
+import { Layer, DisplayMode } from './types';
 import { CanvasContainer, CanvasLayerImage } from './styled';
+import { useRouter } from 'next/router';
 
-const { useState, useRef } = React;
+const { useEffect, useState, useRef } = React;
 
 interface ResidueContextValue {
-  addLayer: (element: HTMLElement) => void;
+  captureElementTrace: (element: HTMLElement) => void;
   eventIsEnabled: (event: EventFlag) => boolean;
 }
 
@@ -38,11 +39,25 @@ export const EventFlags = {
 export type EventFlag = keyof typeof EventFlags;
 
 export const ResidueProvider = ({ children }: ResidueProps) => {
+  const router = useRouter();
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
-  const [canvasLayers, setCanvasLayers] = useState<string[]>([]);
+  const [canvasLayers, setCanvasLayers] = useState<Map<string, Layer>>(
+    new Map(),
+  );
   const [displayMode, setDisplayMode] = useState<DisplayMode>('mini');
   const [activeEvents, setActiveEvents] = useState(EventFlags);
+
+  const addLayer = (canvas: HTMLCanvasElement) => {
+    const data = canvas.toDataURL();
+    const layerData = {
+      width: canvas.width,
+      height: canvas.height,
+      data,
+    };
+
+    setCanvasLayers((previous) => new Map(previous).set(data, layerData));
+  };
 
   /* Config */
 
@@ -52,7 +67,7 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
   const eventIsEnabled = (event: EventFlag) => activeEvents[event];
 
   /* Adding layers */
-  const addLayer = (originalElement: HTMLElement) => {
+  const captureElementTrace = (originalElement: HTMLElement) => {
     const imageContainer = imageContainerRef.current;
     const canvasContainer = canvasContainerRef.current;
     if (!imageContainer || !canvasContainer) return;
@@ -72,21 +87,76 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
       '</div>' +
       '</div>';
     imageContainer.innerHTML = html;
-    const newCanvas = document.createElement('canvas');
-    newCanvas.setAttribute('style', '2px solid green');
-    imageContainer.appendChild(newCanvas);
+    const canvas = document.createElement('canvas');
+    canvas.setAttribute('style', '2px solid green');
+    imageContainer.appendChild(canvas);
     html2canvas(imageContainer, { scale: 2, backgroundColor: null }).then(
-      (newCanvas) => {
-        newCanvas.setAttribute('style', 'position: absolute;');
-        const newLayer = newCanvas.toDataURL();
-        setCanvasLayers((layers) => [newLayer, ...layers]);
-        // canvasContainer.appendChild(newCanvas);
+      (canvas) => {
+        canvas.setAttribute('style', 'position: absolute;');
+        addLayer(canvas);
       },
     );
   };
 
+  /* Tracking mouse movement */
+
+  useEffect(() => {
+    const canvas = document.createElement('canvas');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const ctx = canvas.getContext('2d');
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.opacity = '0.5';
+    canvas.style.pointerEvents = 'none';
+    const resizeCanvas = () => {
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+    };
+    if (!ctx) return;
+    ctx.beginPath();
+    const trackMovement = (e: MouseEvent) => {
+      if (activeEvents.mouseMove) {
+        const { clientX, clientY } = e;
+        ctx.strokeStyle = 'rgba(100, 100, 100, 0.1)';
+        ctx.lineTo(clientX, clientY);
+        ctx.stroke();
+        ctx.moveTo(clientX, clientY);
+      }
+    };
+
+    const trackClick = (e: MouseEvent) => {
+      if (activeEvents.mouseClick) {
+        const { clientX, clientY } = e;
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(100, 100, 100, 1)';
+        ctx.arc(clientX, clientY, 10, 0, Math.PI * 2, true);
+        ctx.stroke();
+
+        ctx.moveTo(clientX, clientY);
+      }
+    };
+
+    document.addEventListener('mousedown', trackClick);
+    document.addEventListener('resize', resizeCanvas);
+    document.addEventListener('mousemove', trackMovement);
+    document.body.appendChild(canvas);
+    return () => {
+      addLayer(canvas);
+      document.removeEventListener('mousedown', trackClick);
+      document.removeEventListener('resize', resizeCanvas);
+      document.removeEventListener('mousemove', trackMovement);
+    };
+  }, [
+    Array.from(canvasLayers).length,
+    activeEvents.mouseMove,
+    activeEvents.mouseClick,
+    router.asPath,
+  ]);
+
   const value = {
-    addLayer,
+    captureElementTrace,
     eventIsEnabled,
   };
 
@@ -106,8 +176,8 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
         ref={imageContainerRef}
       />
       <CanvasContainer ref={canvasContainerRef} displayMode={displayMode}>
-        {canvasLayers.map((layer, index) => (
-          <CanvasLayerImage key={layer} src={layer} index={index} />
+        {Array.from(canvasLayers).map(([data, layer], index) => (
+          <CanvasLayerImage key={data} src={layer.data} index={index} />
         ))}
       </CanvasContainer>
       <ResidueConfig

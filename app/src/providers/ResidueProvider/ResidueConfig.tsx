@@ -52,7 +52,6 @@ export const ResidueConfig: React.FC<ResidueConfigProps> = (props) => {
             style={{ marginRight: '4px' }}
             type="radio"
             checked={displayMode === 'hidden'}
-            // @ts-ignore
             onChange={handleSetDisplayMode('hidden')}
           />
           hidden
@@ -65,7 +64,6 @@ export const ResidueConfig: React.FC<ResidueConfigProps> = (props) => {
             style={{ marginRight: '4px' }}
             type="radio"
             checked={displayMode === 'mini'}
-            // @ts-ignore
             onChange={handleSetDisplayMode('mini')}
           />
           mini
@@ -78,10 +76,21 @@ export const ResidueConfig: React.FC<ResidueConfigProps> = (props) => {
             style={{ marginRight: '4px' }}
             type="radio"
             checked={displayMode === 'background'}
-            // @ts-ignore
             onChange={handleSetDisplayMode('background')}
           />
           background
+        </label>
+      </div>
+
+      <div>
+        <label style={{ display: 'flex' }}>
+          <input
+            style={{ marginRight: '4px' }}
+            type="radio"
+            checked={displayMode === 'overlay'}
+            onChange={handleSetDisplayMode('overlay')}
+          />
+          overlay
         </label>
       </div>
     </div>

@@ -15,6 +15,7 @@ import {
   ThumbnailWrapper,
   TitleWrapper,
 } from './styles';
+import { useResidue } from 'src/providers/ResidueProvider';
 
 interface ResearchListItemProps {
   research: Research;
@@ -23,11 +24,18 @@ interface ResearchListItemProps {
 export const ResearchListItem: React.FC<ResearchListItemProps> = ({
   research,
 }) => {
+  const { captureElementTrace, eventIsEnabled } = useResidue();
+  const ref = React.useRef<HTMLAnchorElement>(null);
   const { title, relatedProjects, materials, date, slug, summary, gallery } =
     research;
   const href = slug.current ? `/research/${slug.current}` : null;
   const firstImage = getMediaImages(gallery?.media)[0];
   const allRelatedProjects = definitely(relatedProjects);
+  const handleClick = () => {
+    if (!ref.current) return;
+    if (eventIsEnabled('linkClick')) captureElementTrace(ref.current);
+  };
+
   if (!href) return null;
   return (
     <ResearchListItemWrapper>
@@ -47,7 +55,13 @@ export const ResearchListItem: React.FC<ResearchListItemProps> = ({
               href={`/projects/${project.slug.current}`}
               passHref
             >
-              <x.a fontWeight={3} fontStyle="italic" fontSize={4}>
+              <x.a
+                ref={ref}
+                fontWeight={3}
+                fontStyle="italic"
+                onClick={handleClick}
+                fontSize={4}
+              >
                 {project.title}
                 {index === allRelatedProjects.length - 1 ? '' : ', '}
               </x.a>

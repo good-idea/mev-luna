@@ -16,23 +16,30 @@ export const CanvasContainer = styled.div<CanvasContainerProps>`
     width: 200%;
     height: 200%;
 
-    ${displayMode === 'hidden'
-      ? `
-      display: none;
-      `
-      : displayMode === 'mini'
+    ${displayMode === 'mini'
       ? `
       bottom: 18;
       right: 18;
       border: 3px solid gray;
       transform: scale(0.1);
     `
-      : `
+      : displayMode === 'overlay'
+      ? `
+      top: 20px;
+      left: 20px;
+      width: calc(100vw - 40px);
+      height: calc(100vh - 40px);
+      background-color: white;
+      border: 1px solid black;
+      `
+      : displayMode === 'background'
+      ? `
       z-index: -1;
       bottom: 0;
       right: 0;
       transform: scale(0.5);
-    `}
+    `
+      : 'display: none'}
   `}
 `;
 
@@ -41,13 +48,10 @@ interface CanvasLayerImageProps {
 }
 
 export const CanvasLayerImage = styled.img<CanvasLayerImageProps>`
-  ${({ index }) => css`
+  ${() => css`
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: ${0.5 - index / 10};
     filter: blur(2px);
     transition: 2s;
   `}

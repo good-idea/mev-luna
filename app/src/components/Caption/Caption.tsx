@@ -9,12 +9,12 @@ interface CaptionProps {
 }
 
 export const Caption: React.FC<CaptionProps> = ({ text }) => {
-  const { addLayer, eventIsEnabled } = useResidue();
+  const { captureElementTrace, eventIsEnabled } = useResidue();
   const ref = useRef<HTMLAnchorElement>(null);
   const isEnabled = eventIsEnabled('subtitles');
   if (!text) return null;
   useEffect(() => {
-    if (isEnabled && ref.current) addLayer(ref.current);
+    if (isEnabled && ref.current) captureElementTrace(ref.current);
   }, [isEnabled]);
   return (
     <CaptionWrapper>
