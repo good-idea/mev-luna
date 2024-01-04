@@ -110,6 +110,7 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
     canvas.style.left = '0';
     canvas.style.opacity = '0.5';
     canvas.style.pointerEvents = 'none';
+    canvas.style.filter = 'blur(30px)';
     const resizeCanvas = () => {
       canvas.height = window.innerHeight;
       canvas.width = window.innerWidth;
@@ -120,6 +121,7 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
       if (activeEvents.mouseMove) {
         const { clientX, clientY } = e;
         ctx.strokeStyle = 'rgba(100, 100, 100, 0.1)';
+        ctx.lineWidth = 5;
         ctx.lineTo(clientX, clientY);
         ctx.stroke();
         ctx.moveTo(clientX, clientY);

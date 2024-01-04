@@ -52,7 +52,7 @@ export const CanvasLayerImage = styled.img<CanvasLayerImageProps>`
     position: absolute;
     top: 0;
     left: 0;
-    filter: blur(2px);
+    filter: blur(50px);
     transition: 2s;
   `}
 `;

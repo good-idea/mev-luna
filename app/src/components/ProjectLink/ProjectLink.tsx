@@ -1,17 +1,14 @@
 import * as React from 'react';
 import Link from 'next/link';
-import { useResidue } from '../../providers/ResidueProvider';
 import { ProjectLinkAnchor, ProjectLinkSpan } from './styles';
 import { Project } from '../../types';
 import { Strong } from '../Text';
-import { Caption } from '../Caption';
 
 interface ProjectLinkProps {
   project: Project;
 }
 
 export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
-  const { captureElementTrace, eventIsEnabled } = useResidue();
   const [isHovered, setIsHovered] = React.useState(false);
   const ref = React.useRef<HTMLAnchorElement>(null);
   const slug = project.slug.current;
@@ -24,10 +21,6 @@ export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
     if (!isHovered) return;
     if (!ref.current) return;
   }, [isHovered]);
-  const handleClick = () => {
-    if (!ref.current) return;
-    if (eventIsEnabled('linkClick')) captureElementTrace(ref.current);
-  };
   const href = ['projects', slug].join('/');
   return (
     <>
@@ -36,7 +29,6 @@ export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
           ref={ref}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onClick={handleClick}
         >
           <ProjectLinkSpan>†</ProjectLinkSpan>
           <ProjectLinkSpan>
@@ -44,9 +36,6 @@ export const ProjectLink: React.FC<ProjectLinkProps> = ({ project }) => {
           </ProjectLinkSpan>
         </ProjectLinkAnchor>
       </Link>
-      {isHovered && project.hoverImage ? (
-        <Caption text={project.hoverImage?.altText} />
-      ) : null}
     </>
   );
 };
