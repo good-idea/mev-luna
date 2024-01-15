@@ -30,7 +30,7 @@ interface ResidueProps {
 }
 
 export const EventFlags = {
-  linkClick: true,
+  linkClick: false,
   mouseMove: true,
   mouseClick: true,
   subtitles: true,
@@ -45,7 +45,7 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
   const [canvasLayers, setCanvasLayers] = useState<Map<string, Layer>>(
     new Map(),
   );
-  const [displayMode, setDisplayMode] = useState<DisplayMode>('mini');
+  const [displayMode, setDisplayMode] = useState<DisplayMode>('background');
   const [activeEvents, setActiveEvents] = useState(EventFlags);
 
   const addLayer = (canvas: HTMLCanvasElement) => {

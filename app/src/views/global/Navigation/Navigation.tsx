@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { FC } from 'react';
 import { useRouter } from 'next/router';
 import { x } from '@xstyled/styled-components';
 import Link from 'next/link';
@@ -10,17 +10,15 @@ interface NavItemProps {
   to: string;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ label, to }) => {
+const NavItem: FC<NavItemProps> = ({ label, to }) => {
   const { asPath } = useRouter();
   const isActive = to === asPath;
   return (
     <NavItemWrapper isActive={isActive}>
       <Link href={to}>
-        <a>
-          <x.span fontWeight={2} fontSize={4}>
-            <Strong>{label}</Strong>
-          </x.span>
-        </a>
+        <x.span fontWeight={2} fontSize={4}>
+          <Strong>{label}</Strong>
+        </x.span>
       </Link>
     </NavItemWrapper>
   );

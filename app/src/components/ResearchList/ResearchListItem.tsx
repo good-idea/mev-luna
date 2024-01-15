@@ -55,7 +55,7 @@ export const ResearchListItem: React.FC<ResearchListItemProps> = ({
               href={`/projects/${project.slug.current}`}
               passHref
             >
-              <x.a
+              <x.span
                 ref={ref}
                 fontWeight={3}
                 fontStyle="italic"
@@ -64,7 +64,7 @@ export const ResearchListItem: React.FC<ResearchListItemProps> = ({
               >
                 {project.title}
                 {index === allRelatedProjects.length - 1 ? '' : ', '}
-              </x.a>
+              </x.span>
             </Link>
           ))}
         </ProjectsWrapper>

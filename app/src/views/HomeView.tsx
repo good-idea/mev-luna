@@ -11,8 +11,8 @@ export const HomeView: React.FC<HomeViewProps> = ({ homepage }) => {
   const projectMenu = definitely(homepage?.projectMenu);
   return (
     <>
-      {projectMenu.map((project) => (
-        <ProjectLink key={project._id} project={project} />
+      {projectMenu.map((project, index) => (
+        <ProjectLink key={project._id} project={project} index={index} />
       ))}
     </>
   );
