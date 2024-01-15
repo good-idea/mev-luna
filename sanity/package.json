@@ -7,40 +7,29 @@
   "author": "Joseph Thomas <joseph@good-idea.studio>",
   "license": "UNLICENSED",
   "scripts": {
+    "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
-    "deploy": "yarn deploy:cms",
-    "deploy:cms": "yarn sanity deploy",
+    "deploy": "sanity deploy",
     "sync:export": "sanity dataset export production",
     "sync:reset": "sanity dataset delete staging && yarn sanity dataset create staging",
     "sync:import": "sanity dataset import production.tar.gz staging --replace",
     "sync:cleanup": "rm production.tar.gz",
-    "generate-types": "yarn sanity-codegen schema-codegen && yarn prettier ../types/** --write",
     "sync": "yarn sync:reset && yarn sync:export && yarn sync:import && yarn sync:cleanup"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.33.2",
-    "@sanity/core": "^2.33.2",
-    "@sanity/default-layout": "^2.33.2",
-    "@sanity/default-login": "^2.33.2",
-    "@sanity/desk-tool": "^2.33.2",
-    "@sanity/vision": "^2.33.2",
+    "@sanity/vision": "^3.24.1",
     "prop-types": "^15.8",
     "react": "^18.2",
     "react-dom": "^18.2",
-    "react-icons": "^4.4.0",
-    "sanity-plugin-media": "^1.4.11",
-    "styled-components": "^5.3.5"
+    "react-icons": "^5.0.1",
+    "sanity": "^3.23.4",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
-    "@sanity-codegen/cli": "^1.0.0-alpha.13",
-    "@sanity/cli": "^2.33.2",
-    "@types/prop-types": "^15.7.5",
-    "@types/react": "^18.0.20",
-    "@types/react-dom": "^18.0.6",
-    "@types/styled-components": "^5.1.26"
+    "@types/react": "^18.2.48"
   }
 }

@@ -1,4 +1,4 @@
-import S from '@sanity/desk-tool/structure-builder';
+import { StructureBuilder, StructureResolver } from 'sanity/desk';
 import { BiHomeSmile } from 'react-icons/bi';
 import { AiOutlineContacts } from 'react-icons/ai';
 import {
@@ -9,7 +9,7 @@ import {
   IoSettingsOutline,
 } from 'react-icons/io5';
 
-export default () =>
+export const structure: StructureResolver = (S) =>
   S.list()
     .title('Mev Luna')
     .items([

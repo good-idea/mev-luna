@@ -1,11 +1,6 @@
-const webpack = require('webpack');
 const withPlugins = require('next-compose-plugins');
-const withSourceMaps = require('@zeit/next-source-maps');
-const SentryWebpackPlugin = require('@sentry/webpack-plugin');
-const dotenv = require('dotenv');
-const packageJson = require('./package.json');
 
-module.exports = withPlugins([withSourceMaps], {
+module.exports = withPlugins([], {
   webpack5: true,
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname,

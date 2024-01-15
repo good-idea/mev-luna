@@ -9,9 +9,6 @@ export const richImage = {
       type: 'string',
       validation: (Rule) => Rule.required(),
       codegen: { required: true },
-      options: {
-        isHighlighted: true,
-      },
     },
   ],
 };

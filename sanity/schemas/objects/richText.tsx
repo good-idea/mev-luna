@@ -27,9 +27,7 @@ export const richText = {
           {
             name: 'footnote',
             title: 'Footnote',
-            blockEditor: {
-              icon: <span>†</span>,
-            },
+            icon: <span>†</span>,
             type: 'object',
             fields: [
               {
