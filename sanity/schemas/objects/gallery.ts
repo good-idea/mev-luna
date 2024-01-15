@@ -11,12 +11,12 @@ export const gallery = {
         {
           type: 'richImage',
         },
-        {
-          type: 'audio',
-        },
-        {
-          type: 'video',
-        },
+        // {
+        //   type: 'audio',
+        // },
+        // {
+        //   type: 'video',
+        // },
       ],
     },
   ],

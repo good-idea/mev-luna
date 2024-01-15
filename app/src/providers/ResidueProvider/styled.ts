@@ -5,7 +5,7 @@ interface CanvasContainerProps {
   displayMode: DisplayMode;
 }
 
-export const CanvasContainer = styled.div<CanvasContainerProps>`
+export const CanvasContainer = styled.divBox<CanvasContainerProps>`
   ${({ displayMode }) => css`
     position: fixed;
     z-index: 200;
@@ -24,7 +24,7 @@ export const CanvasContainer = styled.div<CanvasContainerProps>`
       transform: scale(0.1);
     `
       : displayMode === 'overlay'
-      ? `
+        ? `
       top: 20px;
       left: 20px;
       width: calc(100vw - 40px);
@@ -32,14 +32,14 @@ export const CanvasContainer = styled.div<CanvasContainerProps>`
       background-color: white;
       border: 1px solid black;
       `
-      : displayMode === 'background'
-      ? `
+        : displayMode === 'background'
+          ? `
       z-index: -1;
       bottom: 0;
       right: 0;
       transform: scale(0.5);
     `
-      : 'display: none'}
+          : 'display: none'}
   `}
 `;
 
@@ -47,7 +47,7 @@ interface CanvasLayerImageProps {
   index: number;
 }
 
-export const CanvasLayerImage = styled.img<CanvasLayerImageProps>`
+export const CanvasLayerImage = styled.imgBox<CanvasLayerImageProps>`
   ${() => css`
     position: absolute;
     top: 0;

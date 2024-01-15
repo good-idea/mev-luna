@@ -29,7 +29,7 @@ export const ResearchListItem: React.FC<ResearchListItemProps> = ({
   const { title, relatedProjects, materials, date, slug, summary, gallery } =
     research;
   const href = slug.current ? `/research/${slug.current}` : null;
-  const firstImage = getMediaImages(gallery?.media)[0];
+  const firstImage = getMediaImages(definitely(gallery?.media))[0];
   const allRelatedProjects = definitely(relatedProjects);
   const handleClick = () => {
     if (!ref.current) return;

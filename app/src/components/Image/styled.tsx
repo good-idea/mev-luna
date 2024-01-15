@@ -1,6 +1,6 @@
-import styled, { DefaultTheme, css } from 'styled-components';
+import styled, { DefaultTheme, css } from '@xstyled/styled-components';
 
-export const HoverImageWrapper = styled.div`
+export const HoverImageWrapper = styled.divBox`
   > img {
     position: absolute;
     top: 0;
@@ -12,7 +12,7 @@ export const HoverImageWrapper = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.divBox`
   position: relative;
   text-align: left;
   width: 100%;
@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Caption = styled.span`
+export const Caption = styled.spanBox`
   margin-top: 1;
 `;
 
@@ -32,7 +32,7 @@ interface PictureProps {
   objectFit?: string;
 }
 
-export const Picture = styled.picture`
+export const Picture = styled.pictureBox`
   ${({ loaded, objectFit }: PictureProps) => css`
     max-height: 100%;
     max-width: 100%;
@@ -51,7 +51,7 @@ export const Picture = styled.picture`
   `}
 `;
 
-export const PreloadWrapper = styled.div`
+export const PreloadWrapper = styled.divBox`
   position: fixed;
   top: -500px;
   left: -500px;
@@ -62,7 +62,7 @@ export const PreloadWrapper = styled.div`
   z-index: -100;
 `;
 
-export const RatioImageFill = styled.div`
+export const RatioImageFill = styled.divBox`
   display: block;
 
   & + picture > img {

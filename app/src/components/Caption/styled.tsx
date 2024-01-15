@@ -1,6 +1,6 @@
 import styled from '@xstyled/styled-components';
 
-export const CaptionWrapper = styled.div`
+export const CaptionWrapper = styled.divBox`
   position: fixed;
   z-index: caption;
   padding: 3;
@@ -12,7 +12,7 @@ export const CaptionWrapper = styled.div`
   justify-content: center;
 `;
 
-export const CaptionText = styled.span`
+export const CaptionText = styled.spanBox`
   text-align: center;
   marign: 0 auto;
   font-size: 42px;

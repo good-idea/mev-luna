@@ -1,10 +1,10 @@
-import Client from '@sanity/client';
+import { createClient } from '@sanity/client';
 import { config } from '../config';
 
 const { sanity, env } = config;
 const { projectId, dataset } = sanity;
 
-export const sanityClient = new Client({
+export const sanityClient = createClient({
   projectId,
   dataset,
   useCdn: env === 'production',

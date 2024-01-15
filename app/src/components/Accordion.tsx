@@ -6,7 +6,7 @@ interface ArrowIconSpanProps {
   isOpen: boolean;
 }
 
-const ArrowIconSpan = styled.span<ArrowIconSpanProps>`
+const ArrowIconSpan = styled.spanBox<ArrowIconSpanProps>`
   ${({ isOpen }) => css`
     display: inline-block;
     transform: ${isOpen

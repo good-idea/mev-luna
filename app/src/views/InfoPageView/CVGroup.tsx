@@ -1,18 +1,17 @@
 import * as React from 'react';
-import { CVGroup as CVGroupType, CVItem } from '../../types';
+import { KeyedArray, CVGroup as CVGroupType, CVItem } from '../../types';
 import { BodyHeading, Ul, Li } from '../../components/Text';
-import { definitely } from '../../utils';
 import { CVGroupWrapper, CVGroupYear } from './styles';
 
 interface EntriesGroupedByYear {
   year: string;
-  entries: Sanity.Keyed<CVItem>[];
+  entries: KeyedArray<CVItem>;
 }
 
 const groupEntriesByYear = (
-  entries: Sanity.Keyed<CVItem>[],
+  entries: KeyedArray<CVItem>,
 ): EntriesGroupedByYear[] => {
-  const record = entries.reduce<Record<number, Sanity.Keyed<CVItem>[]>>(
+  const record = entries.reduce<Record<number, KeyedArray<CVItem>>>(
     (prevYears, entry) => {
       const year = entry.yearStart;
       const prevEntries = prevYears[year] || [];

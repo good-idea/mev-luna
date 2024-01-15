@@ -8,7 +8,7 @@ interface NewsLineItemProps {
   newsItem: NewsItem;
 }
 
-const HoverImageWrapper = styled.div`
+const HoverImageWrapper = styled.divBox`
   position: absolute;
   left: 0;
   top: 0;
@@ -16,7 +16,7 @@ const HoverImageWrapper = styled.div`
   opacity: 0;
 `;
 
-const LineItemWrapper = styled.li`
+const LineItemWrapper = styled.liBox`
   padding-left: 290px;
   position: relative;
   list-style-type: none;

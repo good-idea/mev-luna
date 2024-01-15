@@ -5,7 +5,7 @@ import { Image } from '../Image';
 
 const { useCallback } = React;
 
-const GalleryItemWrapper = styled.div`
+const GalleryItemWrapper = styled.divBox`
   & + & {
     margin-top: 4;
   }

@@ -44,6 +44,5 @@ export const research = {
       title: 'Media',
       type: 'gallery',
     },
-    { name: 'seo', title: 'SEO', type: 'seo' },
   ],
 };

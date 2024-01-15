@@ -1,6 +1,6 @@
 import styled from '@xstyled/styled-components';
 
-export const RichTextWrapper = styled.div`
+export const RichTextWrapper = styled.divBox`
   h1,
   h2,
   h3,

@@ -1,6 +1,6 @@
 import styled, { css } from '@xstyled/styled-components';
 
-export const Nav = styled.nav`
+export const Nav = styled.navBox`
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@ export const Nav = styled.nav`
 interface NavItemWrapperProps {
   isActive: boolean;
 }
-export const NavItemWrapper = styled.div<NavItemWrapperProps>`
+export const NavItemWrapper = styled.divBox<NavItemWrapperProps>`
   ${({ isActive }) => css`
     color: ${isActive ? 'mauve' : 'inherit'};
     display: inline;
