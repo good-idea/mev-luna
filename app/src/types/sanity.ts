@@ -151,7 +151,14 @@ export type SEO = {
   keywords: string;
 };
 
-export type Media = RichImage;
+export type Video = {
+  _type: 'video';
+  title: string;
+  aspectRatio: string;
+  vimeoId: string;
+};
+
+export type Media = RichImage | Video;
 // export type Media = Audio | Video | RichImage
 // export type Audio = {}
 // export type Video = {}

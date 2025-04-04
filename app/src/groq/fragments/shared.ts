@@ -32,14 +32,12 @@ export const audioFragment = `
 export const videoFragment = `
   _type,
   title,
-  versions[]{
-    label,
-    vimeoId
-  },
+  aspectRatio,
+  vimeoId
 `;
 
 export const galleryFragment = `
-_type,
+  _type,
   title,
   media[]{
     _type == 'richImage' => {
