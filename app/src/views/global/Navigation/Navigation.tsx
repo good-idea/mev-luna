@@ -4,6 +4,7 @@ import { x } from '@xstyled/styled-components';
 import Link from 'next/link';
 import { Nav, NavItemWrapper } from './styled';
 import { Strong } from '../../../components/Text';
+import { isEnabled } from 'src/config/featureFlags';
 
 interface NavItemProps {
   label: string;
@@ -29,7 +30,7 @@ export const Navigation: React.FC = () => {
     <Nav>
       <NavItem to="/" label="Mev Luna" />
       <NavItem to="/research" label="Research" />
-      <NavItem to="/news" label="News" />
+      {isEnabled('newsPage') ? <NavItem to="/news" label="News" /> : null}
       <NavItem to="/info" label="Info" />
     </Nav>
   );

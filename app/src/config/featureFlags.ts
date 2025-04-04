@@ -4,8 +4,15 @@ type FeatureFlag = {
   PRODUCTION: boolean;
 };
 
-const flags: Record<string, FeatureFlag> = {
+type FlagName = 'residueDebugger' | 'newsPage';
+
+const flags: Record<FlagName, FeatureFlag> = {
   residueDebugger: {
+    DEV: true,
+    STAGING: false,
+    PRODUCTION: false,
+  },
+  newsPage: {
     DEV: true,
     STAGING: false,
     PRODUCTION: false,

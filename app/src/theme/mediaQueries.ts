@@ -12,6 +12,6 @@
  * `
  */
 
-export const mobile = '@media screen and (max-width: 580px)'
-export const tablet = '@media screen and (max-width: 960px)'
-export const desktop = '@media screen and (max-width: 1200px)'
+export const mobile = '@media screen and (max-width: 580px)';
+export const tablet = '@media screen and (min-width: 960px)';
+export const desktop = '@media screen and (min-width: 1200px)';

@@ -1,4 +1,5 @@
 import styled from '@xstyled/styled-components';
+import * as mediaQueries from '../../theme/mediaQueries';
 
 export const ResearchListWrapper = styled.ulBox`
   list-style: none;
@@ -7,14 +8,20 @@ export const ResearchListWrapper = styled.ulBox`
 
 export const ResearchListItemWrapper = styled.liBox`
   border-bottom: 1px solid black;
-  padding: 3 0;
+  padding: 5 0;
+  ${mediaQueries.tablet} {
+    padding: 3 0;
+  }
   display: block;
 `;
 
 export const ResearchListItemInner = styled.divBox`
   display: grid;
   grid-column-gap: 10px;
-  grid-template-columns: 270px 120px 120px 1fr 1fr 150px;
+  grid-template-columns: 1fr;
+  ${mediaQueries.desktop} {
+    grid-template-columns: 270px 120px 120px 1fr 1fr 150px;
+  }
 `;
 
 export const TitleWrapper = styled.spanBox`

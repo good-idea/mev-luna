@@ -61,7 +61,7 @@ export const CVGroup: React.FC<CVGroupProps> = ({ group }) => {
       ) : (
         <Ul>
           {entries.map((entry) => (
-            <Li key={entry._key}>
+            <Li mb={2} key={entry._key}>
               <span>{getEntryYear(entry)}&nbsp;</span>
               {entry.text}
             </Li>

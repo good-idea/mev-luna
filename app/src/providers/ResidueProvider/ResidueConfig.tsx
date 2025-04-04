@@ -1,6 +1,24 @@
 import * as React from 'react';
 import { EventFlags, EventFlag } from './ResidueProvider';
 import { DisplayMode } from './types';
+import styled from '@xstyled/styled-components';
+
+const Wrapper = styled.divBox`
+  position: fixed;
+  z-index: 300;
+  padding: 8px;
+  border-radius: 3px;
+  top: 18px;
+  right: 18px;
+  background-color: white;
+  border: 2px solid #c1c0c0;
+  box-shadow: 0px 1px 2px #cac1c1;
+
+  display: none;
+  @media screen and (min-width: 800px) {
+    display: block;
+  }
+`;
 
 interface ResidueConfigProps {
   events: Record<EventFlag, boolean>;
@@ -15,19 +33,7 @@ export const ResidueConfig: React.FC<ResidueConfigProps> = (props) => {
   const handleSetDisplayMode = (mode: DisplayMode) => () =>
     setDisplayMode(mode);
   return (
-    <div
-      style={{
-        position: 'fixed',
-        zIndex: 300,
-        padding: '8px',
-        borderRadius: '3px',
-        top: '18px',
-        right: '18px',
-        backgroundColor: 'white',
-        border: '2px solid #c1c0c0',
-        boxShadow: '0px 1px 2px #cac1c1',
-      }}
-    >
+    <Wrapper>
       <div style={{ marginBottom: '4px' }}>Residue Events</div>
       {Object.keys(EventFlags).map((key) => (
         <div key={key}>
@@ -93,6 +99,6 @@ export const ResidueConfig: React.FC<ResidueConfigProps> = (props) => {
           overlay
         </label>
       </div>
-    </div>
+    </Wrapper>
   );
 };
