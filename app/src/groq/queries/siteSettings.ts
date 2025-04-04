@@ -1,10 +1,7 @@
-import { projectLinkFragment } from '../fragments';
+import { seoFragment } from '../fragments/seo';
 
 export const siteSettingsQuery = `
-{
-  "projects": *[_type == 'project']{
-    ${projectLinkFragment}
-  },
-  "infoPage": *[_id == "infoPage"][0]
-}
+  *[_id == 'siteSettings'][0]{
+    ${seoFragment}
+  }
 `;

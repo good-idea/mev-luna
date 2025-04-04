@@ -3,6 +3,7 @@ import {
   imageFragment,
   galleryFragment,
 } from '../fragments';
+import { seoFragment } from '../fragments/seo';
 
 export const projectQuery = `
   _id,
@@ -21,5 +22,5 @@ export const projectQuery = `
   relatedResearch[]->{
     ${researchLinkFragment}
   },
-  seo
+  ${seoFragment}
 `;

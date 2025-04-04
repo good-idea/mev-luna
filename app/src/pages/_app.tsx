@@ -2,6 +2,7 @@ import * as React from 'react';
 import { NextRouter } from 'next/router';
 import Head from 'next/head';
 import { Providers } from '../providers';
+import { SEO } from '../components/SEO';
 import { Main } from '../components/Layout';
 import { Navigation } from '../views/global';
 
@@ -14,6 +15,10 @@ interface AppProps {
 const App = (props: AppProps) => {
   const { Component, pageProps: allPageProps } = props;
   const { siteSettings, ...pageProps } = allPageProps;
+  const mergedSEO = {
+    ...siteSettings?.seo,
+    ...pageProps?.seo,
+  };
 
   return (
     <Providers>
@@ -25,6 +30,7 @@ const App = (props: AppProps) => {
         <link rel="stylesheet" href="/static/fonts/fonts.css" />
         <link rel="icon" href="/static/favicon.png" />
       </Head>
+      <SEO seo={mergedSEO} />
       <>
         <Navigation />
         <Main>

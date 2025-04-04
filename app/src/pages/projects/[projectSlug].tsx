@@ -2,8 +2,8 @@ import * as React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ProjectView } from '../../views/ProjectView';
 import { sanityClient } from '../../services';
-import { Project } from '../../types';
-import { projectQuery } from '../../groq';
+import { Project, SiteSettings } from '../../types';
+import { projectQuery, siteSettingsQuery } from '../../groq';
 
 interface ProjectProps {
   project: Project;
@@ -27,12 +27,15 @@ export const getStaticProps: GetStaticProps<ProjectProps, Params> = async ({
   if (!projectSlug) {
     throw new Error('No project slug was provided for this route');
   }
-  const project = await sanityClient.fetch<Project | null>(
-    `*[_type == "project" && slug.current == $projectSlug]{
+  const [siteSettings, project] = await Promise.all([
+    sanityClient.fetch<SiteSettings>(siteSettingsQuery),
+    sanityClient.fetch<Project | null>(
+      `*[_type == "project" && slug.current == $projectSlug]{
       ${projectQuery}
     }[0]`,
-    { projectSlug },
-  );
+      { projectSlug },
+    ),
+  ]);
 
   if (!project) {
     throw new Error(`No project with slug "${projectSlug}" was found`);
@@ -40,6 +43,7 @@ export const getStaticProps: GetStaticProps<ProjectProps, Params> = async ({
 
   return {
     props: {
+      siteSettings,
       projectSlug,
       project,
     },

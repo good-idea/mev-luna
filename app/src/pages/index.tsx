@@ -30,6 +30,7 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     `),
   ]);
+  console.log({ siteSettings });
 
   return {
     props: {
