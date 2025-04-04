@@ -4,6 +4,14 @@ type FeatureFlag = {
   PRODUCTION: boolean;
 };
 
+const flags: Record<string, FeatureFlag> = {
+  residueDebugger: {
+    DEV: true,
+    STAGING: false,
+    PRODUCTION: false,
+  },
+};
+
 export function isEnabled(flagName: keyof typeof flags): boolean {
   const flag = flags[flagName];
   if (!flag) {
@@ -21,15 +29,9 @@ export function isEnabled(flagName: keyof typeof flags): boolean {
     case 'preview':
       return flag.STAGING;
     default:
-      console.warn(`Unexpected environment "${currentEnv}" for feature flag "${flagName}".`);
+      console.warn(
+        `Unexpected environment "${currentEnv}" for feature flag "${flagName}".`,
+      );
       return false;
   }
 }
-
-const flags: Record<string, FeatureFlag> = {
-  residueDebugger: {
-    DEV: true,
-    STAGING: false,
-    PRODUCTION: false,
-  },
-};

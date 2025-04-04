@@ -4,6 +4,7 @@ import { ResidueConfig } from './ResidueConfig';
 import { Layer, DisplayMode } from './types';
 import { CanvasContainer, CanvasLayerImage } from './styled';
 import { useRouter } from 'next/router';
+import { isEnabled } from 'src/config/featureFlags';
 
 const { useEffect, useState, useRef } = React;
 
@@ -182,12 +183,14 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
           <CanvasLayerImage key={data} src={layer.data} index={index} />
         ))}
       </CanvasContainer>
-      <ResidueConfig
-        events={activeEvents}
-        toggleEvent={toggleEvent}
-        displayMode={displayMode}
-        setDisplayMode={setDisplayMode}
-      />
+      {isEnabled('residueDebugger') ? (
+        <ResidueConfig
+          events={activeEvents}
+          toggleEvent={toggleEvent}
+          displayMode={displayMode}
+          setDisplayMode={setDisplayMode}
+        />
+      ) : null}
       <ResidueContext.Provider value={value}>
         {children}
       </ResidueContext.Provider>
