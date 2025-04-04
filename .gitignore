@@ -27,3 +27,5 @@ types-uml.svg
 .sanity-temp
 
 .vercel
+.aider.*
+.aider*
