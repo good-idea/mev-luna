@@ -14,9 +14,9 @@ export const gallery = {
         // {
         //   type: 'audio',
         // },
-        // {
-        //   type: 'video',
-        // },
+        {
+          type: 'video',
+        },
       ],
     },
   ],
