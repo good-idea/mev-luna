@@ -28,7 +28,7 @@ export type InfoPage = SanityDocument & {
     contents: RichText;
   };
   cv: KeyedArray<CVGroup>;
-  seo: SEO;
+  seo?: SEO;
 };
 
 export type NewsItem = SanityDocument & {
@@ -55,6 +55,7 @@ export type Project = SanityDocument & {
   materials?: RichText;
   notes?: RichText;
   relatedResearch?: KeyedArray<Research>;
+  seo?: SEO;
 };
 
 export type Research = SanityDocument & {

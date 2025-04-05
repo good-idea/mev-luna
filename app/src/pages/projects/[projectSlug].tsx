@@ -4,20 +4,33 @@ import { ProjectView } from '../../views/ProjectView';
 import { sanityClient } from '../../services';
 import { Project, SiteSettings } from '../../types';
 import { projectQuery, siteSettingsQuery } from '../../groq';
+import { SEO } from 'src/components/SEO';
+import { definitely } from 'src/utils';
 
 interface ProjectProps {
   project: Project;
+  siteSettings: SiteSettings;
 }
 
 type Params = {
   projectSlug: string;
 };
 
-const Project: React.FC<ProjectProps> = ({ project }) => {
+const Project: React.FC<ProjectProps> = ({ siteSettings, project }) => {
   if (!project) {
     return null;
   }
-  return <ProjectView project={project} />;
+  const mergedSeo = {
+    ...siteSettings?.seo,
+    title: definitely([project.title, siteSettings?.seo?.title]).join(' | '),
+    ...project?.seo,
+  };
+  return (
+    <>
+      <SEO seo={mergedSeo} />
+      <ProjectView project={project} />
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<ProjectProps, Params> = async ({

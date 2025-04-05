@@ -1,34 +1,50 @@
 import * as React from 'react';
 import { GetStaticProps } from 'next';
 import { NewsView } from '../views/NewsView';
-// import { SEO } from '../components/SEO';
+import { SEO } from 'src/components/SEO';
 import { sanityClient } from '../services';
-import { NewsPage, NewsItem } from '../types';
+import { NewsPage, NewsItem, SiteSettings } from '../types';
+import { siteSettingsQuery } from 'src/groq';
+import { definitely } from 'src/utils';
 
 interface NewsProps {
   newsItems?: NewsItem[];
   newsPage: NewsPage;
+  siteSettings: SiteSettings;
 }
 
-const News: React.FC<NewsProps> = ({ newsItems, newsPage }) => (
-  <>
-    <NewsView newsItems={newsItems || []} newsPage={newsPage} />
-  </>
-);
+const News: React.FC<NewsProps> = ({ siteSettings, newsItems, newsPage }) => {
+  const mergedSeo = {
+    ...siteSettings?.seo,
+    title: definitely(['News', siteSettings?.seo?.title]).join(' | '),
+    ...newsPage?.seo,
+  };
+
+  return (
+    <>
+      <SEO seo={mergedSeo} />
+      <NewsView newsItems={newsItems || []} newsPage={newsPage} />
+    </>
+  );
+};
 
 export const getStaticProps: GetStaticProps<NewsProps> = async () => {
-  const { newsItems, newsPage } = await sanityClient.fetch<{
-    newsItems: NewsItem[];
-    newsPage: NewsPage;
-  }>(
-    `{
+  const [siteSettings, { newsItems, newsPage }] = await Promise.all([
+    sanityClient.fetch<SiteSettings>(siteSettingsQuery),
+    sanityClient.fetch<{
+      newsItems: NewsItem[];
+      newsPage: NewsPage;
+    }>(
+      `{
       "newsItems": *[_type == "newsItem"][],
       "newsPage": *[_type == "newsPage"][0]
     }
     `,
-  );
+    ),
+  ]);
   return {
     props: {
+      siteSettings,
       newsItems,
       newsPage,
     },

@@ -4,13 +4,26 @@ import { InfoPageView } from '../views/InfoPageView';
 import { sanityClient } from '../services';
 import { InfoPage as InfoPageType, SiteSettings } from '../types';
 import { siteSettingsQuery } from 'src/groq';
+import { definitely } from 'src/utils';
+import { SEO } from 'src/components/SEO';
 
 interface InfoPageProps {
   infoPage: InfoPageType;
+  siteSettings: SiteSettings;
 }
 
-const InfoPage: React.FC<InfoPageProps> = ({ infoPage }) => {
-  return <InfoPageView infoPage={infoPage} />;
+const InfoPage: React.FC<InfoPageProps> = ({ siteSettings, infoPage }) => {
+  const mergedSeo = {
+    ...siteSettings?.seo,
+    title: definitely(['Info', siteSettings?.seo?.title]).join(' | '),
+    ...infoPage?.seo,
+  };
+  return (
+    <>
+      <SEO seo={mergedSeo} />
+      <InfoPageView infoPage={infoPage} />;
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps<InfoPageProps> = async () => {

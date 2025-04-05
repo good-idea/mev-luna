@@ -1,22 +1,36 @@
 import * as React from 'react';
 import { GetStaticProps } from 'next';
 import { ResearchView } from '../views/ResearchView';
-// import { SEO } from '../components/SEO';
+import { SEO } from 'src/components/SEO';
 import { sanityClient } from '../services';
 import { ResearchPage, Research as ResearchType, SiteSettings } from '../types';
 import { researchLinkFragment, siteSettingsQuery } from '../groq';
+import { definitely } from 'src/utils';
 
 interface ResearchProps {
   research?: ResearchType[];
   researchPage: ResearchPage;
+  siteSettings: SiteSettings;
 }
 
-// <SEO seo={researchPage.seo} />
-const Research: React.FC<ResearchProps> = ({ research, researchPage }) => (
-  <>
-    <ResearchView researchPage={researchPage} research={research || []} />
-  </>
-);
+const Research: React.FC<ResearchProps> = ({
+  siteSettings,
+  research,
+  researchPage,
+}) => {
+  const mergedSeo = {
+    ...siteSettings?.seo,
+    title: definitely(['Research', siteSettings?.seo?.title]).join(' | '),
+    ...researchPage?.seo,
+  };
+
+  return (
+    <>
+      <SEO seo={mergedSeo} />
+      <ResearchView researchPage={researchPage} research={research || []} />
+    </>
+  );
+};
 
 export const getStaticProps: GetStaticProps<ResearchProps> = async () => {
   const [siteSettings, { research, researchPage }] = await Promise.all([
