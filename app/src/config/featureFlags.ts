@@ -14,8 +14,8 @@ const flags: Record<FlagName, FeatureFlag> = {
   },
   newsPage: {
     DEV: true,
-    STAGING: false,
-    PRODUCTION: false,
+    STAGING: true,
+    PRODUCTION: true,
   },
 };
 
