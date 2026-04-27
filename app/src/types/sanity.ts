@@ -76,7 +76,7 @@ export type ResearchPage = SanityDocument & {
 
 export type SiteSettings = SanityDocument & {
   _type: 'siteSettings';
-  seo?: SEO;
+  seo?: Partial<SEO>;
 };
 
 /**

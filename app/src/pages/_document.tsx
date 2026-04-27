@@ -37,7 +37,10 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <link rel="stylesheet" href="/static/fonts/fonts.css" />
+          <link rel="icon" href="/static/favicon.png" />
+        </Head>
         <body>
           <Main />
           <NextScript />

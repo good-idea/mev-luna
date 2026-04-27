@@ -3,15 +3,15 @@ import Head from 'next/head';
 import { SEO as SEOType } from '../types/sanity';
 
 interface SEOProps {
-  seo: Partial<SEOType>;
+  seo?: Partial<SEOType>;
 }
 
 export const SEO: React.FC<SEOProps> = ({ seo }) => {
   // Use provided values or fall back to defaults
-  const metaTitle = seo.title || 'Default Title';
-  const metaDescription = seo.description || 'Default description';
-  const metaKeywords = seo.keywords || '';
-  const metaImage = seo.image?.asset?.url || '';
+  const metaTitle = seo?.title || 'Mev Luna';
+  const metaDescription = seo?.description || '';
+  const metaKeywords = seo?.keywords || '';
+  const metaImage = seo?.image?.asset?.url || '';
 
   return (
     <Head>

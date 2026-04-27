@@ -5,10 +5,13 @@ import { Providers } from '../providers';
 import { SEO } from 'src/components/SEO';
 import { Main } from 'src/components/Layout';
 import { Navigation } from '../views/global';
+import { SiteSettings } from 'src/types';
 
 interface AppProps {
   Component: React.ComponentType;
-  pageProps: any;
+  pageProps: {
+    siteSettings?: SiteSettings;
+  };
   router: NextRouter;
 }
 
@@ -22,16 +25,13 @@ const App = (props: AppProps) => {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
-        <link rel="stylesheet" href="/static/fonts/fonts.css" />
-        <link rel="icon" href="/static/favicon.png" />
       </Head>
       <SEO seo={pageProps?.siteSettings?.seo} />
-      <>
-        <Navigation />
-        <Main>
-          <Component {...pageProps} />
-        </Main>
-      </>
+      <Navigation />
+      <Main>
+        {/* @ts-expect-error */}
+        <Component {...pageProps} />
+      </Main>
     </Providers>
   );
 };
