@@ -35,8 +35,10 @@ export type NewsItem = SanityDocument & {
   _type: 'newsItem';
   date: string;
   headline: string;
-  hoverImage?: RichImage;
-  link?: string;
+  slug: Slug;
+  headingImage?: RichImage;
+  description?: RichText;
+  link?: LinkWithLabel;
 };
 
 export type NewsPage = SanityDocument & {
@@ -125,6 +127,11 @@ export type RichImage = Omit<Image, '_type'> & {
 };
 
 export type Slug = { current: string };
+
+export type LinkWithLabel = {
+  label: string;
+  url: string;
+};
 
 export type CVItem = {
   _type: 'cvItem';

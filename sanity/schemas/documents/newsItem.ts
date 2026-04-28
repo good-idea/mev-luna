@@ -18,14 +18,29 @@ export const newsItem = {
       codegen: { required: true },
     },
     {
-      name: 'hoverImage',
-      title: 'Hover Image',
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule) => Rule.required(),
+      codegen: { required: true },
+      options: {
+        source: 'headline',
+      },
+    },
+    {
+      name: 'headingImage',
+      title: 'Heading Image',
       type: 'richImage',
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'richText',
     },
     {
       name: 'link',
       title: 'Link',
-      type: 'url',
+      type: 'linkWithLabel',
     },
   ],
   preview: {

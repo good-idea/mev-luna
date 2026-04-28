@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { GetStaticProps } from 'next';
-import { NewsView } from '../views/NewsView';
 import { SEO } from 'src/components/SEO';
-import { sanityClient } from '../services';
-import { NewsPage, NewsItem, SiteSettings } from '../types';
 import { siteSettingsQuery } from 'src/groq';
+import { sanityClient } from 'src/services';
+import { NewsItem, NewsPage, SiteSettings } from 'src/types';
 import { filterMaybes } from 'src/utils';
+import { NewsView } from 'src/views/NewsView';
 
 interface NewsProps {
   newsItems?: NewsItem[];
@@ -34,14 +34,18 @@ export const getStaticProps: GetStaticProps<NewsProps> = async () => {
     sanityClient.fetch<{
       newsItems: NewsItem[];
       newsPage: NewsPage;
-    }>(
-      `{
-      "newsItems": *[_type == "newsItem"][],
+    }>(`{
+      "newsItems": *[_type == "newsItem"] | order(date desc) {
+        _id,
+        _type,
+        date,
+        headline,
+        slug
+      },
       "newsPage": *[_type == "newsPage"][0]
-    }
-    `,
-    ),
+    }`),
   ]);
+
   return {
     props: {
       siteSettings,

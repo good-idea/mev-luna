@@ -74,5 +74,5 @@ export const getSpacingValue = (index: number): `${number}px` => {
     console.warn(`Spacing value not supported: ${index}`);
     return '0px';
   }
-  return `${parseInt(spacingPx)}px`;
+  return `${parseInt(String(spacingPx))}px`;
 };
