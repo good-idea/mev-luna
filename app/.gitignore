@@ -1,2 +1,5 @@
 
 .next
+.env
+.env.*
+!.env.example
