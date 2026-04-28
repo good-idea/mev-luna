@@ -3,13 +3,13 @@ import styled, { css, x } from '@xstyled/styled-components';
 import { BodyHeading } from './Text';
 
 interface ArrowIconSpanProps {
-  isOpen: boolean;
+  $isOpen: boolean;
 }
 
 const ArrowIconSpan = styled.spanBox<ArrowIconSpanProps>`
-  ${({ isOpen }) => css`
+  ${({ $isOpen }) => css`
     display: inline-block;
-    transform: ${isOpen
+    transform: ${$isOpen
       ? 'scale(0.8)'
       : 'scale(0.8) translateY(0.1em) rotate(180deg)'};
   `}
@@ -25,8 +25,8 @@ export const Accordion: React.FC<AccordionProps> = ({ children, label }) => {
   const toggleOpen = () => setIsOpen((current) => !current);
   return (
     <div>
-      <BodyHeading strong as="button" onClick={toggleOpen}>
-        ({label})<ArrowIconSpan isOpen={isOpen}>▲</ArrowIconSpan>
+      <BodyHeading $strong as="button" onClick={toggleOpen}>
+        ({label})<ArrowIconSpan $isOpen={isOpen}>▲</ArrowIconSpan>
       </BodyHeading>
       {isOpen ? <x.div my={2}>{children}</x.div> : null}
     </div>

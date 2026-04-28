@@ -178,9 +178,9 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
         }}
         ref={imageContainerRef}
       />
-      <CanvasContainer ref={canvasContainerRef} displayMode={displayMode}>
+      <CanvasContainer ref={canvasContainerRef} $displayMode={displayMode}>
         {Array.from(canvasLayers).map(([data, layer], index) => (
-          <CanvasLayerImage key={data} src={layer.data} index={index} />
+          <CanvasLayerImage key={data} src={layer.data} $index={index} />
         ))}
       </CanvasContainer>
       {isEnabled('residueDebugger') ? (

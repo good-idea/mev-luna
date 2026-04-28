@@ -2,28 +2,28 @@ import styled, { css } from '@xstyled/styled-components';
 import { DisplayMode } from './types';
 
 interface CanvasContainerProps {
-  displayMode: DisplayMode;
+  $displayMode: DisplayMode;
 }
 
 export const CanvasContainer = styled.divBox<CanvasContainerProps>`
-  ${({ displayMode }) => css`
+  ${({ $displayMode }) => css`
     position: fixed;
     z-index: 200;
-    opacity: ${displayMode !== 'hidden' ? 1 : 0};
+    opacity: ${$displayMode !== 'hidden' ? 1 : 0};
     pointer-events: none;
     transform-origin: 100% 100%;
     outline: 1px solid blue;
     width: 200%;
     height: 200%;
 
-    ${displayMode === 'mini'
+    ${$displayMode === 'mini'
       ? `
       bottom: 18;
       right: 18;
       border: 3px solid gray;
       transform: scale(0.1);
     `
-      : displayMode === 'overlay'
+      : $displayMode === 'overlay'
         ? `
       top: 20px;
       left: 20px;
@@ -32,7 +32,7 @@ export const CanvasContainer = styled.divBox<CanvasContainerProps>`
       background-color: white;
       border: 1px solid black;
       `
-        : displayMode === 'background'
+        : $displayMode === 'background'
           ? `
       z-index: -1;
       bottom: 0;
@@ -44,7 +44,7 @@ export const CanvasContainer = styled.divBox<CanvasContainerProps>`
 `;
 
 interface CanvasLayerImageProps {
-  index: number;
+  $index: number;
 }
 
 export const CanvasLayerImage = styled.imgBox<CanvasLayerImageProps>`

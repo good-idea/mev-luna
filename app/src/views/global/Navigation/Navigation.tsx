@@ -15,7 +15,7 @@ const NavItem: FC<NavItemProps> = ({ label, to }) => {
   const { asPath } = useRouter();
   const isActive = to === asPath;
   return (
-    <NavItemWrapper isActive={isActive}>
+    <NavItemWrapper $isActive={isActive}>
       <Link href={to}>
         <x.span fontWeight={2} fontSize={4}>
           <Strong>{label}</Strong>

@@ -128,7 +128,7 @@ export const Image: React.FC<ImageProps> = ({
           />
         ) : null}
         {src && shouldRender ? (
-          <Picture objectFit={objectFit} loaded={loaded}>
+          <Picture $objectFit={objectFit} $loaded={loaded}>
             {srcSetWebp ? (
               <source type="image/webp" srcSet={srcSetWebp} sizes={sizes} />
             ) : null}

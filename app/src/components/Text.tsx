@@ -1,14 +1,14 @@
 import styled, { x, css } from '@xstyled/styled-components';
 
 interface SharedTextProps {
-  strong?: boolean;
+  $strong?: boolean;
 }
 
 // @ts-ignore
 export const BodyHeading = styled(x.h2)<SharedTextProps>`
-  ${({ strong }) => css`
+  ${({ $strong }) => css`
     font-size: 4;
-    font-weight: ${strong ? '3' : '1'};
+    font-weight: ${$strong ? '3' : '1'};
     margin-top: 0;
   `}
 `;
@@ -19,10 +19,10 @@ export const Ul = styled(x.ul)`
 `;
 
 export const Li = styled.liBox<SharedTextProps>`
-  ${({ strong }) => css`
+  ${({ $strong }) => css`
     list-style-type: none;
     font-size: 4;
-    font-weight: ${strong ? '3' : '1'};
+    font-weight: ${$strong ? '3' : '1'};
     margin: 0;
     padding: 0;
   `}

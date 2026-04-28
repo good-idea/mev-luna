@@ -28,12 +28,12 @@ export const Caption = styled.spanBox`
 
 interface PictureProps {
   theme: DefaultTheme;
-  loaded: boolean;
-  objectFit?: string;
+  $loaded: boolean;
+  $objectFit?: string;
 }
 
 export const Picture = styled.pictureBox`
-  ${({ loaded, objectFit }: PictureProps) => css`
+  ${({ $loaded, $objectFit }: PictureProps) => css`
     max-height: 100%;
     max-width: 100%;
     width: auto;
@@ -41,11 +41,11 @@ export const Picture = styled.pictureBox`
     display: block;
 
     & > img {
-      opacity: ${loaded ? 1 : 0};
+      opacity: ${$loaded ? 1 : 0};
       transition: 0.3s;
       transition-delay: 0.3s;
       max-width: 100%;
-      object-fit: ${objectFit || 'cover'};
+      object-fit: ${$objectFit || 'cover'};
       display: block;
     }
   `}

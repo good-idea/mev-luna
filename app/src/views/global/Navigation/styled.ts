@@ -14,11 +14,11 @@ export const Nav = styled.navBox`
 `;
 
 interface NavItemWrapperProps {
-  isActive: boolean;
+  $isActive: boolean;
 }
 export const NavItemWrapper = styled.divBox<NavItemWrapperProps>`
-  ${({ isActive }) => css`
-    color: ${isActive ? 'mauve' : 'inherit'};
+  ${({ $isActive }) => css`
+    color: ${$isActive ? 'mauve' : 'inherit'};
     display: inline;
     margin-left: 25px;
     ${mediaQueries.tablet} {

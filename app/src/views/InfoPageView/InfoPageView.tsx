@@ -25,7 +25,7 @@ export const InfoPageView: React.FC<InfoPageViewProps> = ({ infoPage }) => {
               <BodyHeading>(Contact)</BodyHeading>
               <Ul>
                 {contactFields.map(({ label, url }) => (
-                  <Li strong key={url}>
+                  <Li $strong key={url}>
                     <a href={url}>{label}</a>
                   </Li>
                 ))}
