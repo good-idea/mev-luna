@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Img from 'next/image';
 import { RatioImageFill } from './styled';
 
 interface RatioPaddingProps {

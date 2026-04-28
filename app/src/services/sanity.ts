@@ -1,12 +1,12 @@
 import { createClient } from '@sanity/client';
-import { config } from '../config';
+import { sharedConfig } from '../config';
 
-const { sanity, env } = config;
+const { sanity, appEnv } = sharedConfig;
 const { projectId, dataset } = sanity;
 
 export const sanityClient = createClient({
   projectId,
   dataset,
-  useCdn: env === 'production',
+  useCdn: appEnv === 'production',
   apiVersion: '2021-09-15',
 });

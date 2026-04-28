@@ -12,6 +12,7 @@
       "@mevluna/types": ["../types/src"]
     },
     "types": ["jest", "node"],
+    "typeRoots": ["./node_modules/@types", "../node_modules/@types"],
     "incremental": true
   },
   "include": ["next-env.d.ts", "./src"],

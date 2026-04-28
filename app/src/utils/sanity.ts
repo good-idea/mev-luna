@@ -1,12 +1,12 @@
 import imageUrlBuilder from '@sanity/image-url';
-import { config } from '../config';
+import { sharedConfig } from '../config';
 import { Image } from '../types';
 
 /**
  * Images
  */
 
-const { projectId, dataset } = config.sanity;
+const { projectId, dataset } = sharedConfig.sanity;
 
 const builder = imageUrlBuilder({
   projectId,

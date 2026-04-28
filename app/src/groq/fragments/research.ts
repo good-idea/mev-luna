@@ -1,4 +1,4 @@
-import { richTextFragment, seoFragment, galleryFragment } from './shared';
+import { richTextFragment, galleryFragment } from './shared';
 import { projectLinkFragment } from './project';
 
 export const researchLinkFragment = `

@@ -1,14 +1,15 @@
 const withPlugins = require('next-compose-plugins');
 
+require('./src/config/validateServer');
+
 module.exports = withPlugins([], {
-  webpack5: true,
   serverRuntimeConfig: {
     PROJECT_ROOT: __dirname,
   },
   images: {
     domains: ['cdn.sanity.io'],
   },
-  webpack: (config, { isServer, buildId }) => {
+  webpack: (config, { isServer }) => {
     if (!isServer) {
       config.resolve.alias['@sentry/node'] = '@sentry/browser';
     }

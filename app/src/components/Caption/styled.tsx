@@ -20,5 +20,4 @@ export const CaptionText = styled.spanBox`
   color: yellow;
   text-stroke: 1.5px black;
   -webkit-text-stroke: 1px black;
-  font-family: sans;
 `;

@@ -13,7 +13,7 @@ interface InfoPageViewProps {
 }
 
 export const InfoPageView: React.FC<InfoPageViewProps> = ({ infoPage }) => {
-  const { body, colophon, contactFields, cv, seo } = infoPage;
+  const { body, colophon, contactFields, cv } = infoPage;
 
   return (
     <>

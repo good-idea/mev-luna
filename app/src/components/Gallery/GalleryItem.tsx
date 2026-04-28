@@ -4,8 +4,6 @@ import { OneOf, Gallery } from '../../types';
 import { Image } from '../Image';
 import { Video } from '../Video/Video';
 
-const { useCallback } = React;
-
 const GalleryItemWrapper = styled.divBox`
   & + & {
     margin-top: 4;
@@ -18,17 +16,19 @@ interface GalleryItemProps {
 
 export const GalleryItem: React.FC<GalleryItemProps> = ({ item }) => {
   if (!item) return null;
-  const renderInner = useCallback(() => {
-    switch (item._type) {
-      case 'richImage':
-        return <Image image={item} sizes={['100vw', '80vw']} />;
-      case 'video':
-        return <Video video={item} />;
-      default:
-        return null;
-    }
-  }, [item._type]);
-  return (
-    <GalleryItemWrapper className="foo">{renderInner()}</GalleryItemWrapper>
-  );
+
+  let inner: React.ReactNode = null;
+
+  switch (item._type) {
+    case 'richImage':
+      inner = <Image image={item} sizes={['100vw', '80vw']} />;
+      break;
+    case 'video':
+      inner = <Video video={item} />;
+      break;
+    default:
+      inner = null;
+  }
+
+  return <GalleryItemWrapper>{inner}</GalleryItemWrapper>;
 };

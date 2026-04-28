@@ -1,5 +1,7 @@
+import { sharedConfig } from './shared';
+
 type FeatureFlag = {
-  DEV: boolean;
+  DEVELOPMENT: boolean;
   STAGING: boolean;
   PRODUCTION: boolean;
 };
@@ -8,12 +10,12 @@ type FlagName = 'residueDebugger' | 'newsPage';
 
 const flags: Record<FlagName, FeatureFlag> = {
   residueDebugger: {
-    DEV: false,
+    DEVELOPMENT: false,
     STAGING: false,
     PRODUCTION: false,
   },
   newsPage: {
-    DEV: true,
+    DEVELOPMENT: true,
     STAGING: true,
     PRODUCTION: true,
   },
@@ -26,18 +28,16 @@ export function isEnabled(flagName: keyof typeof flags): boolean {
     return false;
   }
 
-  const currentEnv = process.env.VERCEL_ENV || process.env.NODE_ENV;
-
-  switch (currentEnv) {
+  switch (sharedConfig.appEnv) {
     case 'production':
       return flag.PRODUCTION;
-    case 'development':
-      return flag.DEV;
-    case 'preview':
+    case 'staging':
       return flag.STAGING;
+    case 'development':
+      return flag.DEVELOPMENT;
     default:
       console.warn(
-        `Unexpected environment "${currentEnv}" for feature flag "${flagName}".`,
+        `Unexpected app environment "${sharedConfig.appEnv}" for feature flag "${flagName}".`,
       );
       return false;
   }

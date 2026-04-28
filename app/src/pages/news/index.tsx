@@ -29,6 +29,8 @@ const News: React.FC<NewsProps> = ({ siteSettings, newsItems, newsPage }) => {
 };
 
 export const getStaticProps: GetStaticProps<NewsProps> = async () => {
+  await import('src/config/server');
+
   const [siteSettings, { newsItems, newsPage }] = await Promise.all([
     sanityClient.fetch<SiteSettings>(siteSettingsQuery),
     sanityClient.fetch<{

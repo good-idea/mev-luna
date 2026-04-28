@@ -2,10 +2,10 @@ import styled from '@xstyled/styled-components';
 
 export const Main = styled.mainBox`
   padding: 120px 4 40px;
+  width: 100%;
 
   @media (min-width: 1100px) {
     padding: 120px 4;
-    height: 1200px;
   }
 `;
 
