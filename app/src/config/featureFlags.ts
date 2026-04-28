@@ -8,7 +8,7 @@ type FlagName = 'residueDebugger' | 'newsPage';
 
 const flags: Record<FlagName, FeatureFlag> = {
   residueDebugger: {
-    DEV: true,
+    DEV: false,
     STAGING: false,
     PRODUCTION: false,
   },

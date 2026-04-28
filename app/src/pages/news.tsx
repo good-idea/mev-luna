@@ -5,7 +5,7 @@ import { SEO } from 'src/components/SEO';
 import { sanityClient } from '../services';
 import { NewsPage, NewsItem, SiteSettings } from '../types';
 import { siteSettingsQuery } from 'src/groq';
-import { definitely } from 'src/utils';
+import { filterMaybes } from 'src/utils';
 
 interface NewsProps {
   newsItems?: NewsItem[];
@@ -16,7 +16,7 @@ interface NewsProps {
 const News: React.FC<NewsProps> = ({ siteSettings, newsItems, newsPage }) => {
   const mergedSeo = {
     ...siteSettings?.seo,
-    title: definitely(['News', siteSettings?.seo?.title]).join(' | '),
+    title: filterMaybes(['News', siteSettings?.seo?.title]).join(' | '),
     ...newsPage?.seo,
   };
 

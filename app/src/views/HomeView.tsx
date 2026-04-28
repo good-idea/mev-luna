@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Homepage } from '../types';
-import { definitely } from '../utils';
+import { filterMaybes } from '../utils';
 import { ProjectLink } from '../components';
 
 interface HomeViewProps {
@@ -8,7 +8,7 @@ interface HomeViewProps {
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({ homepage }) => {
-  const projectMenu = definitely(homepage?.projectMenu);
+  const projectMenu = filterMaybes(homepage?.projectMenu);
   return (
     <>
       {projectMenu.map((project, index) => (

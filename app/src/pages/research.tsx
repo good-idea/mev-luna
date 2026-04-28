@@ -5,7 +5,7 @@ import { SEO } from 'src/components/SEO';
 import { sanityClient } from '../services';
 import { ResearchPage, Research as ResearchType, SiteSettings } from '../types';
 import { researchLinkFragment, siteSettingsQuery } from '../groq';
-import { definitely } from 'src/utils';
+import { filterMaybes } from 'src/utils';
 
 interface ResearchProps {
   research?: ResearchType[];
@@ -20,7 +20,7 @@ const Research: React.FC<ResearchProps> = ({
 }) => {
   const mergedSeo = {
     ...siteSettings?.seo,
-    title: definitely(['Research', siteSettings?.seo?.title]).join(' | '),
+    title: filterMaybes(['Research', siteSettings?.seo?.title]).join(' | '),
     ...researchPage?.seo,
   };
 

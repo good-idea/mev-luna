@@ -5,7 +5,7 @@ import { sanityClient } from '../../services';
 import { Project, SiteSettings } from '../../types';
 import { projectQuery, siteSettingsQuery } from '../../groq';
 import { SEO } from 'src/components/SEO';
-import { definitely } from 'src/utils';
+import { filterMaybes } from 'src/utils';
 
 interface ProjectProps {
   project: Project;
@@ -22,7 +22,7 @@ const Project: React.FC<ProjectProps> = ({ siteSettings, project }) => {
   }
   const mergedSeo = {
     ...siteSettings?.seo,
-    title: definitely([project.title, siteSettings?.seo?.title]).join(' | '),
+    title: filterMaybes([project.title, siteSettings?.seo?.title]).join(' | '),
     ...project?.seo,
   };
   return (

@@ -4,7 +4,7 @@ import { InfoPageView } from '../views/InfoPageView';
 import { sanityClient } from '../services';
 import { InfoPage as InfoPageType, SiteSettings } from '../types';
 import { siteSettingsQuery } from 'src/groq';
-import { definitely } from 'src/utils';
+import { filterMaybes } from 'src/utils';
 import { SEO } from 'src/components/SEO';
 
 interface InfoPageProps {
@@ -15,7 +15,7 @@ interface InfoPageProps {
 const InfoPage: React.FC<InfoPageProps> = ({ siteSettings, infoPage }) => {
   const mergedSeo = {
     ...siteSettings?.seo,
-    title: definitely(['Info', siteSettings?.seo?.title]).join(' | '),
+    title: filterMaybes(['Info', siteSettings?.seo?.title]).join(' | '),
     ...infoPage?.seo,
   };
   return (

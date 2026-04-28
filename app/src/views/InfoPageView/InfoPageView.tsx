@@ -4,7 +4,7 @@ import { Accordion } from '../../components/Accordion';
 import { RichText } from '../../components/RichText';
 import { BodyHeading, Ul, Li } from '../../components/Text';
 import { Divider } from '../../components/Layout';
-import { definitely } from '../../utils';
+import { filterMaybes } from '../../utils';
 import { InfoBodyWrapper, CVWrapper } from './styles';
 import { CVGroup } from './CVGroup';
 
@@ -42,7 +42,7 @@ export const InfoPageView: React.FC<InfoPageViewProps> = ({ infoPage }) => {
       <Divider />
       {cv && cv.length ? (
         <CVWrapper>
-          {definitely(cv).map((group) => (
+          {filterMaybes(cv).map((group) => (
             <CVGroup key={group._key} group={group} />
           ))}
         </CVWrapper>

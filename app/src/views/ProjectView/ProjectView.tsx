@@ -4,7 +4,7 @@ import { Project } from '../../types';
 import { RichText } from '../../components/RichText';
 import { Gallery } from '../../components/Gallery';
 import { ResearchList } from '../../components/ResearchList';
-import { definitely } from '../../utils';
+import { filterMaybes } from '../../utils';
 import { ProjectColumns, ProjectDescription } from './styles';
 
 interface ProjectViewProps {
@@ -21,7 +21,7 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
     gallery,
     year,
   } = project;
-  const research = definitely(relatedResearch);
+  const research = filterMaybes(relatedResearch);
   return (
     <>
       <ProjectColumns>
@@ -43,7 +43,7 @@ export const ProjectView: React.FC<ProjectViewProps> = ({ project }) => {
       {research.length ? (
         <>
           <x.hr border="none" borderBottom="1px solid black" m={0} />
-          <ResearchList research={definitely(relatedResearch)} />
+          <ResearchList research={filterMaybes(relatedResearch)} />
         </>
       ) : null}
     </>

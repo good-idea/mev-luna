@@ -4,7 +4,7 @@ import { x } from '@xstyled/styled-components';
 import { RichText } from '../RichText';
 import { Image } from '../Image';
 import { Research } from '../../types';
-import { definitely, getMediaImages } from '../../utils';
+import { filterMaybes, getMediaImages } from '../../utils';
 import {
   DateWrapper,
   MaterialsWrapper,
@@ -29,8 +29,8 @@ export const ResearchListItem: React.FC<ResearchListItemProps> = ({
   const { title, relatedProjects, materials, date, slug, summary, gallery } =
     research;
   const href = slug.current ? `/research/${slug.current}` : null;
-  const firstImage = getMediaImages(definitely(gallery?.media))[0];
-  const allRelatedProjects = definitely(relatedProjects);
+  const firstImage = getMediaImages(filterMaybes(gallery?.media))[0];
+  const allRelatedProjects = filterMaybes(relatedProjects);
   const handleClick = () => {
     if (!ref.current) return;
     if (eventIsEnabled('linkClick')) captureElementTrace(ref.current);
