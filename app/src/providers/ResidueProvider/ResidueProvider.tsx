@@ -18,9 +18,9 @@ const DROPLET_SOURCES = Array.from({ length: 14 }, (_, index) => {
 });
 
 const DEFAULT_SETTINGS: ResidueSettings = {
-  blur: 15,
-  maxDarkness: 100,
-  buildUpSpeed: 100,
+  blur: 30,
+  maxDarkness: 50,
+  buildUpSpeed: 25,
   strokeWidth: 5,
 };
 
@@ -158,12 +158,16 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
       dropletIndexRef.current = (dropletIndex + 1) % DROPLET_SOURCES.length;
       if (!image) return;
 
+      const rotation = Math.random() * Math.PI * 2;
+      const scale = 0.85 + Math.random() * 0.3;
+
       const drawImage = () => {
-        ctx.drawImage(
-          image,
-          x - image.naturalWidth / 2,
-          y - image.naturalHeight / 2,
-        );
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(rotation);
+        ctx.scale(scale, scale);
+        ctx.drawImage(image, -image.naturalWidth / 2, -image.naturalHeight / 2);
+        ctx.restore();
       };
 
       if (image.complete && image.naturalWidth) {
