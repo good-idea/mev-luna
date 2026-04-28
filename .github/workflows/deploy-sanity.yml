@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - '.github/workflows/deploy-sanity.yml'
       - 'sanity/**'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
@@ -41,9 +42,9 @@ jobs:
         working-directory: .
 
       - name: Build Sanity Studio
-        run: pnpm build
+        run: pnpm run build
 
       - name: Deploy Sanity Studio
         env:
           SANITY_AUTH_TOKEN: ${{ secrets.SANITY_AUTH_TOKEN }}
-        run: pnpm deploy
+        run: pnpm run deploy
