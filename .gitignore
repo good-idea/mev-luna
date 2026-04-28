@@ -12,8 +12,9 @@ out.svg
 # test coverage
 coverage
 
-# use yarn, not npm
+# package manager lockfiles not used by pnpm
 package-lock.json
+yarn.lock
 storybook-static
 yarn-error.log
 

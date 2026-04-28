@@ -1,5 +1,5 @@
 {
-  "name": "mevluna",
+  "name": "@mevluna/sanity",
   "private": true,
   "version": "1.0.0",
   "description": "",
@@ -12,10 +12,10 @@
     "build": "sanity build",
     "deploy": "sanity deploy",
     "sync:export": "sanity dataset export production",
-    "sync:reset": "sanity dataset delete staging && yarn sanity dataset create staging",
+    "sync:reset": "sanity dataset delete staging && pnpm sanity dataset create staging",
     "sync:import": "sanity dataset import production.tar.gz staging --replace",
     "sync:cleanup": "rm production.tar.gz",
-    "sync": "yarn sync:reset && yarn sync:export && yarn sync:import && yarn sync:cleanup"
+    "sync": "pnpm sync:reset && pnpm sync:export && pnpm sync:import && pnpm sync:cleanup"
   },
   "keywords": [
     "sanity"

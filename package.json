@@ -7,11 +7,7 @@
   "author": "Joseph Thomas",
   "license": "MIT",
   "private": true,
-  "workspaces": [
-    "sanity",
-    "types",
-    "app"
-  ],
+  "packageManager": "pnpm@10.29.3",
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
