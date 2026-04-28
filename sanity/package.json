@@ -10,7 +10,7 @@
     "dev": "sanity dev",
     "start": "sanity start",
     "build": "sanity build",
-    "deploy": "sanity deploy",
+    "deploy": "sanity deploy --yes --url mevluna.sanity.studio",
     "sync:export": "sanity dataset export production",
     "sync:reset": "sanity dataset delete staging && pnpm sanity dataset create staging",
     "sync:import": "sanity dataset import production.tar.gz staging --replace",
