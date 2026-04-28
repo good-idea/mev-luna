@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { GetStaticProps } from 'next';
 import { ResearchView } from '../views/ResearchView';
 import { SEO } from 'src/components/SEO';
@@ -42,7 +43,7 @@ export const getStaticProps: GetStaticProps<ResearchProps> = async () => {
       `{
       "research": *[_type == "research"]{
         ${researchLinkFragment}
-      }[],
+      }[] | order(title asc),
       "researchPage": *[_type == "researchPage"][0]
     }
     `,
