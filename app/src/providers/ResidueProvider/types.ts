@@ -1,3 +1,11 @@
 export type DisplayMode = 'background' | 'mini' | 'hidden' | 'overlay';
 
-export type Layer = { width: number; height: number; data: string };
+export type Layer = {
+  id: string;
+  width: number;
+  height: number;
+  data: string;
+  left?: number;
+  top?: number;
+  blur?: boolean;
+};

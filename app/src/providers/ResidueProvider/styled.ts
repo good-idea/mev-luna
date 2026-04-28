@@ -8,7 +8,7 @@ interface CanvasContainerProps {
 export const CanvasContainer = styled.divBox<CanvasContainerProps>`
   ${({ $displayMode }) => css`
     position: fixed;
-    z-index: 200;
+    z-index: -1;
     opacity: ${$displayMode !== 'hidden' ? 1 : 0};
     pointer-events: none;
     transform-origin: 100% 100%;
@@ -45,14 +45,17 @@ export const CanvasContainer = styled.divBox<CanvasContainerProps>`
 
 interface CanvasLayerImageProps {
   $index: number;
+  $left?: number;
+  $top?: number;
+  $blur?: boolean;
 }
 
 export const CanvasLayerImage = styled.imgBox<CanvasLayerImageProps>`
-  ${() => css`
+  ${({ $left = 0, $top = 0, $blur = false }) => css`
     position: absolute;
-    top: 0;
-    left: 0;
-    filter: blur(50px);
+    top: ${$top}px;
+    left: ${$left}px;
+    filter: ${$blur ? 'blur(50px)' : 'none'};
     transition: 2s;
   `}
 `;
