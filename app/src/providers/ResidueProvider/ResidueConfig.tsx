@@ -1,104 +1,48 @@
 import * as React from 'react';
-import { EventFlags, EventFlag } from './ResidueProvider';
-import { DisplayMode } from './types';
-import styled from '@xstyled/styled-components';
+import { EventFlag, EventFlags } from './types';
 
-const Wrapper = styled.divBox`
-  position: fixed;
-  z-index: 300;
-  padding: 8px;
-  border-radius: 3px;
-  top: 18px;
-  right: 18px;
-  background-color: white;
-  border: 2px solid #c1c0c0;
-  box-shadow: 0px 1px 2px #cac1c1;
+const EVENT_FLAGS = Object.keys(EventFlags) as EventFlag[];
 
-  display: none;
-  @media screen and (min-width: 800px) {
-    display: block;
-  }
-`;
+const wrapperStyle: React.CSSProperties = {
+  position: 'fixed',
+  zIndex: 300,
+  padding: 8,
+  borderRadius: 3,
+  top: 18,
+  right: 18,
+  backgroundColor: 'white',
+  border: '2px solid #c1c0c0',
+  boxShadow: '0px 1px 2px #cac1c1',
+};
+
+const labelStyle: React.CSSProperties = { display: 'flex' };
+const inputStyle: React.CSSProperties = { marginRight: 4 };
 
 interface ResidueConfigProps {
   events: Record<EventFlag, boolean>;
   toggleEvent: (flag: EventFlag) => void;
-  displayMode: DisplayMode;
-  setDisplayMode: (mode: DisplayMode) => void;
 }
 
 export const ResidueConfig: React.FC<ResidueConfigProps> = (props) => {
-  const { events, toggleEvent, displayMode, setDisplayMode } = props;
+  const { events, toggleEvent } = props;
   const handleEventChange = (event: EventFlag) => () => toggleEvent(event);
-  const handleSetDisplayMode = (mode: DisplayMode) => () =>
-    setDisplayMode(mode);
+
   return (
-    <Wrapper>
-      <div style={{ marginBottom: '4px' }}>Residue Events</div>
-      {Object.keys(EventFlags).map((key) => (
-        <div key={key}>
-          <label style={{ display: 'flex' }}>
+    <div style={wrapperStyle}>
+      <div style={{ marginBottom: 4 }}>Residue Events</div>
+      {EVENT_FLAGS.map((event) => (
+        <div key={event}>
+          <label style={labelStyle}>
             <input
-              style={{ marginRight: '4px' }}
+              style={inputStyle}
               type="checkbox"
-              checked={events[key]}
-              // @ts-ignore
-              onChange={handleEventChange(key)}
+              checked={events[event]}
+              onChange={handleEventChange(event)}
             />
-            {key}
+            {event}
           </label>
         </div>
       ))}
-
-      <hr style={{ border: '0px solid #c1c0c0', borderBottomWidth: '1px' }} />
-      <div style={{ marginTop: '12px', marginBottom: '4px' }}>Display Mode</div>
-      <div>
-        <label style={{ display: 'flex' }}>
-          <input
-            style={{ marginRight: '4px' }}
-            type="radio"
-            checked={displayMode === 'hidden'}
-            onChange={handleSetDisplayMode('hidden')}
-          />
-          hidden
-        </label>
-      </div>
-
-      <div>
-        <label style={{ display: 'flex' }}>
-          <input
-            style={{ marginRight: '4px' }}
-            type="radio"
-            checked={displayMode === 'mini'}
-            onChange={handleSetDisplayMode('mini')}
-          />
-          mini
-        </label>
-      </div>
-
-      <div>
-        <label style={{ display: 'flex' }}>
-          <input
-            style={{ marginRight: '4px' }}
-            type="radio"
-            checked={displayMode === 'background'}
-            onChange={handleSetDisplayMode('background')}
-          />
-          background
-        </label>
-      </div>
-
-      <div>
-        <label style={{ display: 'flex' }}>
-          <input
-            style={{ marginRight: '4px' }}
-            type="radio"
-            checked={displayMode === 'overlay'}
-            onChange={handleSetDisplayMode('overlay')}
-          />
-          overlay
-        </label>
-      </div>
-    </Wrapper>
+    </div>
   );
 };

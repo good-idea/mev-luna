@@ -1,16 +1,34 @@
 import * as React from 'react';
 import html2canvas from 'html2canvas';
 import { ResidueConfig } from './ResidueConfig';
-import { Layer, DisplayMode } from './types';
-import { CanvasContainer, CanvasLayerImage } from './styled';
-import { useRouter } from 'next/router';
+import { EventFlag, EventFlags, EventState, Layer } from './types';
 import { isEnabled } from 'src/config/featureFlags';
 
-const { useCallback, useEffect, useMemo, useState, useRef } = React;
+const { useCallback, useEffect, useMemo, useRef, useState } = React;
 
 const DROPLET_SOURCES = Array.from({ length: 14 }, (_, index) => {
   const dropletNumber = String(index + 1).padStart(2, '0');
   return `/assets/droplets/drop${dropletNumber}.png`;
+});
+
+const canvasContainerStyle: React.CSSProperties = {
+  position: 'fixed',
+  zIndex: -1,
+  pointerEvents: 'none',
+  transformOrigin: '100% 100%',
+  width: '200%',
+  height: '200%',
+  bottom: 0,
+  right: 0,
+  transform: 'scale(0.5)',
+};
+
+const canvasLayerStyle = (layer: Layer): React.CSSProperties => ({
+  position: 'absolute',
+  top: layer.top ?? 0,
+  left: layer.left ?? 0,
+  filter: layer.blur ? 'blur(50px)' : 'none',
+  transition: '2s',
 });
 
 interface ResidueContextValue {
@@ -35,30 +53,55 @@ interface ResidueProps {
   children: React.ReactNode;
 }
 
-export const EventFlags = {
-  linkClick: false,
-  mouseMove: true,
-  mouseClick: true,
-  subtitles: true,
+export { EventFlags } from './types';
+export type { EventFlag } from './types';
+
+const createFullScreenCanvas = () => {
+  const canvas = document.createElement('canvas');
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.opacity = '1';
+  canvas.style.zIndex = '-1';
+  canvas.style.pointerEvents = 'none';
+  return canvas;
 };
 
-export type EventFlag = keyof typeof EventFlags;
+const resizeCanvasToViewport = (canvas: HTMLCanvasElement) => {
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+};
 
 export const ResidueProvider = ({ children }: ResidueProps) => {
-  const router = useRouter();
   const imageContainerRef = useRef<HTMLDivElement>(null);
-  const canvasContainerRef = useRef<HTMLDivElement>(null);
   const dropletIndexRef = useRef(0);
+  const layerIdRef = useRef(0);
+  const activeEventsRef = useRef<EventState>(EventFlags);
+  const dropletImagesRef = useRef<HTMLImageElement[]>([]);
   const [canvasLayers, setCanvasLayers] = useState<Layer[]>([]);
-  const [displayMode, setDisplayMode] = useState<DisplayMode>('background');
-  const [activeEvents, setActiveEvents] = useState(EventFlags);
+  const [activeEvents, setActiveEvents] = useState<EventState>(EventFlags);
+
+  useEffect(() => {
+    activeEventsRef.current = activeEvents;
+  }, [activeEvents]);
+
+  useEffect(() => {
+    dropletImagesRef.current = DROPLET_SOURCES.map((source) => {
+      const image = new Image();
+      image.src = source;
+      return image;
+    });
+  }, []);
 
   const addLayer = useCallback((layer: Omit<Layer, 'id'>) => {
+    layerIdRef.current += 1;
     setCanvasLayers((previous) => [
       ...previous,
       {
         ...layer,
-        id: `${layer.data}-${Date.now()}-${Math.random()}`,
+        id: `residue-layer-${layerIdRef.current}`,
       },
     ]);
   }, []);
@@ -77,19 +120,24 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
 
   const drawDroplet = useCallback(
     (ctx: CanvasRenderingContext2D, x: number, y: number) => {
-      const dropletSource = DROPLET_SOURCES[dropletIndexRef.current];
-      dropletIndexRef.current =
-        (dropletIndexRef.current + 1) % DROPLET_SOURCES.length;
+      const dropletIndex = dropletIndexRef.current;
+      const image = dropletImagesRef.current[dropletIndex];
+      dropletIndexRef.current = (dropletIndex + 1) % DROPLET_SOURCES.length;
+      if (!image) return;
 
-      const image = new Image();
-      image.onload = () => {
+      const drawImage = () => {
         ctx.drawImage(
           image,
           x - image.naturalWidth / 2,
           y - image.naturalHeight / 2,
         );
       };
-      image.src = dropletSource;
+
+      if (image.complete && image.naturalWidth) {
+        drawImage();
+      } else {
+        image.addEventListener('load', drawImage, { once: true });
+      }
     },
     [],
   );
@@ -111,33 +159,31 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
   const captureElementTrace = useCallback(
     (originalElement: HTMLElement) => {
       const imageContainer = imageContainerRef.current;
-      const canvasContainer = canvasContainerRef.current;
-      if (!imageContainer || !canvasContainer) return;
+      if (!imageContainer) return;
+
       const clonedElement = originalElement.cloneNode(true) as HTMLElement;
       clonedElement.classList.add('hover');
-      const { outerHTML } = clonedElement;
-      const { offsetLeft } = originalElement;
-      const rect = originalElement.getBoundingClientRect();
-      const left = offsetLeft;
-      const top = rect.y;
 
-      const html =
-        `<div style="position: absolute; top: ${top}px; padding: 0 18px">` +
-        `<div style="padding-left: ${left - 18}px; display: inline"></div>` +
-        '<div style="display: inline">' +
-        outerHTML +
-        '</div>' +
-        '</div>';
-      imageContainer.innerHTML = html;
-      const canvas = document.createElement('canvas');
-      canvas.setAttribute('style', '2px solid green');
-      imageContainer.appendChild(canvas);
-      html2canvas(imageContainer, { scale: 2, backgroundColor: null }).then(
-        (canvas) => {
-          canvas.setAttribute('style', 'position: absolute;');
-          addCanvasLayer(canvas);
-        },
-      );
+      const rect = originalElement.getBoundingClientRect();
+      const wrapper = document.createElement('div');
+      wrapper.style.position = 'absolute';
+      wrapper.style.top = `${rect.y}px`;
+      wrapper.style.padding = '0 18px';
+
+      const spacer = document.createElement('div');
+      spacer.style.paddingLeft = `${Math.max(originalElement.offsetLeft - 18, 0)}px`;
+      spacer.style.display = 'inline';
+
+      const content = document.createElement('div');
+      content.style.display = 'inline';
+      content.appendChild(clonedElement);
+
+      wrapper.append(spacer, content);
+      imageContainer.replaceChildren(wrapper);
+
+      html2canvas(imageContainer, { scale: 2, backgroundColor: null })
+        .then((canvas) => addCanvasLayer(canvas))
+        .finally(() => imageContainer.replaceChildren());
     },
     [addCanvasLayer],
   );
@@ -145,50 +191,44 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
   /* Tracking mouse movement */
 
   useEffect(() => {
-    const movementCanvas = document.createElement('canvas');
-    const dropletCanvas = document.createElement('canvas');
-    movementCanvas.height = window.innerHeight;
-    movementCanvas.width = window.innerWidth;
-    dropletCanvas.height = window.innerHeight;
-    dropletCanvas.width = window.innerWidth;
+    const movementCanvas = createFullScreenCanvas();
+    const dropletCanvas = createFullScreenCanvas();
     const movementCtx = movementCanvas.getContext('2d');
     const dropletCtx = dropletCanvas.getContext('2d');
+    let hasMovementResidue = false;
+    let hasDropletResidue = false;
 
-    [movementCanvas, dropletCanvas].forEach((canvas) => {
-      canvas.style.position = 'fixed';
-      canvas.style.top = '0';
-      canvas.style.left = '0';
-      canvas.style.opacity = '1';
-      canvas.style.zIndex = '-1';
-      canvas.style.pointerEvents = 'none';
-    });
-    movementCanvas.style.filter = 'blur(30px)';
+    if (!movementCtx || !dropletCtx) return;
+
+    movementCanvas.style.filter = 'blur(15px)';
+    movementCanvas.style.opacity = '1';
+    movementCtx.beginPath();
+    movementCtx.strokeStyle = 'rgba(0, 0, 0, 1)';
+    movementCtx.lineWidth = 5;
 
     const resizeCanvas = () => {
-      movementCanvas.height = window.innerHeight;
-      movementCanvas.width = window.innerWidth;
-      dropletCanvas.height = window.innerHeight;
-      dropletCanvas.width = window.innerWidth;
+      resizeCanvasToViewport(movementCanvas);
+      resizeCanvasToViewport(dropletCanvas);
+      movementCtx.beginPath();
     };
-    if (!movementCtx || !dropletCtx) return;
-    movementCtx.beginPath();
+
     const trackMovement = (e: MouseEvent) => {
-      if (activeEvents.mouseMove) {
-        const { clientX, clientY } = e;
-        movementCtx.strokeStyle = 'rgba(0, 0, 0, 1)';
-        movementCtx.lineWidth = 5;
-        movementCtx.lineTo(clientX, clientY);
-        movementCtx.stroke();
-        movementCtx.moveTo(clientX, clientY);
-      }
+      if (!activeEventsRef.current.mouseMove) return;
+
+      const { clientX, clientY } = e;
+      movementCtx.lineTo(clientX, clientY);
+      movementCtx.stroke();
+      movementCtx.moveTo(clientX, clientY);
+      hasMovementResidue = true;
     };
 
     const trackClick = (e: MouseEvent) => {
-      if (activeEvents.mouseClick) {
-        const { clientX, clientY } = e;
-        movementCtx.moveTo(clientX, clientY);
-        drawDroplet(dropletCtx, clientX, clientY);
-      }
+      if (!activeEventsRef.current.mouseClick) return;
+
+      const { clientX, clientY } = e;
+      movementCtx.moveTo(clientX, clientY);
+      drawDroplet(dropletCtx, clientX, clientY);
+      hasDropletResidue = true;
     };
 
     document.addEventListener('mousedown', trackClick);
@@ -196,22 +236,17 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
     document.addEventListener('mousemove', trackMovement);
     document.body.appendChild(movementCanvas);
     document.body.appendChild(dropletCanvas);
+
     return () => {
-      addCanvasLayer(movementCanvas, true);
-      addCanvasLayer(dropletCanvas);
+      if (hasMovementResidue) addCanvasLayer(movementCanvas, true);
+      if (hasDropletResidue) addCanvasLayer(dropletCanvas);
       movementCanvas.remove();
       dropletCanvas.remove();
       document.removeEventListener('mousedown', trackClick);
       window.removeEventListener('resize', resizeCanvas);
       document.removeEventListener('mousemove', trackMovement);
     };
-  }, [
-    activeEvents.mouseMove,
-    activeEvents.mouseClick,
-    // router.asPath,
-    addCanvasLayer,
-    drawDroplet,
-  ]);
+  }, [addCanvasLayer, drawDroplet]);
 
   const value = useMemo(
     () => ({
@@ -236,27 +271,21 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
         }}
         ref={imageContainerRef}
       />
-      <CanvasContainer ref={canvasContainerRef} $displayMode={displayMode}>
-        {canvasLayers.map((layer, index) => (
-          <CanvasLayerImage
+      <div style={canvasContainerStyle}>
+        {canvasLayers.map((layer) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             key={layer.id}
             src={layer.data}
             width={layer.width}
             height={layer.height}
-            $index={index}
-            $left={layer.left}
-            $top={layer.top}
-            $blur={layer.blur}
+            style={canvasLayerStyle(layer)}
+            alt=""
           />
         ))}
-      </CanvasContainer>
+      </div>
       {isEnabled('residueDebugger') ? (
-        <ResidueConfig
-          events={activeEvents}
-          toggleEvent={toggleEvent}
-          displayMode={displayMode}
-          setDisplayMode={setDisplayMode}
-        />
+        <ResidueConfig events={activeEvents} toggleEvent={toggleEvent} />
       ) : null}
       <ResidueContext.Provider value={value}>
         {children}

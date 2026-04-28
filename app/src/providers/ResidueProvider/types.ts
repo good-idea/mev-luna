@@ -1,4 +1,12 @@
-export type DisplayMode = 'background' | 'mini' | 'hidden' | 'overlay';
+export const EventFlags = {
+  linkClick: false,
+  mouseMove: true,
+  mouseClick: true,
+  subtitles: true,
+};
+
+export type EventFlag = keyof typeof EventFlags;
+export type EventState = Record<EventFlag, boolean>;
 
 export type Layer = {
   id: string;
