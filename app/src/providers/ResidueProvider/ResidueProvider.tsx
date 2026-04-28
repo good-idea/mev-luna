@@ -1,7 +1,13 @@
 import * as React from 'react';
 import html2canvas from 'html2canvas';
 import { ResidueConfig } from './ResidueConfig';
-import { EventFlag, EventFlags, EventState, Layer } from './types';
+import {
+  EventFlag,
+  EventFlags,
+  EventState,
+  Layer,
+  ResidueSettings,
+} from './types';
 import { isEnabled } from 'src/config/featureFlags';
 
 const { useCallback, useEffect, useMemo, useRef, useState } = React;
@@ -10,6 +16,13 @@ const DROPLET_SOURCES = Array.from({ length: 14 }, (_, index) => {
   const dropletNumber = String(index + 1).padStart(2, '0');
   return `/assets/droplets/drop${dropletNumber}.png`;
 });
+
+const DEFAULT_SETTINGS: ResidueSettings = {
+  blur: 15,
+  maxDarkness: 100,
+  buildUpSpeed: 100,
+  strokeWidth: 5,
+};
 
 const canvasContainerStyle: React.CSSProperties = {
   position: 'fixed',
@@ -79,13 +92,33 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
   const dropletIndexRef = useRef(0);
   const layerIdRef = useRef(0);
   const activeEventsRef = useRef<EventState>(EventFlags);
+  const settingsRef = useRef<ResidueSettings>(DEFAULT_SETTINGS);
+  const movementCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const dropletCanvasRef = useRef<HTMLCanvasElement | null>(null);
+  const movementCtxRef = useRef<CanvasRenderingContext2D | null>(null);
+  const hasMovementResidueRef = useRef(false);
+  const hasDropletResidueRef = useRef(false);
   const dropletImagesRef = useRef<HTMLImageElement[]>([]);
   const [canvasLayers, setCanvasLayers] = useState<Layer[]>([]);
   const [activeEvents, setActiveEvents] = useState<EventState>(EventFlags);
+  const [settings, setSettings] = useState<ResidueSettings>(DEFAULT_SETTINGS);
 
   useEffect(() => {
     activeEventsRef.current = activeEvents;
   }, [activeEvents]);
+
+  useEffect(() => {
+    settingsRef.current = settings;
+
+    const movementCanvas = movementCanvasRef.current;
+    const movementCtx = movementCtxRef.current;
+    if (!movementCanvas || !movementCtx) return;
+
+    movementCanvas.style.filter = `blur(${settings.blur}px)`;
+    movementCanvas.style.opacity = String(settings.maxDarkness / 100);
+    movementCtx.strokeStyle = `rgba(0, 0, 0, ${settings.buildUpSpeed / 100})`;
+    movementCtx.lineWidth = settings.strokeWidth;
+  }, [settings]);
 
   useEffect(() => {
     dropletImagesRef.current = DROPLET_SOURCES.map((source) => {
@@ -155,6 +188,37 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
     [activeEvents],
   );
 
+  const updateSetting = useCallback(
+    (setting: keyof ResidueSettings, value: number) => {
+      setSettings((currentSettings) => ({
+        ...currentSettings,
+        [setting]: value,
+      }));
+    },
+    [],
+  );
+
+  const resetResidue = useCallback(() => {
+    setCanvasLayers([]);
+
+    const movementCanvas = movementCanvasRef.current;
+    const dropletCanvas = dropletCanvasRef.current;
+    const movementCtx = movementCtxRef.current;
+
+    if (movementCanvas && movementCtx) {
+      movementCtx.clearRect(0, 0, movementCanvas.width, movementCanvas.height);
+      movementCtx.beginPath();
+    }
+
+    const dropletCtx = dropletCanvas?.getContext('2d');
+    if (dropletCanvas && dropletCtx) {
+      dropletCtx.clearRect(0, 0, dropletCanvas.width, dropletCanvas.height);
+    }
+
+    hasMovementResidueRef.current = false;
+    hasDropletResidueRef.current = false;
+  }, []);
+
   /* Adding layers */
   const captureElementTrace = useCallback(
     (originalElement: HTMLElement) => {
@@ -195,16 +259,21 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
     const dropletCanvas = createFullScreenCanvas();
     const movementCtx = movementCanvas.getContext('2d');
     const dropletCtx = dropletCanvas.getContext('2d');
-    let hasMovementResidue = false;
-    let hasDropletResidue = false;
 
     if (!movementCtx || !dropletCtx) return;
 
-    movementCanvas.style.filter = 'blur(15px)';
-    movementCanvas.style.opacity = '1';
+    movementCanvasRef.current = movementCanvas;
+    dropletCanvasRef.current = dropletCanvas;
+    movementCtxRef.current = movementCtx;
+    hasMovementResidueRef.current = false;
+    hasDropletResidueRef.current = false;
+
+    const currentSettings = settingsRef.current;
+    movementCanvas.style.filter = `blur(${currentSettings.blur}px)`;
+    movementCanvas.style.opacity = String(currentSettings.maxDarkness / 100);
     movementCtx.beginPath();
-    movementCtx.strokeStyle = 'rgba(0, 0, 0, 1)';
-    movementCtx.lineWidth = 5;
+    movementCtx.strokeStyle = `rgba(0, 0, 0, ${currentSettings.buildUpSpeed / 100})`;
+    movementCtx.lineWidth = currentSettings.strokeWidth;
 
     const resizeCanvas = () => {
       resizeCanvasToViewport(movementCanvas);
@@ -219,7 +288,7 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
       movementCtx.lineTo(clientX, clientY);
       movementCtx.stroke();
       movementCtx.moveTo(clientX, clientY);
-      hasMovementResidue = true;
+      hasMovementResidueRef.current = true;
     };
 
     const trackClick = (e: MouseEvent) => {
@@ -228,7 +297,7 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
       const { clientX, clientY } = e;
       movementCtx.moveTo(clientX, clientY);
       drawDroplet(dropletCtx, clientX, clientY);
-      hasDropletResidue = true;
+      hasDropletResidueRef.current = true;
     };
 
     document.addEventListener('mousedown', trackClick);
@@ -238,13 +307,16 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
     document.body.appendChild(dropletCanvas);
 
     return () => {
-      if (hasMovementResidue) addCanvasLayer(movementCanvas, true);
-      if (hasDropletResidue) addCanvasLayer(dropletCanvas);
+      if (hasMovementResidueRef.current) addCanvasLayer(movementCanvas, true);
+      if (hasDropletResidueRef.current) addCanvasLayer(dropletCanvas);
       movementCanvas.remove();
       dropletCanvas.remove();
       document.removeEventListener('mousedown', trackClick);
       window.removeEventListener('resize', resizeCanvas);
       document.removeEventListener('mousemove', trackMovement);
+      movementCanvasRef.current = null;
+      dropletCanvasRef.current = null;
+      movementCtxRef.current = null;
     };
   }, [addCanvasLayer, drawDroplet]);
 
@@ -285,7 +357,13 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
         ))}
       </div>
       {isEnabled('residueDebugger') ? (
-        <ResidueConfig events={activeEvents} toggleEvent={toggleEvent} />
+        <ResidueConfig
+          events={activeEvents}
+          settings={settings}
+          toggleEvent={toggleEvent}
+          updateSetting={updateSetting}
+          resetResidue={resetResidue}
+        />
       ) : null}
       <ResidueContext.Provider value={value}>
         {children}

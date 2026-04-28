@@ -8,6 +8,13 @@ export const EventFlags = {
 export type EventFlag = keyof typeof EventFlags;
 export type EventState = Record<EventFlag, boolean>;
 
+export type ResidueSettings = {
+  blur: number;
+  maxDarkness: number;
+  buildUpSpeed: number;
+  strokeWidth: number;
+};
+
 export type Layer = {
   id: string;
   width: number;
