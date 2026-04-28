@@ -5,6 +5,6 @@
  * as the default size will be used in that context.
  */
 export const BREAKPOINT_QUERIES = [
-  '(max-width: 550px)', // mobile
-  '(max-width: 850px)', // tablet
+  '(min-width: 960px)', // tablet
+  '(min-width: 1200px)', // tablet
 ];

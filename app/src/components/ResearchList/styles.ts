@@ -18,6 +18,7 @@ export const ResearchListItemWrapper = styled.liBox`
 export const ResearchListItemInner = styled.divBox`
   display: grid;
   grid-column-gap: 10px;
+  grid-row-gap: 5px;
   grid-template-columns: 1fr;
   ${mediaQueries.desktop} {
     grid-template-columns: 270px 120px 120px 1fr 1fr 150px;

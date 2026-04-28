@@ -101,8 +101,10 @@ export const getAspectRatio = (
 export const getSizes = (sizes: string[]): string =>
   sizes
     .reduce<string[]>((prevSizes, size, index) => {
-      const isLast = index === sizes.length - 1;
-      const sizeString = isLast ? size : `${BREAKPOINT_QUERIES[index]} ${size}`;
+      const isFirst = index === 0;
+      const sizeString = isFirst
+        ? size
+        : `${BREAKPOINT_QUERIES[index]} ${size}`;
       return [...prevSizes, sizeString];
     }, [])
     .join(', ');
