@@ -5,7 +5,7 @@ import { getSizes, getImageDetails, getAspectRatio } from './utils';
 import { RatioPadding } from './RatioPadding';
 import { HoverImageWrapper, Wrapper, Picture, Caption } from './styled';
 
-interface ImageProps {
+export interface ImageProps {
   className?: string;
   image: RichImage;
   altText?: string;

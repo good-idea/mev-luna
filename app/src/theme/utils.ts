@@ -1,28 +1,30 @@
+import { defaultTheme } from './defaultTheme';
+
 export const getTextAlignment = (position: string | void | null): string => {
-  if (!position) return 'center'
-  const split = position.split('-')
-  if (split.length > 1) return split[1]
-  return 'center'
-}
+  if (!position) return 'center';
+  const split = position.split('-');
+  if (split.length > 1) return split[1];
+  return 'center';
+};
 
 export const getFlexAlignment = (position: string | void | null): string => {
   switch (position) {
     case 'top-left':
     case 'top-center':
     case 'top-right':
-      return 'flex-start'
+      return 'flex-start';
     case 'middle-left':
     case 'middle-center':
     case 'middle-right':
-      return 'center'
+      return 'center';
     case 'bottom-left':
     case 'bottom-center':
     case 'bottom-right':
-      return 'flex-end'
+      return 'flex-end';
     default:
-      return 'center'
+      return 'center';
   }
-}
+};
 
 export const getFlexJustification = (
   position: string | void | null,
@@ -31,37 +33,46 @@ export const getFlexJustification = (
     case 'top-left':
     case 'middle-left':
     case 'bottom-left':
-      return 'flex-start'
+      return 'flex-start';
     case 'top-center':
     case 'middle-center':
     case 'bottom-center':
-      return 'center'
+      return 'center';
     case 'top-right':
     case 'middle-right':
     case 'bottom-right':
-      return 'flex-end'
+      return 'flex-end';
     default:
-      return 'center'
+      return 'center';
   }
-}
+};
 
 export const getBackgroundColor = (color: string | void | null): string => {
   switch (color) {
     case 'light':
-      return 'body.1'
+      return 'body.1';
     case 'dark':
-      return 'body.7'
+      return 'body.7';
     default:
-      return 'none'
+      return 'none';
   }
-}
+};
 
 export const getColor = (color: string | void | null): string => {
   switch (color) {
     case 'light':
-      return 'body.1'
+      return 'body.1';
     case 'dark':
     default:
-      return 'body.9'
+      return 'body.9';
   }
-}
+};
+
+export const getSpacingValue = (index: number): `${number}px` => {
+  const spacingPx = defaultTheme.space[index];
+  if (!spacingPx) {
+    console.warn(`Spacing value not supported: ${index}`);
+    return '0px';
+  }
+  return `${parseInt(spacingPx)}px`;
+};

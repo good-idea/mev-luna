@@ -2,7 +2,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { x } from '@xstyled/styled-components';
 import { RichText } from '../RichText';
-import { Image } from '../Image';
+import { ImageWithLightbox } from '../ImageWithLightbox';
 import { Research } from '../../types';
 import { filterMaybes, getMediaImages } from '../../utils';
 import {
@@ -75,7 +75,9 @@ export const ResearchListItem: React.FC<ResearchListItemProps> = ({
 
         <ThumbnailWrapper>
           {firstImage ? (
-            <Image sizes={['100vw', '110px']} image={firstImage} />
+            <ImageWithLightbox
+              imageProps={{ sizes: ['100vw', '110px'], image: firstImage }}
+            />
           ) : null}
         </ThumbnailWrapper>
       </ResearchListItemInner>
