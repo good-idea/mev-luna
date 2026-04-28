@@ -49,7 +49,7 @@ export const cvItem = {
       yearStart: 'yearStart',
       yearEnd: 'yearEnd',
     },
-    prepare: ({ text, title, yearStart, yearEnd }) => {
+    prepare: ({ text, title, yearStart, yearEnd }: Record<string, any>) => {
       const subtitle =
         yearStart && yearEnd
           ? [yearStart, yearEnd].join('-')
@@ -100,7 +100,7 @@ export const cvGroup = {
     select: {
       title: 'title',
     },
-    prepare: ({ title }) => ({
+    prepare: ({ title }: Record<string, any>) => ({
       title: title,
     }),
   },

@@ -4,12 +4,9 @@
   // here will be ignored.
   "compilerOptions": {
     "jsx": "react",
-    "baseUrl": ".",
-    "resolveJsonModule": true,
-    "paths": {
-      "@swell-public/docs/*": ["../docs/src/*"],
-      "@swell-public/shared/*": ["../shared/src/*"]
-    }
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "../node_modules"],
   "include": [

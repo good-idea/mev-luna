@@ -16,11 +16,11 @@ export function blocksToPlainText(blocks: PortableText) {
       }
 
       return block.children
-        .filter(
-          (child): child is { text?: string } =>
-            typeof child === 'object' && child !== null,
+        .map((child) =>
+          typeof child === 'object' && child !== null && 'text' in child
+            ? child.text || ''
+            : '',
         )
-        .map((child) => child.text || '')
         .join('');
     })
     .filter(Boolean)

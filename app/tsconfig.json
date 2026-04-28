@@ -7,8 +7,11 @@
     "noUnusedLocals": false,
     "skipLibCheck": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+    "target": "es2015",
+    "module": "esnext",
+    "moduleResolution": "bundler",
     "paths": {
+      "src/*": ["./src/*"],
       "@mevluna/types": ["../types/src"]
     },
     "types": ["jest", "node"],

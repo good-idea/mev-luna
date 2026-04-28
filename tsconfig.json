@@ -24,7 +24,6 @@
     "isolatedModules": false,
     "lib": ["esnext", "dom"],
     "types": ["jest", "node"],
-    "baseUrl": ".",
     "paths": {
       "@mevluna/types": ["./types/src"]
     },
