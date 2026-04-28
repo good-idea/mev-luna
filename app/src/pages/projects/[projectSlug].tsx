@@ -2,13 +2,13 @@ import * as React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ProjectView } from '../../views/ProjectView';
 import { sanityClient } from '../../services';
-import { Project, SiteSettings } from '../../types';
+import { Project as ProjectType, SiteSettings } from '../../types';
 import { projectQuery, siteSettingsQuery } from '../../groq';
 import { SEO } from 'src/components/SEO';
 import { filterMaybes } from 'src/utils';
 
 interface ProjectProps {
-  project: Project;
+  project: ProjectType;
   siteSettings: SiteSettings;
 }
 
@@ -42,7 +42,7 @@ export const getStaticProps: GetStaticProps<ProjectProps, Params> = async ({
   }
   const [siteSettings, project] = await Promise.all([
     sanityClient.fetch<SiteSettings>(siteSettingsQuery),
-    sanityClient.fetch<Project | null>(
+    sanityClient.fetch<ProjectType | null>(
       `*[_type == "project" && slug.current == $projectSlug]{
       ${projectQuery}
     }[0]`,
