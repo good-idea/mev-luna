@@ -1,5 +1,3 @@
-import { DefaultTheme } from 'styled-components';
-
 /* generated at: https://www.colorbox.io/#steps=7#hue_start=281#hue_end=271#hue_curve=easeInQuad#sat_start=22#sat_end=0#sat_curve=easeOutQuart#sat_rate=130#lum_start=12#lum_end=100#lum_curve=easeInCubic#minor_steps_map=0 */
 const grays = [
   '#ffffff', // 0
@@ -23,7 +21,7 @@ const sans = '"Helvetica Neue", helvetica, sans-serif';
 const serif =
   'TimesNewRoman, Times New Roman, Times, Baskerville, Georgia, serif;';
 
-export const defaultTheme: DefaultTheme = {
+export const defaultTheme = {
   radii: {
     round: '9px',
   },
@@ -128,3 +126,5 @@ export const defaultTheme: DefaultTheme = {
     aboveDesktop: '@media screen and (min-width: 1200px)',
   },
 };
+
+export type CustomTheme = typeof defaultTheme;
