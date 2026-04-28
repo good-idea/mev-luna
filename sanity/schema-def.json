@@ -1,1764 +1,2283 @@
-{
-  "type": "SchemaRoot",
-  "documents": [
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "readOnly": false,
-      "hasValidation": false,
-      "name": "homepage",
-      "title": "Homepage",
-      "type": "Document",
-      "fields": [
-        {
-          "name": "projectMenu",
-          "title": "Project Menu",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
+[
+  {
+    "type": "type",
+    "name": "options",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "groupByYear": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
           },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "projectMenu",
-            "readOnly": false,
-            "title": "Project Menu",
-            "hasValidation": false,
-            "type": "Array",
-            "of": [
-              {
-                "codegen": {
-                  "required": false
-                },
-                "description": null,
-                "hidden": false,
-                "name": null,
-                "readOnly": false,
-                "title": null,
-                "hasValidation": false,
-                "type": "Reference",
-                "to": [
-                  {
-                    "codegen": {
-                      "required": false
-                    },
-                    "description": null,
-                    "hidden": false,
-                    "name": null,
-                    "readOnly": false,
-                    "title": null,
-                    "hasValidation": false,
-                    "to": "project",
-                    "type": "RegistryReference"
-                  }
-                ],
-                "weak": false
-              }
-            ],
-            "list": null
-          }
-        },
-        {
-          "name": "seo",
-          "title": "Homepage SEO",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "seo",
-            "readOnly": false,
-            "title": "Homepage SEO",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "seo"
-          }
+          "optional": true
         }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "readOnly": false,
-      "hasValidation": false,
-      "name": "infoPage",
-      "title": "Info",
-      "type": "Document",
-      "fields": [
-        {
-          "name": "body",
-          "title": "Body",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "body",
-            "readOnly": false,
-            "title": "Body",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richText"
-          }
-        },
-        {
-          "name": "contactFields",
-          "title": "Contact",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "contactFields",
-            "readOnly": false,
-            "title": "Contact",
-            "hasValidation": false,
-            "type": "Array",
-            "of": [
-              {
-                "codegen": {
-                  "required": false
-                },
-                "description": null,
-                "hidden": false,
-                "name": null,
-                "readOnly": false,
-                "title": null,
-                "hasValidation": false,
-                "type": "RegistryReference",
-                "to": "contactField"
-              }
-            ],
-            "list": null
-          }
-        },
-        {
-          "name": "colophon",
-          "title": "Colophon",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "colophon",
-            "readOnly": false,
-            "title": "Colophon",
-            "hasValidation": false,
-            "type": "Object",
-            "fields": [
-              {
-                "name": "label",
-                "title": "Label",
-                "description": "",
-                "hidden": false,
-                "readOnly": false,
-                "codegen": {
-                  "required": true
-                },
-                "hasValidation": true,
-                "definition": {
-                  "codegen": {
-                    "required": true
-                  },
-                  "description": null,
-                  "hidden": false,
-                  "name": "label",
-                  "readOnly": false,
-                  "title": "Label",
-                  "hasValidation": true,
-                  "type": "String",
-                  "list": null
-                }
-              },
-              {
-                "name": "contents",
-                "title": "Contents",
-                "description": "",
-                "hidden": false,
-                "readOnly": false,
-                "codegen": {
-                  "required": true
-                },
-                "hasValidation": true,
-                "definition": {
-                  "codegen": {
-                    "required": true
-                  },
-                  "description": null,
-                  "hidden": false,
-                  "name": "contents",
-                  "readOnly": false,
-                  "title": "Contents",
-                  "hasValidation": true,
-                  "type": "RegistryReference",
-                  "to": "richText"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "name": "cv",
-          "title": "CV",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "cv",
-            "readOnly": false,
-            "title": "CV",
-            "hasValidation": false,
-            "type": "Array",
-            "of": [
-              {
-                "codegen": {
-                  "required": false
-                },
-                "description": null,
-                "hidden": false,
-                "name": null,
-                "readOnly": false,
-                "title": null,
-                "hasValidation": false,
-                "type": "RegistryReference",
-                "to": "cvGroup"
-              }
-            ],
-            "list": null
-          }
-        },
-        {
-          "name": "seo",
-          "title": "SEO",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "seo",
-            "readOnly": false,
-            "title": "SEO",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "seo"
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "readOnly": false,
-      "hasValidation": false,
-      "name": "project",
-      "title": "Project",
-      "type": "Document",
-      "fields": [
-        {
-          "name": "title",
-          "title": "Title",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "title",
-            "readOnly": false,
-            "title": "Title",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "slug",
-          "title": "Slug",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "slug",
-            "readOnly": false,
-            "title": "Slug",
-            "hasValidation": true,
-            "type": "Slug"
-          }
-        },
-        {
-          "name": "hoverImage",
-          "title": "Hover Image",
-          "description": "Used on the homepage when hovering over the project link. If no image is supplied, the first image from the Gallery will be used.",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": "Used on the homepage when hovering over the project link. If no image is supplied, the first image from the Gallery will be used.",
-            "hidden": false,
-            "name": "hoverImage",
-            "readOnly": false,
-            "title": "Hover Image",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richImage"
-          }
-        },
-        {
-          "name": "description",
-          "title": "Description",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "description",
-            "readOnly": false,
-            "title": "Description",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richText"
-          }
-        },
-        {
-          "name": "gallery",
-          "title": "Gallery",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "gallery",
-            "readOnly": false,
-            "title": "Gallery",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "gallery"
-          }
-        },
-        {
-          "name": "year",
-          "title": "Year",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "year",
-            "readOnly": false,
-            "title": "Year",
-            "hasValidation": true,
-            "type": "Number",
-            "list": null
-          }
-        },
-        {
-          "name": "materials",
-          "title": "Materials",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "materials",
-            "readOnly": false,
-            "title": "Materials",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richText"
-          }
-        },
-        {
-          "name": "notes",
-          "title": "Notes",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "notes",
-            "readOnly": false,
-            "title": "Notes",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richText"
-          }
-        },
-        {
-          "name": "relatedResearch",
-          "title": "Related Research",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "relatedResearch",
-            "readOnly": false,
-            "title": "Related Research",
-            "hasValidation": false,
-            "type": "Array",
-            "of": [
-              {
-                "codegen": {
-                  "required": false
-                },
-                "description": null,
-                "hidden": false,
-                "name": null,
-                "readOnly": false,
-                "title": null,
-                "hasValidation": false,
-                "type": "Reference",
-                "to": [
-                  {
-                    "codegen": {
-                      "required": false
-                    },
-                    "description": null,
-                    "hidden": false,
-                    "name": null,
-                    "readOnly": false,
-                    "title": null,
-                    "hasValidation": false,
-                    "to": "research",
-                    "type": "RegistryReference"
-                  }
-                ],
-                "weak": false
-              }
-            ],
-            "list": null
-          }
-        },
-        {
-          "name": "seo",
-          "title": "SEO",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "seo",
-            "readOnly": false,
-            "title": "SEO",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "seo"
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "readOnly": false,
-      "hasValidation": false,
-      "name": "newsItem",
-      "title": "News Item",
-      "type": "Document",
-      "fields": [
-        {
-          "name": "date",
-          "title": "Date",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "date",
-            "readOnly": false,
-            "title": "Date",
-            "hasValidation": true,
-            "type": "Datetime"
-          }
-        },
-        {
-          "name": "headline",
-          "title": "Headline",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "headline",
-            "readOnly": false,
-            "title": "Headline",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "hoverImage",
-          "title": "Hover Image",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "hoverImage",
-            "readOnly": false,
-            "title": "Hover Image",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richImage"
-          }
-        },
-        {
-          "name": "link",
-          "title": "Link",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "link",
-            "readOnly": false,
-            "title": "Link",
-            "hasValidation": false,
-            "type": "Url"
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "readOnly": false,
-      "hasValidation": false,
-      "name": "newsPage",
-      "title": "News (main page)",
-      "type": "Document",
-      "fields": [
-        {
-          "name": "seo",
-          "title": "SEO",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "seo",
-            "readOnly": false,
-            "title": "SEO",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "seo"
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "readOnly": false,
-      "hasValidation": false,
-      "name": "research",
-      "title": "Research Documents",
-      "type": "Document",
-      "fields": [
-        {
-          "name": "title",
-          "title": "Title",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "title",
-            "readOnly": false,
-            "title": "Title",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "slug",
-          "title": "Slug",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "slug",
-            "readOnly": false,
-            "title": "Slug",
-            "hasValidation": true,
-            "type": "Slug"
-          }
-        },
-        {
-          "name": "date",
-          "title": "Date",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "date",
-            "readOnly": false,
-            "title": "Date",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "summary",
-          "title": "Summary",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "summary",
-            "readOnly": false,
-            "title": "Summary",
-            "hasValidation": true,
-            "type": "RegistryReference",
-            "to": "richText"
-          }
-        },
-        {
-          "name": "materials",
-          "title": "Materials",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "materials",
-            "readOnly": false,
-            "title": "Materials",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richText"
-          }
-        },
-        {
-          "name": "gallery",
-          "title": "Media",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "gallery",
-            "readOnly": false,
-            "title": "Media",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "gallery"
-          }
-        },
-        {
-          "name": "seo",
-          "title": "SEO",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "seo",
-            "readOnly": false,
-            "title": "SEO",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "seo"
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "readOnly": false,
-      "hasValidation": false,
-      "name": "researchPage",
-      "title": "Research (main page)",
-      "type": "Document",
-      "fields": [
-        {
-          "name": "seo",
-          "title": "SEO",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "seo",
-            "readOnly": false,
-            "title": "SEO",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "seo"
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "readOnly": false,
-      "hasValidation": false,
-      "name": "trace",
-      "title": "Trace",
-      "type": "Document",
-      "fields": [
-        {
-          "name": "dateAdded",
-          "title": "Date Added",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "dateAdded",
-            "readOnly": false,
-            "title": "Date Added",
-            "hasValidation": false,
-            "type": "Date"
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "readOnly": false,
-      "hasValidation": false,
-      "name": "siteSettings",
-      "title": "Site Settings",
-      "type": "Document",
-      "fields": [
-        {
-          "name": "seo",
-          "title": "Default SEO",
-          "description": "Pages that do not have SEO information filled out, or cannot infer these values from other fields will use these defaults for SEO information.",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": "Pages that do not have SEO information filled out, or cannot infer these values from other fields will use these defaults for SEO information.",
-            "hidden": false,
-            "name": "seo",
-            "readOnly": false,
-            "title": "Default SEO",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "seo"
-          }
-        }
-      ]
+      }
     }
-  ],
-  "registeredTypes": [
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "contactField",
-      "readOnly": false,
-      "title": "Contact Field",
-      "hasValidation": false,
-      "type": "Object",
-      "fields": [
-        {
-          "name": "label",
-          "title": "Label",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "label",
-            "readOnly": false,
-            "title": "Label",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
+  },
+  {
+    "name": "cvGroup",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "cvGroup"
           }
         },
-        {
-          "name": "url",
-          "title": "URL",
-          "description": "Hint: to link to an email address, enter \"mailto:me@mydomain.com\"",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
           },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": "Hint: to link to an email address, enter \"mailto:me@mydomain.com\"",
-            "hidden": false,
-            "name": "url",
-            "readOnly": false,
-            "title": "URL",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "audio",
-      "readOnly": false,
-      "title": "Audio",
-      "hasValidation": false,
-      "type": "File",
-      "fields": [
-        {
-          "name": "description",
-          "title": "Description",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "description",
-            "readOnly": false,
-            "title": "Description",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richText"
-          }
+          "optional": true
         },
-        {
-          "name": "transcription",
-          "title": "Transcription",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
+        "titleV2": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "simpleRichText"
           },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "transcription",
-            "readOnly": false,
-            "title": "Transcription",
-            "hasValidation": false,
-            "type": "RegistryReference",
-            "to": "richText"
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "gallery",
-      "readOnly": false,
-      "title": "Gallery",
-      "hasValidation": false,
-      "type": "Object",
-      "fields": [
-        {
-          "name": "media",
-          "title": "Media",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
+          "optional": true
+        },
+        "options": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "options"
           },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "media",
-            "readOnly": false,
-            "title": "Media",
-            "hasValidation": false,
-            "type": "Array",
-            "of": [
-              {
-                "codegen": {
-                  "required": false
-                },
-                "description": null,
-                "hidden": false,
-                "name": null,
-                "readOnly": false,
-                "title": null,
-                "hasValidation": false,
-                "type": "RegistryReference",
-                "to": "richImage"
+          "optional": true
+        },
+        "entries": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "array",
+            "of": {
+              "type": "object",
+              "attributes": {
+                "_key": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                }
               },
-              {
-                "codegen": {
-                  "required": false
+              "rest": {
+                "type": "inline",
+                "name": "cvItem"
+              }
+            }
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "cvItem",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "cvItem"
+          }
+        },
+        "yearStart": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "yearEnd": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "text": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "simpleRichText"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "video",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "video"
+          }
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "aspectRatio": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "vimeoId": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "type": "type",
+    "name": "sanity.imageAsset.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "sanity.imageAsset"
+    }
+  },
+  {
+    "name": "seo",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "seo"
+          }
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "description": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "image": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "object",
+            "attributes": {
+              "asset": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "inline",
+                  "name": "sanity.imageAsset.reference"
                 },
-                "description": null,
-                "hidden": false,
-                "name": null,
-                "readOnly": false,
-                "title": null,
-                "hasValidation": false,
-                "type": "RegistryReference",
-                "to": "audio"
+                "optional": true
               },
-              {
-                "codegen": {
-                  "required": false
+              "media": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "unknown"
                 },
-                "description": null,
-                "hidden": false,
-                "name": null,
-                "readOnly": false,
-                "title": null,
-                "hasValidation": false,
-                "type": "RegistryReference",
-                "to": "video"
-              }
-            ],
-            "list": null
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "richImage",
-      "readOnly": false,
-      "title": "Image",
-      "hasValidation": false,
-      "type": "Image",
-      "fields": [
-        {
-          "name": "altText",
-          "title": "Alt Text",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "altText",
-            "readOnly": false,
-            "title": "Alt Text",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "richText",
-      "readOnly": false,
-      "title": "Rich Text",
-      "hasValidation": false,
-      "type": "Array",
-      "of": [
-        {
-          "codegen": {
-            "required": false
-          },
-          "description": null,
-          "hidden": false,
-          "name": null,
-          "readOnly": false,
-          "title": null,
-          "hasValidation": false,
-          "type": "Block",
-          "of": null,
-          "markDefs": []
-        }
-      ],
-      "list": null
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "seo",
-      "readOnly": false,
-      "title": "SEO & Accessibility",
-      "hasValidation": false,
-      "type": "Object",
-      "fields": [
-        {
-          "name": "title",
-          "title": "SEO: Page Title",
-          "description": "title for the browser tab & search results",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": "title for the browser tab & search results",
-            "hidden": false,
-            "name": "title",
-            "readOnly": false,
-            "title": "SEO: Page Title",
-            "hasValidation": false,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "description",
-          "title": "SEO: Description",
-          "description": "This is the description that will appear underneath the preview link when shared. It should be less than 200 characters",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": "This is the description that will appear underneath the preview link when shared. It should be less than 200 characters",
-            "hidden": false,
-            "name": "description",
-            "readOnly": false,
-            "title": "SEO: Description",
-            "hasValidation": false,
-            "type": "Text"
-          }
-        },
-        {
-          "name": "image",
-          "title": "SEO: Image",
-          "description": "Best dimensions: 1200 x 600px",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": "Best dimensions: 1200 x 600px",
-            "hidden": false,
-            "name": "image",
-            "readOnly": false,
-            "title": "SEO: Image",
-            "hasValidation": false,
-            "type": "Image",
-            "fields": null
-          }
-        },
-        {
-          "name": "keywords",
-          "title": "Keywords",
-          "description": "Comma-separated SEO keywords",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": "Comma-separated SEO keywords",
-            "hidden": false,
-            "name": "keywords",
-            "readOnly": false,
-            "title": "Keywords",
-            "hasValidation": false,
-            "type": "String",
-            "list": null
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "videoVersion",
-      "readOnly": false,
-      "title": "Video Version",
-      "hasValidation": false,
-      "type": "Object",
-      "fields": [
-        {
-          "name": "label",
-          "title": "Label",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "label",
-            "readOnly": false,
-            "title": "Label",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "vimeoId",
-          "title": "Vimeo ID",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "vimeoId",
-            "readOnly": false,
-            "title": "Vimeo ID",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "video",
-      "readOnly": false,
-      "title": "Video",
-      "hasValidation": false,
-      "type": "Object",
-      "fields": [
-        {
-          "name": "title",
-          "title": "Title",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "title",
-            "readOnly": false,
-            "title": "Title",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "versions",
-          "title": "Versions",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "versions",
-            "readOnly": false,
-            "title": "Versions",
-            "hasValidation": true,
-            "type": "Array",
-            "of": [
-              {
-                "codegen": {
-                  "required": false
+                "optional": true
+              },
+              "hotspot": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "inline",
+                  "name": "sanity.imageHotspot"
                 },
-                "description": null,
-                "hidden": false,
-                "name": null,
-                "readOnly": false,
-                "title": null,
-                "hasValidation": false,
-                "type": "RegistryReference",
-                "to": "videoVersion"
-              }
-            ],
-            "list": null
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "cvItem",
-      "readOnly": false,
-      "title": "CV Item",
-      "hasValidation": false,
-      "type": "Object",
-      "fields": [
-        {
-          "name": "yearStart",
-          "title": "Start year",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "yearStart",
-            "readOnly": false,
-            "title": "Start year",
-            "hasValidation": true,
-            "type": "Number",
-            "list": null
-          }
-        },
-        {
-          "name": "yearEnd",
-          "title": "End year",
-          "description": "(optional) - use this field if the item spans multiple years",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": "(optional) - use this field if the item spans multiple years",
-            "hidden": false,
-            "name": "yearEnd",
-            "readOnly": false,
-            "title": "End year",
-            "hasValidation": true,
-            "type": "Number",
-            "list": null
-          }
-        },
-        {
-          "name": "text",
-          "title": "Title",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "text",
-            "readOnly": false,
-            "title": "Title",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        }
-      ]
-    },
-    {
-      "codegen": {
-        "required": false
-      },
-      "description": null,
-      "hidden": false,
-      "name": "cvGroup",
-      "readOnly": false,
-      "title": "CV Group",
-      "hasValidation": false,
-      "type": "Object",
-      "fields": [
-        {
-          "name": "title",
-          "title": "Title",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": true
-          },
-          "hasValidation": true,
-          "definition": {
-            "codegen": {
-              "required": true
-            },
-            "description": null,
-            "hidden": false,
-            "name": "title",
-            "readOnly": false,
-            "title": "Title",
-            "hasValidation": true,
-            "type": "String",
-            "list": null
-          }
-        },
-        {
-          "name": "options",
-          "title": "Options",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "options",
-            "readOnly": false,
-            "title": "Options",
-            "hasValidation": false,
-            "type": "Object",
-            "fields": [
-              {
-                "name": "groupByYear",
-                "title": "Group By Year",
-                "description": "",
-                "hidden": false,
-                "readOnly": false,
-                "codegen": {
-                  "required": false
+                "optional": true
+              },
+              "crop": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "inline",
+                  "name": "sanity.imageCrop"
                 },
-                "hasValidation": false,
-                "definition": {
-                  "codegen": {
-                    "required": false
-                  },
-                  "description": null,
-                  "hidden": false,
-                  "name": "groupByYear",
-                  "readOnly": false,
-                  "title": "Group By Year",
-                  "hasValidation": false,
-                  "type": "Boolean"
+                "optional": true
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "image"
                 }
               }
-            ]
+            }
+          },
+          "optional": true
+        },
+        "keywords": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "richText",
+    "type": "type",
+    "value": {
+      "type": "array",
+      "of": {
+        "type": "object",
+        "attributes": {
+          "children": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "array",
+              "of": {
+                "type": "object",
+                "attributes": {
+                  "marks": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "array",
+                      "of": {
+                        "type": "string"
+                      }
+                    },
+                    "optional": true
+                  },
+                  "text": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "span"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "optional": true
+          },
+          "style": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "union",
+              "of": [
+                {
+                  "type": "string",
+                  "value": "normal"
+                }
+              ]
+            },
+            "optional": true
+          },
+          "listItem": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "union",
+              "of": [
+                {
+                  "type": "string",
+                  "value": "bullet"
+                },
+                {
+                  "type": "string",
+                  "value": "number"
+                }
+              ]
+            },
+            "optional": true
+          },
+          "markDefs": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "array",
+              "of": {
+                "type": "union",
+                "of": [
+                  {
+                    "type": "object",
+                    "attributes": {
+                      "url": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "link"
+                        }
+                      }
+                    },
+                    "rest": {
+                      "type": "object",
+                      "attributes": {
+                        "_key": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "attributes": {
+                      "text": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string"
+                        },
+                        "optional": true
+                      },
+                      "_type": {
+                        "type": "objectAttribute",
+                        "value": {
+                          "type": "string",
+                          "value": "footnote"
+                        }
+                      }
+                    },
+                    "rest": {
+                      "type": "object",
+                      "attributes": {
+                        "_key": {
+                          "type": "objectAttribute",
+                          "value": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "optional": true
+          },
+          "level": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "number"
+            },
+            "optional": true
+          },
+          "_type": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "string",
+              "value": "block"
+            }
           }
         },
-        {
-          "name": "entries",
-          "title": "Entries",
-          "description": "",
-          "hidden": false,
-          "readOnly": false,
-          "codegen": {
-            "required": false
-          },
-          "hasValidation": false,
-          "definition": {
-            "codegen": {
-              "required": false
-            },
-            "description": null,
-            "hidden": false,
-            "name": "entries",
-            "readOnly": false,
-            "title": "Entries",
-            "hasValidation": false,
-            "type": "Array",
-            "of": [
-              {
-                "codegen": {
-                  "required": false
-                },
-                "description": null,
-                "hidden": false,
-                "name": null,
-                "readOnly": false,
-                "title": null,
-                "hasValidation": false,
-                "type": "RegistryReference",
-                "to": "cvItem"
+        "rest": {
+          "type": "object",
+          "attributes": {
+            "_key": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
               }
-            ],
-            "list": null
+            }
           }
         }
-      ]
+      }
     }
-  ]
-}
+  },
+  {
+    "name": "simpleRichText",
+    "type": "type",
+    "value": {
+      "type": "array",
+      "of": {
+        "type": "object",
+        "attributes": {
+          "children": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "array",
+              "of": {
+                "type": "object",
+                "attributes": {
+                  "marks": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "array",
+                      "of": {
+                        "type": "string"
+                      }
+                    },
+                    "optional": true
+                  },
+                  "text": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "span"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "optional": true
+          },
+          "style": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "union",
+              "of": [
+                {
+                  "type": "string",
+                  "value": "normal"
+                }
+              ]
+            },
+            "optional": true
+          },
+          "listItem": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "union",
+              "of": [
+                {
+                  "type": "string",
+                  "value": "bullet"
+                },
+                {
+                  "type": "string",
+                  "value": "number"
+                }
+              ]
+            },
+            "optional": true
+          },
+          "markDefs": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "array",
+              "of": {
+                "type": "object",
+                "attributes": {
+                  "href": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    },
+                    "optional": true
+                  },
+                  "_type": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string",
+                      "value": "link"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "optional": true
+          },
+          "level": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "number"
+            },
+            "optional": true
+          },
+          "_type": {
+            "type": "objectAttribute",
+            "value": {
+              "type": "string",
+              "value": "block"
+            }
+          }
+        },
+        "rest": {
+          "type": "object",
+          "attributes": {
+            "_key": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    "name": "richImage",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "richImage"
+          }
+        },
+        "asset": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imageAsset.reference"
+          },
+          "optional": true
+        },
+        "media": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "unknown"
+          },
+          "optional": true
+        },
+        "hotspot": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imageHotspot"
+          },
+          "optional": true
+        },
+        "crop": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imageCrop"
+          },
+          "optional": true
+        },
+        "altText": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "linkWithLabel",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "linkWithLabel"
+          }
+        },
+        "label": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "url": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "gallery",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "gallery"
+          }
+        },
+        "media": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "array",
+            "of": {
+              "type": "union",
+              "of": [
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "richImage"
+                  }
+                },
+                {
+                  "type": "object",
+                  "attributes": {
+                    "_key": {
+                      "type": "objectAttribute",
+                      "value": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "rest": {
+                    "type": "inline",
+                    "name": "video"
+                  }
+                }
+              ]
+            }
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "type": "type",
+    "name": "sanity.fileAsset.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "sanity.fileAsset"
+    }
+  },
+  {
+    "name": "audio",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "audio"
+          }
+        },
+        "asset": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.fileAsset.reference"
+          },
+          "optional": true
+        },
+        "media": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "unknown"
+          },
+          "optional": true
+        },
+        "description": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "richText"
+          },
+          "optional": true
+        },
+        "transcription": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "richText"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "siteSettings",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "siteSettings"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "seo": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "seo"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "trace",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "trace"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "dateAdded": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "researchPage",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "researchPage"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "seo": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "seo"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "research",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "research"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "slug": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": true
+      },
+      "date": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "summary": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "richText"
+        },
+        "optional": true
+      },
+      "materials": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "richText"
+        },
+        "optional": true
+      },
+      "gallery": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "gallery"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "slug",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "slug"
+          }
+        },
+        "current": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "source": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "newsPage",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "newsPage"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "seo": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "seo"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "newsItem",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "newsItem"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "date": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "headline": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "slug": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": true
+      },
+      "headingImage": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "richImage"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "richText"
+        },
+        "optional": true
+      },
+      "link": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "linkWithLabel"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "type": "type",
+    "name": "research.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "research"
+    }
+  },
+  {
+    "name": "project",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "project"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "slug": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "slug"
+        },
+        "optional": true
+      },
+      "hoverImage": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "richImage"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "richText"
+        },
+        "optional": true
+      },
+      "gallery": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "gallery"
+        },
+        "optional": true
+      },
+      "year": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
+      "materials": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "richText"
+        },
+        "optional": true
+      },
+      "notes": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "richText"
+        },
+        "optional": true
+      },
+      "relatedResearch": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "_key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "rest": {
+              "type": "inline",
+              "name": "research.reference"
+            }
+          }
+        },
+        "optional": true
+      },
+      "seo": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "seo"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "sanity.imageCrop",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imageCrop"
+          }
+        },
+        "top": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "bottom": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "left": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "right": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imageHotspot",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imageHotspot"
+          }
+        },
+        "x": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "y": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "height": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "width": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "infoPage",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "infoPage"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "body": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "richText"
+        },
+        "optional": true
+      },
+      "contactFields": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "_key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "rest": {
+              "type": "inline",
+              "name": "contactField"
+            }
+          }
+        },
+        "optional": true
+      },
+      "colophon": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "object",
+          "attributes": {
+            "label": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
+            },
+            "contents": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "richText"
+              },
+              "optional": true
+            }
+          }
+        },
+        "optional": true
+      },
+      "cv": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "_key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "rest": {
+              "type": "inline",
+              "name": "cvGroup"
+            }
+          }
+        },
+        "optional": true
+      },
+      "seo": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "seo"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "contactField",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "contactField"
+          }
+        },
+        "label": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "url": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "type": "type",
+    "name": "project.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "project"
+    }
+  },
+  {
+    "name": "homepage",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "homepage"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "projectMenu": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "array",
+          "of": {
+            "type": "object",
+            "attributes": {
+              "_key": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              }
+            },
+            "rest": {
+              "type": "inline",
+              "name": "project.reference"
+            }
+          }
+        },
+        "optional": true
+      },
+      "seo": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "seo"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "sanity.imagePaletteSwatch",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imagePaletteSwatch"
+          }
+        },
+        "background": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "foreground": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "population": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imagePalette",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imagePalette"
+          }
+        },
+        "darkMuted": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "lightVibrant": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "darkVibrant": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "vibrant": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "dominant": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "lightMuted": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        },
+        "muted": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePaletteSwatch"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imageDimensions",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imageDimensions"
+          }
+        },
+        "height": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "width": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "aspectRatio": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imageMetadata",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.imageMetadata"
+          }
+        },
+        "location": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "geopoint"
+          },
+          "optional": true
+        },
+        "dimensions": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imageDimensions"
+          },
+          "optional": true
+        },
+        "palette": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imagePalette"
+          },
+          "optional": true
+        },
+        "lqip": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "blurHash": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "thumbHash": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "hasAlpha": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        },
+        "isOpaque": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.fileAsset",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "sanity.fileAsset"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "originalFilename": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "label": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "altText": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "sha1hash": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "extension": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "mimeType": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "size": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
+      "assetId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "uploadId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "path": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "url": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "source": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "sanity.assetSourceData"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "sanity.assetSourceData",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "sanity.assetSourceData"
+          }
+        },
+        "name": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "id": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "url": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "sanity.imageAsset",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "sanity.imageAsset"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "originalFilename": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "label": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "title": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "altText": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "sha1hash": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "extension": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "mimeType": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "size": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
+      },
+      "assetId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "uploadId": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "path": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "url": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "metadata": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "sanity.imageMetadata"
+        },
+        "optional": true
+      },
+      "source": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "sanity.assetSourceData"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "geopoint",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "geopoint"
+          }
+        },
+        "lat": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "lng": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "alt": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        }
+      }
+    }
+  }
+]

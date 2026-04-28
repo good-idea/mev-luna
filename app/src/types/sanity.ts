@@ -137,7 +137,7 @@ export type CVItem = {
   _type: 'cvItem';
   yearStart: number;
   yearEnd: number;
-  text: string;
+  title: RichText;
 };
 
 export type CVGroup = {

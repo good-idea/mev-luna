@@ -1,3 +1,5 @@
+import { blocksToPlainText } from '../../lib/blocksToPlainText';
+
 const validateYear = (value) => {
   if (value && value.toString().length !== 4) {
     return 'Value must be a year';
@@ -27,25 +29,33 @@ export const cvItem = {
     },
     {
       name: 'text',
-      title: 'Title',
+      title: 'Title (deprecated)',
+      hidden: true,
       type: 'string',
-      validation: (Rule) => Rule.required(),
+      readonly: true,
       codegen: { required: true },
+    },
+    {
+      name: 'title',
+      title: 'Title',
+      type: 'simpleRichText',
+      validation: (Rule) => Rule.required(),
     },
   ],
   preview: {
     select: {
-      title: 'text',
+      text: 'text',
+      title: 'title',
       yearStart: 'yearStart',
       yearEnd: 'yearEnd',
     },
-    prepare: ({ title, yearStart, yearEnd }) => {
+    prepare: ({ text, title, yearStart, yearEnd }) => {
       const subtitle =
         yearStart && yearEnd
           ? [yearStart, yearEnd].join('-')
           : yearStart || undefined;
       return {
-        title,
+        title: blocksToPlainText(title) || text,
         subtitle,
       };
     },
@@ -61,7 +71,6 @@ export const cvGroup = {
       title: 'Title',
       name: 'title',
       type: 'string',
-      validation: (Rule) => Rule.required(),
       codegen: { required: true },
     },
     {
@@ -87,4 +96,12 @@ export const cvGroup = {
       ],
     },
   ],
+  preview: {
+    select: {
+      title: 'title',
+    },
+    prepare: ({ title }) => ({
+      title: title,
+    }),
+  },
 };

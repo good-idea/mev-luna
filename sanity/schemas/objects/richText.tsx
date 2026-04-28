@@ -1,5 +1,25 @@
 import * as React from 'react';
 
+export const simpleRichText = {
+  name: 'simpleRichText',
+  title: 'Text',
+  type: 'array',
+  of: [
+    {
+      type: 'block',
+      styles: [],
+      lists: [],
+      marks: {
+        decorators: [
+          { title: 'Bold', value: 'strong' },
+          { title: 'Italic', value: 'em' },
+        ],
+        annotations: [],
+      },
+    },
+  ],
+};
+
 export const richText = {
   name: 'richText',
   title: 'Rich Text',
