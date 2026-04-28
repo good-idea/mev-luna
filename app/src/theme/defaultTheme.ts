@@ -51,7 +51,7 @@ export const defaultTheme = {
    */
   fontSizes: [
     0,
-    41, // h1
+    73, // h1
     41, // h2
     25, // h3
     17, // h4
