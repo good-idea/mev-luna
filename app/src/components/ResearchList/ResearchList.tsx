@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Research } from '../../types';
-import { ResearchListWrapper } from './styles';
+import { ResearchListUL, ResearchListWrapper } from './styles';
 import { ResearchListItem } from './ResearchListItem';
+import { ResearchListHeader } from './ResearchListHeader';
 
 interface ResearchListProps {
   research: Research[];
@@ -10,9 +11,12 @@ interface ResearchListProps {
 export const ResearchList: React.FC<ResearchListProps> = ({ research }) => {
   return (
     <ResearchListWrapper>
-      {research.map((item) => (
-        <ResearchListItem key={item._id} research={item} />
-      ))}
+      <ResearchListHeader />
+      <ResearchListUL>
+        {research.map((item) => (
+          <ResearchListItem key={item._id} research={item} />
+        ))}
+      </ResearchListUL>
     </ResearchListWrapper>
   );
 };

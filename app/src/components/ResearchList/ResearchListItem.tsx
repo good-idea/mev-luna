@@ -9,6 +9,7 @@ import {
   DateWrapper,
   MaterialsWrapper,
   ProjectsWrapper,
+  ProjectsWrapperTitle,
   ResearchListItemInner,
   ResearchListItemWrapper,
   SummaryWrapper,
@@ -49,6 +50,7 @@ export const ResearchListItem: React.FC<ResearchListItemProps> = ({
         <DateWrapper>{date}</DateWrapper>
 
         <ProjectsWrapper>
+          <ProjectsWrapperTitle>Projects:</ProjectsWrapperTitle>
           {allRelatedProjects.map((project, index) => (
             <Link
               key={project._id}

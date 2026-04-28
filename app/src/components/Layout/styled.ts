@@ -5,12 +5,10 @@ export const Main = styled.mainBox`
   width: 100%;
 
   @media (min-width: 1100px) {
-    padding: 120px 4;
+    padding: 120px 5;
   }
 `;
 
 export const Divider = styled.hrBox`
-  width: calc(100% + 18px * 2);
-  margin: 42px -18px 90px -18px;
   border-bottom-width: 0;
 `;

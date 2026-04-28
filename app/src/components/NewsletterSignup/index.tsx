@@ -87,12 +87,7 @@ export const NewsletterSignup: React.FC = () => {
   };
 
   return (
-    <x.section
-      mb="48px"
-      pb="24px"
-      borderBottom="1px solid"
-      borderColor="currentColor"
-    >
+    <section>
       <BodyHeading as="h1" $strong>
         Newsletter
       </BodyHeading>
@@ -111,6 +106,7 @@ export const NewsletterSignup: React.FC = () => {
           />
           <Button
             type="submit"
+            isLoading={state.status === 'fetching'}
             disabled={state.status === 'fetching'}
             label="Sign up"
           />
@@ -119,7 +115,7 @@ export const NewsletterSignup: React.FC = () => {
       {state.status === 'success' ? (
         <MessageWrapper>
           <x.p mb={0} mt={0}>
-            Thanks for subscribing.
+            Thank you for subscribing.
           </x.p>
         </MessageWrapper>
       ) : null}
@@ -128,6 +124,6 @@ export const NewsletterSignup: React.FC = () => {
           {state.errorMessage}
         </x.p>
       ) : null}
-    </x.section>
+    </section>
   );
 };

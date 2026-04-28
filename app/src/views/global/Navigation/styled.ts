@@ -9,6 +9,9 @@ export const Nav = styled.navBox`
   padding: 3 4 0;
   ${mediaQueries.tablet} {
     padding: 5 5 0;
+    display: grid;
+    grid-template-columns: repeat(6, 140px);
+    grid-template-columns: 140px 140px 130px 130px;
   }
   z-index: nav;
 `;
@@ -20,10 +23,6 @@ export const NavItemWrapper = styled.divBox<NavItemWrapperProps>`
   ${({ $isActive }) => css`
     color: ${$isActive ? 'mauve' : 'inherit'};
     display: inline;
-    margin-left: 25px;
-    ${mediaQueries.tablet} {
-      margin-left: 65px;
-    }
 
     &:first-child {
       margin-left: 0;

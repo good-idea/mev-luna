@@ -8,7 +8,7 @@ export const ProjectColumns = styled.divBox`
   padding-bottom: 5;
 
   @media (min-width: 1100px) {
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 430px 1fr;
   }
 `;
 

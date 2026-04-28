@@ -6,6 +6,7 @@ import { Strong } from '../components/Text';
 import { NewsItem, NewsPage } from '../types';
 import { formatNewsDate } from './newsUtils';
 import * as mediaQueries from '../theme/mediaQueries';
+import { Divider } from 'src/components/Layout';
 
 interface NewsLineItemProps {
   newsItem: NewsItem;
@@ -79,6 +80,7 @@ export const NewsView: React.FC<NewsViewProps> = ({ newsItems }) => {
     <MainWrapper>
       <NewsletterSignupWrapper>
         <NewsletterSignup />
+        <Divider my={6} />
       </NewsletterSignupWrapper>
       <x.ul p={0} m={0}>
         {newsItems.map((newsItem) => (

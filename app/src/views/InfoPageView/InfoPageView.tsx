@@ -7,6 +7,7 @@ import { Divider } from '../../components/Layout';
 import { filterMaybes } from '../../utils';
 import { InfoBodyWrapper, CVWrapper } from './styles';
 import { CVGroup } from './CVGroup';
+import { NewsletterSignup } from 'src/components/NewsletterSignup';
 
 interface InfoPageViewProps {
   infoPage: InfoPage;
@@ -39,7 +40,9 @@ export const InfoPageView: React.FC<InfoPageViewProps> = ({ infoPage }) => {
           ) : null}
         </div>
       </InfoBodyWrapper>
-      <Divider />
+      <Divider my={6} />
+      <NewsletterSignup />
+      <Divider my={6} />
       {cv && cv.length ? (
         <CVWrapper>
           {filterMaybes(cv).map((group) => (

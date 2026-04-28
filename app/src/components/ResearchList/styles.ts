@@ -1,9 +1,13 @@
 import styled from '@xstyled/styled-components';
 import * as mediaQueries from '../../theme/mediaQueries';
 
-export const ResearchListWrapper = styled.ulBox`
+export const ResearchListWrapper = styled.divBox`
+  margin-top: 20px;
+`;
+
+export const ResearchListUL = styled.ulBox`
   list-style: none;
-  padding: 78px 0 0;
+  padding: 0;
 `;
 
 export const ResearchListItemWrapper = styled.liBox`
@@ -38,6 +42,12 @@ export const DateWrapper = styled.spanBox`
 `;
 
 export const ProjectsWrapper = styled.divBox``;
+
+export const ProjectsWrapperTitle = styled.divBox`
+  ${mediaQueries.desktop} {
+    display: none;
+  }
+`;
 
 export const SummaryWrapper = styled.divBox``;
 

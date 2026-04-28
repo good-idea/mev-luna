@@ -21,9 +21,14 @@ export const Form = styled.formBox<FormProps>`
   align-items: flex-start;
   width: 100%;
 
+  & > button {
+    margin-top: -1px;
+  }
+
   ${mediaQueries.tablet} {
     height: ${HEIGHT};
     flex-direction: row;
+    align-items: flex-start;
     max-width: 300px;
   }
 
