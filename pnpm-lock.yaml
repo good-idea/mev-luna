@@ -68,6 +68,9 @@ importers:
       '@portabletext/react':
         specifier: ^3.0.11
         version: 3.2.4(react@18.3.1)
+      '@sanity/client':
+        specifier: ^7.22.0
+        version: 7.22.0
       '@sanity/image-url':
         specifier: ^1.0.2
         version: 1.2.0
@@ -99,6 +102,9 @@ importers:
         specifier: ^3.22.4
         version: 3.25.76
     devDependencies:
+      '@portabletext/types':
+        specifier: ^4.0.2
+        version: 4.0.2
       '@sentry/webpack-plugin':
         specifier: ^2.10.2
         version: 2.23.1(webpack@5.106.2)
