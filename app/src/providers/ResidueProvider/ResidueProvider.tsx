@@ -168,7 +168,7 @@ export const ResidueProvider = ({ children }: ResidueProps) => {
       <div
         style={{
           position: 'fixed',
-          zIndex: 200,
+          zIndex: -1,
           top: 0,
           left: '100%',
           height: '100%',
