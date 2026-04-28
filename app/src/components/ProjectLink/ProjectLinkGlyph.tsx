@@ -1,42 +1,55 @@
 import React, { FC } from 'react';
-import One from '../../svg/glyphs/01.svg';
-import Two from '../../svg/glyphs/02.svg';
-import Three from '../../svg/glyphs/03.svg';
-import Four from '../../svg/glyphs/04.svg';
-import Five from '../../svg/glyphs/05.svg';
-import Six from '../../svg/glyphs/06.svg';
-import Seven from '../../svg/glyphs/07.svg';
-import Eight from '../../svg/glyphs/08.svg';
-import Nine from '../../svg/glyphs/09.svg';
-import Ten from '../../svg/glyphs/10.svg';
+
+import Glyph01 from '../../svg/glyphs/01.svg';
+import Glyph02 from '../../svg/glyphs/02.svg';
+import Glyph03 from '../../svg/glyphs/03.svg';
+import Glyph04 from '../../svg/glyphs/04.svg';
+import Glyph05 from '../../svg/glyphs/05.svg';
+import Glyph06 from '../../svg/glyphs/06.svg';
+import Glyph07 from '../../svg/glyphs/07.svg';
+import Glyph08 from '../../svg/glyphs/08.svg';
+import Glyph09 from '../../svg/glyphs/09.svg';
+import Glyph10 from '../../svg/glyphs/10.svg';
+import Glyph11 from '../../svg/glyphs/11.svg';
+import Glyph12 from '../../svg/glyphs/12.svg';
+import Glyph13 from '../../svg/glyphs/13.svg';
+import Glyph14 from '../../svg/glyphs/14.svg';
 
 type ProjectLinkGlyphProps = {
   index: number;
 };
 
 export const ProjectLinkGlyph: FC<ProjectLinkGlyphProps> = ({ index }) => {
-  const number = (index % 10) + 1;
+  const number = (index % 14) + 1;
   switch (number) {
     case 1:
-      return <One />;
+      return <Glyph01 />;
     case 2:
-      return <Two />;
+      return <Glyph02 />;
     case 3:
-      return <Three />;
+      return <Glyph03 />;
     case 4:
-      return <Four />;
+      return <Glyph04 />;
     case 5:
-      return <Five />;
+      return <Glyph05 />;
     case 6:
-      return <Six />;
+      return <Glyph06 />;
     case 7:
-      return <Seven />;
+      return <Glyph07 />;
     case 8:
-      return <Eight />;
+      return <Glyph08 />;
     case 9:
-      return <Nine />;
+      return <Glyph09 />;
     case 10:
-      return <Ten />;
+      return <Glyph10 />;
+    case 11:
+      return <Glyph11 />;
+    case 12:
+      return <Glyph12 />;
+    case 13:
+      return <Glyph13 />;
+    case 14:
+      return <Glyph14 />;
     default:
       return null;
   }
